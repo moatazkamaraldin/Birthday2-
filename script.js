@@ -6,14 +6,16 @@ const $ = (selector, scope = document) => scope.querySelector(selector);
 const $$ = (selector, scope = document) => [...scope.querySelectorAll(selector)];
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 const compactViewport = window.matchMedia("(max-width: 720px)").matches;
+const performanceViewport = window.matchMedia("(max-width: 900px)").matches;
+const lowEndHardware = (
+  (Number.isFinite(navigator.hardwareConcurrency) && navigator.hardwareConcurrency <= 4) ||
+  (Number.isFinite(navigator.deviceMemory) && navigator.deviceMemory <= 4)
+);
 const leanVisualBudget = navigator.connection?.saveData === true || (
-  compactViewport && (
-    (Number.isFinite(navigator.hardwareConcurrency) && navigator.hardwareConcurrency <= 4) ||
-    (Number.isFinite(navigator.deviceMemory) && navigator.deviceMemory <= 4)
-  )
+  lowEndHardware
 );
 const visualCount = (desktop, compact, lean) => (
-  leanVisualBudget ? lean : compactViewport ? compact : desktop
+  leanVisualBudget ? lean : performanceViewport ? compact : desktop
 );
 
 const safeStorage = {
@@ -184,8 +186,8 @@ function createAmbientStars() {
   container.setAttribute("aria-hidden", "true");
   const fragment = document.createDocumentFragment();
   const isCompact = compactViewport;
-  const starCount = visualCount(86, 36, 24);
-  const starColors = ["#fff7df", "#ffd99a", "#ffb7c7", "#f3c7ff", "#ffffff"];
+  const starCount = visualCount(52, 18, 10);
+  const starColors = ["#fff9f0", "#ffd166", "#ff304f", "#55d6b8", "#58b8ff", "#cbb8ff", "#ffffff"];
   const sparkleSymbols = ["\u2726", "\u2727", "\u22c6"];
 
   for (let index = 0; index < starCount; index += 1) {
@@ -237,17 +239,19 @@ function createFallingLove() {
 
   container.setAttribute("aria-hidden", "true");
   const fragment = document.createDocumentFragment();
-  const pieceCount = visualCount(44, 18, 12);
+  const pieceCount = visualCount(26, 10, 6);
   const types = ["heart", "petal", "star", "heart", "rose", "petal", "heart", "star"];
   const hearts = ["\u2665", "\u2661", "\u2764"];
   const flowers = ["\u273f", "\u2740", "\u2698", "\ud83c\udf39"];
   const stars = ["\u2726", "\u2727", "\u22c6"];
   const palettes = [
-    { color: "#ff6f91", glow: "rgba(255, 74, 119, 0.5)" },
-    { color: "#ffb3c5", glow: "rgba(255, 141, 162, 0.44)" },
-    { color: "#ffd071", glow: "rgba(255, 199, 101, 0.46)" },
-    { color: "#e8a7ff", glow: "rgba(217, 108, 255, 0.4)" },
-    { color: "#fff0f3", glow: "rgba(255, 240, 243, 0.38)" }
+    { color: "#ff304f", glow: "rgba(255, 48, 79, 0.54)" },
+    { color: "#ff8a5b", glow: "rgba(255, 138, 91, 0.46)" },
+    { color: "#ffd166", glow: "rgba(255, 209, 102, 0.46)" },
+    { color: "#55d6b8", glow: "rgba(85, 214, 184, 0.42)" },
+    { color: "#58b8ff", glow: "rgba(88, 184, 255, 0.44)" },
+    { color: "#a47cff", glow: "rgba(164, 124, 255, 0.42)" },
+    { color: "#fff9f0", glow: "rgba(255, 249, 240, 0.38)" }
   ];
 
   for (let index = 0; index < pieceCount; index += 1) {
@@ -287,7 +291,8 @@ function createFallingLove() {
 function createSectionLoveRain() {
   if (reducedMotion) return;
   const sections = $$("main > section, main > aside");
-  const pieceCount = visualCount(8, 3, 2);
+  const pieceCount = visualCount(4, 0, 0);
+  if (!pieceCount) return;
   const motifs = [
     { symbol: "\u2661", type: "heart" },
     { symbol: "\u2665", type: "heart" },
@@ -298,7 +303,8 @@ function createSectionLoveRain() {
     { symbol: "\u2727", type: "star" },
     { symbol: "\u2698", type: "flower" }
   ];
-  const colors = ["#ff7291", "#ffc765", "#e79cff", "#ff9caf", "#fff0d1", "#ff4f78"];
+  const colors = ["#ff304f", "#ff8a5b", "#ffd166", "#55d6b8", "#58b8ff", "#a47cff", "#fff9f0"];
+  const animatedLayers = [];
 
   sections.forEach((section, sectionIndex) => {
     const layer = document.createElement("div");
@@ -330,16 +336,31 @@ function createSectionLoveRain() {
     }
 
     section.prepend(layer);
+    animatedLayers.push({ section, layer });
   });
+
+  if ("IntersectionObserver" in window) {
+    const rainObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        const layer = entry.target.querySelector(":scope > .section-love-rain");
+        layer?.classList.toggle("is-active", entry.isIntersecting);
+      });
+    }, { threshold: 0, rootMargin: "18% 0px" });
+    animatedLayers.forEach(({ section }) => rainObserver.observe(section));
+  } else {
+    animatedLayers.forEach(({ layer }) => layer.classList.add("is-active"));
+  }
 }
 
 function createHeartBurst(source = null, amount = 24) {
   if (reducedMotion) return;
   const container = $("#heartBursts");
+  const colors = ["#ff304f", "#ff8a5b", "#ffd166", "#55d6b8", "#58b8ff", "#a47cff"];
+  const heartCount = visualCount(Math.min(amount, 24), Math.min(amount, 14), Math.min(amount, 8));
   const bounds = source?.getBoundingClientRect();
   const originX = bounds ? window.innerWidth - (bounds.left + bounds.width / 2) : window.innerWidth / 2;
   const originY = bounds ? window.innerHeight - (bounds.top + bounds.height / 2) : window.innerHeight * 0.35;
-  for (let index = 0; index < amount; index += 1) {
+  for (let index = 0; index < heartCount; index += 1) {
     const heart = document.createElement("span");
     heart.className = "burst-heart";
     heart.textContent = index % 3 === 0 ? "♥" : "♡";
@@ -349,7 +370,7 @@ function createHeartBurst(source = null, amount = 24) {
     heart.style.setProperty("--drift", `${(Math.random() - 0.5) * 240}px`);
     heart.style.setProperty("--rotate", `${(Math.random() - 0.5) * 120}deg`);
     heart.style.setProperty("--duration", `${2.8 + Math.random() * 2.2}s`);
-    heart.style.setProperty("--color", index % 4 === 0 ? "#ffc765" : "#f23b61");
+    heart.style.setProperty("--color", colors[index % colors.length]);
     container.appendChild(heart);
     window.setTimeout(() => heart.remove(), 5400);
   }
@@ -360,8 +381,9 @@ function createConfetti(amount = 70) {
     showToast(`كل عام وأنتِ بخير يا ${safeStorage.get("diana-gift-name", "ديانتي")} ✦`);
     return;
   }
-  const colors = ["#ffc765", "#f23b61", "#fff4f5", "#a50f35", "#ff8da2"];
-  for (let index = 0; index < amount; index += 1) {
+  const colors = ["#ff304f", "#ff8a5b", "#ffd166", "#55d6b8", "#58b8ff", "#a47cff", "#fff9f0"];
+  const pieceCount = visualCount(Math.min(amount, 70), Math.min(amount, 42), Math.min(amount, 26));
+  for (let index = 0; index < pieceCount; index += 1) {
     const piece = document.createElement("i");
     piece.className = "confetti-piece";
     piece.style.setProperty("--x", `${Math.random() * 100}vw`);
@@ -489,82 +511,94 @@ function setupScrollExperience() {
 
 const cinematicSceneMap = new Map([
   ["welcome", {
-    accent: "#ff426f",
-    secondary: "#701c4f",
-    gold: "#ffd28f",
-    glow: "rgba(255, 66, 111, 0.34)"
+    accent: "#ff304f",
+    secondary: "#58b8ff",
+    gold: "#ffd166",
+    glow: "rgba(88, 184, 255, 0.34)"
+  }],
+  ["celebration", {
+    accent: "#ff8a5b",
+    secondary: "#55d6b8",
+    gold: "#ffd166",
+    glow: "rgba(85, 214, 184, 0.32)"
   }],
   ["story", {
-    accent: "#e94a67",
-    secondary: "#91265d",
-    gold: "#f6c579",
-    glow: "rgba(233, 74, 103, 0.3)"
+    accent: "#ff6f91",
+    secondary: "#ffad5c",
+    gold: "#ffe08a",
+    glow: "rgba(255, 111, 145, 0.31)"
   }],
   ["gallery", {
-    accent: "#ff6b91",
-    secondary: "#9c3f83",
-    gold: "#ffe0a1",
-    glow: "rgba(255, 107, 145, 0.32)"
+    accent: "#ff8a5b",
+    secondary: "#55cfe0",
+    gold: "#ffe071",
+    glow: "rgba(85, 207, 224, 0.32)"
   }],
   ["night", {
-    accent: "#8a62e8",
-    secondary: "#192a5b",
-    gold: "#ffd373",
-    glow: "rgba(132, 93, 232, 0.34)"
+    accent: "#8d7cff",
+    secondary: "#43c6ff",
+    gold: "#c9dcff",
+    glow: "rgba(67, 198, 255, 0.34)"
   }],
   ["dictionary", {
-    accent: "#c65291",
-    secondary: "#55255f",
-    gold: "#f8cf85",
-    glow: "rgba(198, 82, 145, 0.3)"
+    accent: "#55d6b8",
+    secondary: "#58b8ff",
+    gold: "#d8f6a8",
+    glow: "rgba(85, 214, 184, 0.32)"
   }],
   ["reasons", {
-    accent: "#ef416c",
-    secondary: "#841f4f",
-    gold: "#ffc56e",
-    glow: "rgba(239, 65, 108, 0.34)"
+    accent: "#f53f76",
+    secondary: "#ff9a52",
+    gold: "#ffd166",
+    glow: "rgba(245, 63, 118, 0.34)"
   }],
   ["poetry", {
-    accent: "#bb447f",
-    secondary: "#392050",
-    gold: "#dfb66d",
-    glow: "rgba(187, 68, 127, 0.3)"
+    accent: "#a47cff",
+    secondary: "#5175ff",
+    gold: "#f0c77a",
+    glow: "rgba(164, 124, 255, 0.32)"
   }],
   ["wishes", {
-    accent: "#ff775f",
-    secondary: "#963161",
-    gold: "#ffd28c",
-    glow: "rgba(255, 119, 95, 0.31)"
+    accent: "#ffd166",
+    secondary: "#55d6b8",
+    gold: "#ff9f70",
+    glow: "rgba(85, 214, 184, 0.31)"
   }],
   ["letter", {
-    accent: "#da345f",
-    secondary: "#64183e",
-    gold: "#f4c278",
-    glow: "rgba(218, 52, 95, 0.34)"
+    accent: "#d91f45",
+    secondary: "#a47cff",
+    gold: "#f3d18a",
+    glow: "rgba(217, 31, 69, 0.36)"
   }],
   ["comfort", {
-    accent: "#c65b83",
-    secondary: "#40376a",
-    gold: "#ebc889",
-    glow: "rgba(198, 91, 131, 0.3)"
+    accent: "#55d6b8",
+    secondary: "#9a8cff",
+    gold: "#bfe7ff",
+    glow: "rgba(85, 214, 184, 0.31)"
   }],
   ["tomorrow", {
-    accent: "#f16c75",
-    secondary: "#724678",
-    gold: "#ffd68b",
-    glow: "rgba(241, 108, 117, 0.31)"
+    accent: "#ff9a70",
+    secondary: "#58b8ff",
+    gold: "#ffe08a",
+    glow: "rgba(255, 154, 112, 0.31)"
   }],
   ["timecapsule", {
-    accent: "#a84678",
-    secondary: "#493361",
-    gold: "#eabd70",
-    glow: "rgba(168, 70, 120, 0.3)"
+    accent: "#5175ff",
+    secondary: "#45d4c2",
+    gold: "#e4c783",
+    glow: "rgba(69, 212, 194, 0.31)"
   }],
   ["finale", {
-    accent: "#f53867",
-    secondary: "#821b4d",
-    gold: "#ffd17c",
-    glow: "rgba(245, 56, 103, 0.38)"
+    accent: "#ff304f",
+    secondary: "#58b8ff",
+    gold: "#ffd166",
+    glow: "rgba(255, 48, 79, 0.4)"
+  }],
+  ["library", {
+    accent: "#a47cff",
+    secondary: "#55d6b8",
+    gold: "#ffd166",
+    glow: "rgba(164, 124, 255, 0.32)"
   }]
 ]);
 
@@ -586,10 +620,10 @@ function setupCinematicSceneTransitions() {
 
   if (window.CSS?.registerProperty) {
     [
-      ["--scene-accent", "#ff426f"],
-      ["--scene-secondary", "#701c4f"],
-      ["--scene-gold", "#ffd28f"],
-      ["--scene-glow", "rgba(255, 66, 111, 0.34)"]
+      ["--scene-accent", "#ff304f"],
+      ["--scene-secondary", "#58b8ff"],
+      ["--scene-gold", "#ffd166"],
+      ["--scene-glow", "rgba(88, 184, 255, 0.34)"]
     ].forEach(([name, initialValue]) => {
       try {
         window.CSS.registerProperty({ name, syntax: "<color>", inherits: true, initialValue });
@@ -599,7 +633,7 @@ function setupCinematicSceneTransitions() {
     });
   }
 
-  if (!reducedMotion) {
+  if (!reducedMotion && !performanceViewport && !leanVisualBudget) {
     const transition = ["--scene-accent", "--scene-secondary", "--scene-gold", "--scene-glow"]
       .map(property => `${property} 1050ms cubic-bezier(0.22, 1, 0.36, 1)`)
       .join(", ");
@@ -688,7 +722,7 @@ function setupNightJourney() {
   const stageButtons = $$("[data-night-value]", experience);
 
   wave.replaceChildren();
-  const waveBarCount = visualCount(44, 30, 22);
+  const waveBarCount = visualCount(28, 16, 10);
   for (let index = 0; index < waveBarCount; index += 1) {
     const bar = document.createElement("i");
     bar.style.setProperty("--wave-height", `${12 + Math.random() * 55}px`);
@@ -699,7 +733,7 @@ function setupNightJourney() {
 
   if (stars) {
     stars.replaceChildren();
-    const nightStarCount = visualCount(72, 40, 28);
+    const nightStarCount = visualCount(42, 18, 10);
     for (let index = 0; index < nightStarCount; index += 1) {
       const star = document.createElement("i");
       star.style.setProperty("--star-x", `${(index * 37 + 7) % 98}%`);
@@ -1325,10 +1359,21 @@ function setupBirthdayOverture() {
   }, { once: true });
 }
 
+function scheduleDecorativeLayers() {
+  const renderLayers = () => {
+    createAmbientStars();
+    createFallingLove();
+    createSectionLoveRain();
+  };
+
+  if ("requestIdleCallback" in window) {
+    window.requestIdleCallback(renderLayers, { timeout: 900 });
+  } else {
+    window.setTimeout(renderLayers, 90);
+  }
+}
+
 document.addEventListener("DOMContentLoaded", () => {
-  createAmbientStars();
-  createFallingLove();
-  createSectionLoveRain();
   setupEntryGate();
   setupScrollExperience();
   setupCinematicSceneTransitions();
@@ -1344,6 +1389,7 @@ document.addEventListener("DOMContentLoaded", () => {
   setupCandlesAndWish();
   setupAmbientAudio();
   setupBirthdayOverture();
+  scheduleDecorativeLayers();
 
   $("#heartBurst").addEventListener("click", event => createHeartBurst(event.currentTarget, 30));
 });

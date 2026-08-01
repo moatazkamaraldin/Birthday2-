@@ -1,0 +1,1340 @@
+/*
+   AURORA LOVE ATLAS
+   A chromatic art-direction layer shared by the main gift and its two books.
+   The existing styles keep the interaction contracts; this file changes the
+   material, colour rhythm, silhouettes, and atmosphere.
+*/
+
+@property --atlas-angle {
+  syntax: "<angle>";
+  inherits: true;
+  initial-value: 18deg;
+}
+
+:root {
+  --atlas-night: #060b1b;
+  --atlas-night-2: #0a1228;
+  --atlas-panel: #0d1730;
+  --atlas-cream: #fff9f0;
+  --atlas-muted: #d8dcef;
+  --atlas-faint: #98a5c4;
+  --atlas-love-red: #ff304f;
+  --atlas-rose: var(--atlas-love-red);
+  --atlas-coral: #ff8a5b;
+  --atlas-sun: #ffd166;
+  --atlas-mint: #55d6b8;
+  --atlas-sky: #58b8ff;
+  --atlas-blue: #5175ff;
+  --atlas-violet: #a47cff;
+  --atlas-ruby: #d91f45;
+  --atlas-spectrum: linear-gradient(90deg, #ff304f 0%, #ff8a5b 18%, #ffd166 36%, #55d6b8 55%, #58b8ff 73%, #a47cff 90%, #ff304f 100%);
+
+  /* Feed the older component rules with the new world. */
+  --night: var(--atlas-night);
+  --night-soft: var(--atlas-night-2);
+  --surface: var(--atlas-panel);
+  --surface-light: #142242;
+  --ivory: var(--atlas-cream);
+  --muted: var(--atlas-muted);
+  --faint: var(--atlas-faint);
+  --amber: var(--atlas-sun);
+  --amber-light: #ffe8a8;
+  --gold: var(--atlas-sun);
+  --gold-light: #ffe8a8;
+  --terracotta: var(--atlas-coral);
+  --terracotta-dark: #d45447;
+  --love: var(--atlas-rose);
+  --love-dark: #91244b;
+  --love-bright: var(--atlas-rose);
+  --love-soft: #ff9eb9;
+  --love-pale: #ffe8f0;
+  --cherry: var(--atlas-ruby);
+  --coral: var(--atlas-coral);
+  --violet-night: #252359;
+  --violet-glow: var(--atlas-violet);
+  --line: rgba(88, 184, 255, 0.28);
+  --line-soft: rgba(220, 232, 255, 0.12);
+  --glass: rgba(8, 15, 34, 0.82);
+  --scene-accent: var(--atlas-rose);
+  --scene-secondary: var(--atlas-sky);
+  --scene-gold: var(--atlas-sun);
+}
+
+html {
+  scrollbar-color: var(--atlas-sky) var(--atlas-night);
+}
+
+body {
+  background-color: var(--atlas-night);
+  background-image:
+    radial-gradient(circle at 8% 8%, color-mix(in srgb, var(--scene-accent) 24%, transparent), transparent 31rem),
+    radial-gradient(circle at 92% 24%, color-mix(in srgb, var(--scene-secondary) 25%, transparent), transparent 35rem),
+    radial-gradient(circle at 18% 76%, rgba(85, 214, 184, 0.12), transparent 33rem),
+    radial-gradient(circle at 82% 88%, rgba(164, 124, 255, 0.14), transparent 31rem),
+    linear-gradient(145deg, #050916 0%, #0b1530 46%, #0b0d22 72%, #070a18 100%);
+  background-attachment: fixed;
+}
+
+body::after {
+  inset: -28%;
+  opacity: 0.46;
+  background:
+    conic-gradient(from var(--atlas-angle) at 50% 50%, rgba(255, 48, 79, 0.18), rgba(255, 209, 102, 0.12), rgba(85, 214, 184, 0.15), rgba(88, 184, 255, 0.16), rgba(164, 124, 255, 0.15), rgba(255, 48, 79, 0.18));
+  filter: blur(42px) saturate(1.14);
+  animation: atlas-aurora 46s ease-in-out infinite alternate;
+}
+
+@keyframes atlas-aurora {
+  0% { transform: translate3d(-3vw, -2vh, 0) scale(0.96); }
+  55% { transform: translate3d(4vw, 3vh, 0) scale(1.07) rotate(2deg); }
+  100% { transform: translate3d(-1vw, 5vh, 0) scale(1.13) rotate(-2deg); }
+}
+
+::selection {
+  background: var(--atlas-mint);
+  color: #06101d;
+}
+
+:focus-visible {
+  outline: 3px solid var(--atlas-sun);
+  outline-offset: 4px;
+  box-shadow: 0 0 0 6px rgba(88, 184, 255, 0.12);
+}
+
+/* The ambient layer becomes an aurora map rather than a red haze. */
+.ambient__glow--one {
+  background: radial-gradient(circle, rgba(255, 48, 79, 0.36), rgba(255, 138, 91, 0.1) 48%, transparent 72%);
+}
+
+.ambient__glow--two {
+  background: radial-gradient(circle, rgba(88, 184, 255, 0.3), rgba(85, 214, 184, 0.1) 50%, transparent 72%);
+}
+
+.ambient::before,
+.ambient::after {
+  border-color: rgba(88, 184, 255, 0.13);
+  background: repeating-conic-gradient(from var(--atlas-angle), rgba(255, 209, 102, 0.07) 0 1deg, transparent 1deg 15deg);
+}
+
+/* A genuinely multicolour invitation. */
+.entry-gate {
+  background:
+    radial-gradient(circle at 18% 18%, rgba(255, 48, 79, 0.26), transparent 25rem),
+    radial-gradient(circle at 84% 28%, rgba(88, 184, 255, 0.24), transparent 28rem),
+    radial-gradient(circle at 52% 92%, rgba(85, 214, 184, 0.16), transparent 26rem),
+    rgba(4, 8, 20, 0.94);
+}
+
+.entry-card {
+  border: 1px solid transparent;
+  border-radius: 42px 92px 42px 92px;
+  background:
+    radial-gradient(circle at 15% 12%, rgba(255, 48, 79, 0.2), transparent 15rem) padding-box,
+    radial-gradient(circle at 88% 86%, rgba(88, 184, 255, 0.18), transparent 18rem) padding-box,
+    linear-gradient(145deg, rgba(13, 23, 48, 0.98), rgba(7, 12, 30, 0.99)) padding-box,
+    conic-gradient(from var(--atlas-angle), var(--atlas-rose), var(--atlas-coral), var(--atlas-sun), var(--atlas-mint), var(--atlas-sky), var(--atlas-violet), var(--atlas-rose)) border-box;
+  box-shadow: 0 40px 130px rgba(0, 0, 0, 0.58), 0 0 70px rgba(88, 184, 255, 0.12), inset 0 1px rgba(255,255,255,0.1);
+}
+
+.entry-card::before { background: var(--atlas-rose); opacity: 0.22; }
+.entry-card::after { background: var(--atlas-sky); opacity: 0.2; }
+
+.entry-card__seal {
+  border-color: transparent;
+  background:
+    linear-gradient(#0b1430, #0b1430) padding-box,
+    conic-gradient(var(--atlas-rose), var(--atlas-sun), var(--atlas-mint), var(--atlas-sky), var(--atlas-violet), var(--atlas-rose)) border-box;
+  box-shadow: 0 0 0 8px rgba(88, 184, 255, 0.05), 0 16px 42px rgba(0,0,0,0.42);
+}
+
+.entry-card__seal span {
+  background: var(--atlas-spectrum);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.name-choice button:first-child {
+  border-color: rgba(255, 48, 79, 0.36);
+  background: rgba(255, 48, 79, 0.09);
+}
+
+.name-choice button:last-child {
+  border-color: rgba(88, 184, 255, 0.34);
+  background: rgba(88, 184, 255, 0.08);
+}
+
+.name-choice button.is-selected:first-child { background: linear-gradient(135deg, rgba(255, 48, 79, 0.3), rgba(255, 138, 91, 0.16)); }
+.name-choice button.is-selected:last-child { background: linear-gradient(135deg, rgba(88, 184, 255, 0.28), rgba(85, 214, 184, 0.15)); }
+
+/* Navigation is a colour key for the atlas. */
+.topbar {
+  border-bottom-color: rgba(125, 157, 225, 0.16);
+  background: rgba(6, 11, 27, 0.78);
+  box-shadow: 0 12px 42px rgba(0,0,0,0.2);
+  backdrop-filter: blur(12px) saturate(1.2);
+}
+
+.topbar::before {
+  position: absolute;
+  top: 0;
+  right: 7%;
+  left: 7%;
+  height: 1px;
+  background: var(--atlas-spectrum);
+  content: "";
+  opacity: 0.72;
+}
+
+.topbar.is-scrolled { background: rgba(5, 10, 25, 0.94); }
+
+.topbar__progress {
+  height: 3px;
+  background: var(--atlas-spectrum);
+  box-shadow: 0 0 16px rgba(88, 184, 255, 0.55), 0 0 28px rgba(255, 48, 79, 0.3);
+}
+
+.brand__mark {
+  border-color: transparent;
+  background:
+    linear-gradient(#0b1430, #0b1430) padding-box,
+    conic-gradient(var(--atlas-rose), var(--atlas-sun), var(--atlas-mint), var(--atlas-sky), var(--atlas-violet), var(--atlas-rose)) border-box;
+  color: var(--atlas-cream);
+}
+
+.chapter-nav a { --nav-accent: var(--atlas-rose); color: #aeb8d3; }
+.chapter-nav a:nth-child(2) { --nav-accent: var(--atlas-blue); }
+.chapter-nav a:nth-child(3) { --nav-accent: var(--atlas-mint); }
+.chapter-nav a:nth-child(4) { --nav-accent: var(--atlas-coral); }
+.chapter-nav a:nth-child(5) { --nav-accent: var(--atlas-violet); }
+.chapter-nav a:nth-child(6) { --nav-accent: var(--atlas-sun); }
+.chapter-nav a:nth-child(7) { --nav-accent: var(--atlas-ruby); }
+.chapter-nav a:nth-child(8) { --nav-accent: var(--atlas-sky); }
+.chapter-nav a:nth-child(9) { --nav-accent: #ffad70; }
+.chapter-nav a:nth-child(10) { --nav-accent: #6f8cff; }
+.chapter-nav a:nth-child(11) { --nav-accent: #ff6fa9; }
+
+.chapter-nav a:hover,
+.chapter-nav a[aria-current="true"] {
+  background: color-mix(in srgb, var(--nav-accent) 15%, transparent);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--nav-accent) 28%, transparent);
+  color: color-mix(in srgb, var(--nav-accent) 72%, white);
+}
+
+.chapter-nav a[aria-current="true"]::after {
+  background: var(--nav-accent);
+  box-shadow: 0 0 12px var(--nav-accent);
+}
+
+.sound-toggle {
+  border-color: rgba(88, 184, 255, 0.22);
+  background: linear-gradient(135deg, rgba(88, 184, 255, 0.08), rgba(164, 124, 255, 0.06));
+}
+
+.sound-toggle[aria-pressed="true"] {
+  border-color: rgba(85, 214, 184, 0.55);
+  background: linear-gradient(135deg, rgba(85, 214, 184, 0.17), rgba(88, 184, 255, 0.13));
+  color: #ddfff6;
+}
+
+/* Buttons use the current chapter colours, with a spectrum fallback. */
+.button--primary,
+.button--accent,
+.companion-button--primary {
+  border-color: rgba(255, 255, 255, 0.22);
+  background: linear-gradient(
+    125deg,
+    color-mix(in srgb, var(--scene-accent) 50%, #07142c),
+    color-mix(in srgb, var(--scene-accent) 28%, color-mix(in srgb, var(--scene-secondary) 46%, #07142c)) 54%,
+    color-mix(in srgb, var(--scene-secondary) 50%, #07142c)
+  );
+  box-shadow: 0 16px 44px color-mix(in srgb, var(--scene-accent) 27%, transparent), inset 0 1px rgba(255,255,255,0.22);
+  color: #fffaf5;
+}
+
+.button--ghost,
+.companion-button:not(.companion-button--primary) {
+  border-color: color-mix(in srgb, var(--scene-secondary) 35%, transparent);
+  background: linear-gradient(135deg, color-mix(in srgb, var(--scene-secondary) 12%, transparent), rgba(255,255,255,0.035));
+}
+
+/* The opening is now an asymmetric celestial postcard. */
+body[data-page="home"] .hero {
+  border: 1px solid transparent;
+  border-radius: 72px 28px 118px 38px;
+  background:
+    radial-gradient(circle at 78% 26%, rgba(255, 48, 79, 0.25), transparent 28rem) padding-box,
+    radial-gradient(circle at 17% 82%, rgba(85, 214, 184, 0.18), transparent 29rem) padding-box,
+    radial-gradient(circle at 90% 85%, rgba(164, 124, 255, 0.16), transparent 24rem) padding-box,
+    linear-gradient(138deg, rgba(13, 24, 52, 0.95), rgba(8, 13, 34, 0.98)) padding-box,
+    conic-gradient(from 35deg, var(--atlas-rose), var(--atlas-sun), var(--atlas-mint), var(--atlas-sky), var(--atlas-violet), var(--atlas-rose)) border-box;
+  box-shadow: 0 48px 140px rgba(0,0,0,0.44), 0 0 65px rgba(88,184,255,0.08), inset 0 1px rgba(255,255,255,0.07);
+}
+
+body[data-page="home"] .hero::before {
+  top: 2%;
+  right: 35%;
+  width: 65%;
+  height: 88%;
+  background: conic-gradient(from 20deg, rgba(255,48,79,0.24), rgba(255,209,102,0.08), rgba(85,214,184,0.14), rgba(88,184,255,0.16), rgba(164,124,255,0.18), rgba(255,48,79,0.24));
+  filter: blur(38px);
+  animation: none;
+}
+
+body[data-page="home"] .hero::after {
+  inset: 2%;
+  border-radius: inherit;
+  background: url("love-atlas.svg") center / cover no-repeat;
+  opacity: 0.58;
+  -webkit-mask-image: linear-gradient(90deg, rgba(0,0,0,0.35), #000 24%, #000 82%, rgba(0,0,0,0.35));
+  mask-image: linear-gradient(90deg, rgba(0,0,0,0.35), #000 24%, #000 82%, rgba(0,0,0,0.35));
+}
+
+.hero__copy h1 em {
+  background: var(--atlas-spectrum);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 12px 28px rgba(88, 184, 255, 0.18));
+  text-shadow: none;
+}
+
+.hero__facts div {
+  --fact-accent: var(--atlas-rose);
+  border-color: color-mix(in srgb, var(--fact-accent) 28%, transparent);
+  background: linear-gradient(145deg, color-mix(in srgb, var(--fact-accent) 12%, transparent), rgba(255,255,255,0.025));
+}
+
+.hero__facts div:nth-child(2) { --fact-accent: var(--atlas-mint); }
+.hero__facts div:nth-child(3) { --fact-accent: var(--atlas-violet); }
+.hero__facts strong { color: var(--fact-accent); }
+
+.portrait-card {
+  border: 1px solid transparent;
+  border-radius: 48px 112px 48px 112px;
+  background:
+    linear-gradient(145deg, rgba(10,18,39,0.96), rgba(5,9,24,0.98)) padding-box,
+    conic-gradient(from var(--atlas-angle), var(--atlas-sun), var(--atlas-rose), var(--atlas-violet), var(--atlas-sky), var(--atlas-mint), var(--atlas-sun)) border-box;
+  box-shadow: 0 38px 100px rgba(0,0,0,0.5), 0 0 55px rgba(88,184,255,0.14);
+  transform: rotate(-0.8deg);
+  animation: none;
+}
+
+.portrait-card::before { border-radius: 37px 101px 37px 101px; }
+.portrait-card img { border-radius: 37px 101px 28px 82px; }
+.hero__visual { width: min(100%, 520px); justify-self: center; }
+.portrait-halo { animation: none; }
+
+.hero__age {
+  border-color: transparent;
+  background:
+    linear-gradient(#0b1530, #0b1530) padding-box,
+    conic-gradient(var(--atlas-rose), var(--atlas-sun), var(--atlas-mint), var(--atlas-sky), var(--atlas-violet), var(--atlas-rose)) border-box;
+}
+
+.hero__age span {
+  background: var(--atlas-spectrum);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+/* Celebration becomes the colour portal into the chapters. */
+.birthday-overture {
+  border-color: transparent;
+  border-radius: 38px 105px 38px 105px;
+  background:
+    radial-gradient(circle at 10% 16%, rgba(255, 138, 91, 0.24), transparent 26rem) padding-box,
+    radial-gradient(circle at 88% 78%, rgba(85, 214, 184, 0.2), transparent 28rem) padding-box,
+    radial-gradient(circle at 60% 8%, rgba(255, 209, 102, 0.13), transparent 20rem) padding-box,
+    linear-gradient(140deg, rgba(28, 21, 48, 0.96), rgba(9, 22, 42, 0.96)) padding-box,
+    linear-gradient(120deg, var(--atlas-coral), var(--atlas-sun), var(--atlas-mint), var(--atlas-sky)) border-box;
+}
+
+.birthday-overture__gifts article:nth-child(1) { border-color: rgba(255, 209, 102, 0.3); background: rgba(255, 209, 102, 0.08); }
+.birthday-overture__gifts article:nth-child(2) { border-color: rgba(85, 214, 184, 0.3); background: rgba(85, 214, 184, 0.08); }
+.birthday-overture__gifts article:nth-child(3) { border-color: rgba(164, 124, 255, 0.3); background: rgba(164, 124, 255, 0.08); }
+
+.birthday-overture__button.is-celebrating {
+  border-color: rgba(255,209,102,0.54);
+  background: linear-gradient(135deg, #9f4d3f, #367f78 58%, #51468d);
+}
+
+.button--primary:hover:not(:disabled),
+.button--accent:hover:not(:disabled) {
+  box-shadow: 0 20px 52px color-mix(in srgb, var(--scene-secondary) 28%, transparent), 0 0 26px color-mix(in srgb, var(--scene-accent) 16%, transparent);
+}
+
+.companion-button--primary:hover {
+  box-shadow: 0 20px 52px color-mix(in srgb, var(--scene-secondary) 28%, transparent), 0 0 24px color-mix(in srgb, var(--scene-accent) 14%, transparent);
+}
+
+/* One atlas, thirteen distinct destinations. */
+main > .section.chapter,
+main > .gallery-section {
+  --chapter-accent: var(--atlas-rose);
+  --chapter-secondary: var(--atlas-sky);
+  --chapter-gold: var(--atlas-sun);
+  border: 1px solid transparent;
+  background:
+    radial-gradient(circle at 8% 10%, color-mix(in srgb, var(--chapter-accent) 24%, transparent), transparent 29rem) padding-box,
+    radial-gradient(circle at 92% 88%, color-mix(in srgb, var(--chapter-secondary) 23%, transparent), transparent 31rem) padding-box,
+    radial-gradient(circle at 55% 2%, color-mix(in srgb, var(--chapter-gold) 9%, transparent), transparent 22rem) padding-box,
+    linear-gradient(148deg, rgba(13,24,52,0.92), rgba(7,12,29,0.96)) padding-box,
+    linear-gradient(125deg, color-mix(in srgb, var(--chapter-accent) 68%, transparent), color-mix(in srgb, var(--chapter-gold) 42%, transparent), color-mix(in srgb, var(--chapter-secondary) 65%, transparent)) border-box;
+  box-shadow: 0 42px 120px rgba(0,0,0,0.28), inset 0 1px rgba(255,255,255,0.05);
+}
+
+#story {
+  --chapter-accent: #ff4965;
+  --chapter-secondary: #ffad5c;
+  --chapter-gold: #ffe08a;
+  border-radius: 92px 34px 92px 34px;
+}
+
+#gallery {
+  --chapter-accent: #ff8a5b;
+  --chapter-secondary: #55cfe0;
+  --chapter-gold: #ffe071;
+  border-radius: 32px 124px 48px 92px;
+}
+
+#night {
+  --chapter-accent: #8d7cff;
+  --chapter-secondary: #43c6ff;
+  --chapter-gold: #c9dcff;
+  border-radius: 118px 38px 118px 38px;
+  background:
+    radial-gradient(circle at 82% 8%, rgba(81,117,255,0.3), transparent 31rem) padding-box,
+    radial-gradient(circle at 12% 82%, rgba(67,198,255,0.17), transparent 30rem) padding-box,
+    linear-gradient(180deg, rgba(8,13,48,0.98), rgba(18,14,60,0.96) 56%, rgba(6,10,29,0.98)) padding-box,
+    linear-gradient(120deg, #6f7dff, #43c6ff, #b995ff) border-box;
+}
+
+#dictionary {
+  --chapter-accent: #55d6b8;
+  --chapter-secondary: #58b8ff;
+  --chapter-gold: #d8f6a8;
+  border-radius: 42px 112px 42px 112px;
+}
+
+#reasons {
+  --chapter-accent: #f53f76;
+  --chapter-secondary: #ff9a52;
+  --chapter-gold: #ffd166;
+  border-radius: 110px 34px 54px 34px;
+}
+
+#poetry {
+  --chapter-accent: #a47cff;
+  --chapter-secondary: #5175ff;
+  --chapter-gold: #f0c77a;
+  border-radius: 38px 118px 38px 88px;
+}
+
+#wishes {
+  --chapter-accent: #ffd166;
+  --chapter-secondary: #55d6b8;
+  --chapter-gold: #ff9f70;
+  border-radius: 108px 40px 108px 40px;
+}
+
+#letter {
+  --chapter-accent: #d91f45;
+  --chapter-secondary: #a47cff;
+  --chapter-gold: #f3d18a;
+  border-radius: 36px 112px 68px 112px;
+}
+
+#comfort {
+  --chapter-accent: #55d6b8;
+  --chapter-secondary: #9a8cff;
+  --chapter-gold: #bfe7ff;
+  border-radius: 112px 38px 72px 38px;
+}
+
+#tomorrow {
+  --chapter-accent: #ff9a70;
+  --chapter-secondary: #58b8ff;
+  --chapter-gold: #ffe08a;
+  border-radius: 40px 120px 40px 88px;
+}
+
+#timecapsule {
+  --chapter-accent: #5175ff;
+  --chapter-secondary: #45d4c2;
+  --chapter-gold: #e4c783;
+  border-radius: 110px 38px 110px 38px;
+}
+
+#finale {
+  --chapter-accent: #ff304f;
+  --chapter-secondary: #58b8ff;
+  --chapter-gold: #ffd166;
+  border-radius: 44px 124px 96px 44px;
+  background:
+    radial-gradient(circle at 11% 18%, rgba(255,48,79,0.26), transparent 27rem) padding-box,
+    radial-gradient(circle at 88% 72%, rgba(88,184,255,0.22), transparent 29rem) padding-box,
+    radial-gradient(circle at 52% 5%, rgba(255,209,102,0.14), transparent 22rem) padding-box,
+    linear-gradient(145deg, rgba(20,18,52,0.96), rgba(6,15,35,0.98)) padding-box,
+    conic-gradient(from 35deg, var(--atlas-rose), var(--atlas-coral), var(--atlas-sun), var(--atlas-mint), var(--atlas-sky), var(--atlas-violet), var(--atlas-rose)) border-box;
+}
+
+/* Headings are editorial markers with a spectrum code, not repeated flowers. */
+.section-heading::before {
+  top: -2rem;
+  right: 50%;
+  width: min(280px, 64vw);
+  height: 38px;
+  min-height: 0;
+  background:
+    radial-gradient(circle, var(--chapter-accent, var(--scene-accent)) 0 4px, transparent 5px) 0 50% / 42px 20px repeat-x,
+    linear-gradient(90deg, transparent, var(--chapter-secondary, var(--scene-secondary)), var(--chapter-gold, var(--scene-gold)), transparent) center / 100% 1px no-repeat;
+  content: "";
+  filter: drop-shadow(0 0 13px color-mix(in srgb, var(--chapter-accent, var(--scene-accent)) 38%, transparent));
+  opacity: 0.78;
+  transform: translateX(50%);
+  animation: none;
+}
+
+@keyframes atlas-heading-code {
+  to { background-position: 21px 50%, center; opacity: 0.46; transform: translateX(50%) scaleX(0.86); }
+}
+
+.section-heading h2 {
+  color: var(--atlas-cream);
+  text-shadow: 0 16px 48px rgba(0,0,0,0.4), 0 0 34px color-mix(in srgb, var(--chapter-secondary, var(--scene-secondary)) 18%, transparent);
+  animation: none;
+}
+
+.section-heading::after {
+  width: min(250px, 48vw);
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--chapter-accent, var(--scene-accent)), var(--chapter-gold, var(--scene-gold)), var(--chapter-secondary, var(--scene-secondary)), transparent);
+  box-shadow: 0 0 18px color-mix(in srgb, var(--chapter-secondary, var(--scene-secondary)) 28%, transparent);
+}
+
+.eyebrow {
+  border-color: color-mix(in srgb, var(--chapter-secondary, var(--scene-secondary)) 32%, transparent);
+  background: linear-gradient(135deg, color-mix(in srgb, var(--chapter-accent, var(--scene-accent)) 12%, transparent), color-mix(in srgb, var(--chapter-secondary, var(--scene-secondary)) 10%, transparent));
+  color: color-mix(in srgb, var(--chapter-gold, var(--scene-gold)) 78%, white);
+}
+
+.stacked-title > em,
+.reasons-title > span:last-child {
+  background: linear-gradient(100deg, var(--chapter-accent), var(--chapter-gold) 48%, var(--chapter-secondary));
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+/* Cards cycle through six clearly different blooms. */
+body[data-page="home"] :is(.timeline-card, .dictionary-card, .birthday-wish-card, .poem-cards article, .classic-lines figure, .comfort-card, .future-tickets article, .year-promises article, .gift-page-card, .vow-poem-card) {
+  --card-accent: var(--chapter-accent, var(--scene-accent));
+  border-color: color-mix(in srgb, var(--card-accent) 35%, transparent);
+  background:
+    radial-gradient(circle at 92% 8%, color-mix(in srgb, var(--card-accent) 19%, transparent), transparent 11rem),
+    linear-gradient(148deg, rgba(18,31,62,0.9), rgba(7,14,33,0.95));
+  box-shadow: 0 20px 58px rgba(0,0,0,0.24), inset 0 1px rgba(255,255,255,0.055);
+}
+
+body[data-page="home"] :is(.timeline-card, .dictionary-card, .birthday-wish-card, .poem-cards article, .classic-lines figure, .comfort-card, .future-tickets article, .year-promises article, .gift-page-card, .vow-poem-card):nth-child(3n + 2) { --card-accent: var(--chapter-secondary, var(--scene-secondary)); }
+body[data-page="home"] :is(.timeline-card, .dictionary-card, .birthday-wish-card, .poem-cards article, .classic-lines figure, .comfort-card, .future-tickets article, .year-promises article, .gift-page-card, .vow-poem-card):nth-child(3n) { --card-accent: var(--chapter-gold, var(--scene-gold)); }
+
+#wishes .birthday-wish-card:nth-child(6n + 1) { --card-accent: var(--atlas-rose); }
+#wishes .birthday-wish-card:nth-child(6n + 2) { --card-accent: var(--atlas-coral); }
+#wishes .birthday-wish-card:nth-child(6n + 3) { --card-accent: var(--atlas-sun); }
+#wishes .birthday-wish-card:nth-child(6n + 4) { --card-accent: var(--atlas-mint); }
+#wishes .birthday-wish-card:nth-child(6n + 5) { --card-accent: var(--atlas-sky); }
+#wishes .birthday-wish-card:nth-child(6n) { --card-accent: var(--atlas-violet); }
+
+#dictionary .dictionary-card:not(.is-open),
+#wishes .birthday-wish-card:not(.is-chosen) {
+  border-color: color-mix(in srgb, var(--card-accent) 35%, transparent);
+  background:
+    radial-gradient(circle at 92% 8%, color-mix(in srgb, var(--card-accent) 19%, transparent), transparent 11rem),
+    linear-gradient(148deg, rgba(18,31,62,0.9), rgba(7,14,33,0.95));
+}
+
+.timeline-card:nth-child(odd) { border-radius: 30px 72px 30px 72px; }
+.timeline-card:nth-child(even) { border-radius: 72px 30px 72px 30px; }
+
+.dictionary-card.is-open {
+  border-color: rgba(85, 214, 184, 0.55);
+  background: linear-gradient(145deg, rgba(30,93,91,0.38), rgba(13,31,59,0.94));
+}
+
+.birthday-wish-card.is-chosen {
+  border-color: rgba(255, 209, 102, 0.7);
+  background: linear-gradient(145deg, rgba(104,82,25,0.38), rgba(18,35,56,0.95));
+}
+
+.reason-card:nth-child(3n + 1) { --reason-tone: var(--chapter-accent); }
+.reason-card:nth-child(3n + 2) { --reason-tone: var(--chapter-secondary); }
+.reason-card:nth-child(3n) { --reason-tone: var(--chapter-gold); }
+
+#reasons .reason-card__front {
+  border-color: color-mix(in srgb, var(--reason-tone, var(--atlas-rose)) 36%, transparent);
+  background:
+    radial-gradient(circle at 84% 14%, color-mix(in srgb, var(--reason-tone, var(--atlas-rose)) 20%, transparent), transparent 8rem),
+    linear-gradient(150deg, #101d3a, #071024);
+}
+
+#reasons .reason-card__back {
+  background: linear-gradient(145deg, color-mix(in srgb, var(--reason-tone, var(--atlas-rose)) 60%, #10203c), #0c1731);
+}
+
+.gallery-card:nth-child(1) { --gallery-tone: var(--atlas-rose); }
+.gallery-card:nth-child(2) { --gallery-tone: var(--atlas-coral); }
+.gallery-card:nth-child(3) { --gallery-tone: var(--atlas-mint); }
+.gallery-card:nth-child(4) { --gallery-tone: var(--atlas-violet); }
+
+.gallery-card {
+  border-color: color-mix(in srgb, var(--gallery-tone) 55%, transparent);
+  box-shadow: 0 28px 70px rgba(0,0,0,0.36), 0 0 28px color-mix(in srgb, var(--gallery-tone) 10%, transparent);
+}
+
+.gallery-card:hover,
+.gallery-card:focus-visible {
+  border-color: color-mix(in srgb, var(--gallery-tone) 72%, white);
+  box-shadow: 0 34px 88px rgba(0,0,0,0.48), 0 0 38px color-mix(in srgb, var(--gallery-tone) 24%, transparent);
+}
+
+.gallery-card:nth-child(odd) { border-radius: 32px 84px 32px 84px; }
+.gallery-card:nth-child(even) { border-radius: 84px 32px 84px 32px; }
+
+.gallery-card::after {
+  background: linear-gradient(180deg, transparent 32%, color-mix(in srgb, var(--gallery-tone) 12%, transparent) 55%, rgba(5,10,25,0.96));
+}
+
+/* Each interactive set keeps the material of its own destination. */
+#night .night-progress span {
+  background: linear-gradient(90deg, #8d7cff, #43c6ff, #c9dcff);
+}
+
+#night .night-slider input::-webkit-slider-runnable-track {
+  background: linear-gradient(to left, #c9dcff 0%, #43c6ff var(--slider-progress), rgba(255,255,255,0.09) var(--slider-progress), rgba(255,255,255,0.09) 100%);
+}
+
+#night .night-slider input::-moz-range-progress {
+  background: linear-gradient(90deg, #8d7cff, #43c6ff);
+}
+
+#night .night-slider input::-webkit-slider-thumb {
+  border-color: #c9dcff;
+  background: #43c6ff;
+  box-shadow: 0 0 0 6px rgba(67,198,255,0.14), 0 0 24px rgba(141,124,255,0.55);
+}
+
+#night .night-slider input::-moz-range-thumb {
+  border-color: #c9dcff;
+  background: #43c6ff;
+  box-shadow: 0 0 0 6px rgba(67,198,255,0.14), 0 0 24px rgba(141,124,255,0.55);
+}
+
+#night .night-stages button.is-active {
+  border-color: rgba(67,198,255,0.58);
+  background: linear-gradient(145deg, rgba(81,117,255,0.3), rgba(67,198,255,0.14));
+  color: #eff7ff;
+}
+
+#night .night-experience {
+  border-color: rgba(67,198,255,0.36);
+  background: #070d27;
+  box-shadow: 0 34px 110px rgba(0,0,0,0.58), 0 0 70px rgba(81,117,255,0.14);
+}
+
+#night .night-journey__meta {
+  background: linear-gradient(90deg, rgba(28,25,83,0.98), rgba(6,24,48,0.98));
+}
+
+#reasons .reasons-toolbar,
+#wishes .wishes-toolbar {
+  border-color: color-mix(in srgb, var(--chapter-secondary) 34%, transparent);
+  background: linear-gradient(135deg, color-mix(in srgb, var(--chapter-accent) 14%, #0b1732), color-mix(in srgb, var(--chapter-secondary) 12%, #08142d));
+}
+
+#wishes .wishes-toolbar > div > span {
+  background: linear-gradient(145deg, #bf8f2f, #258c80);
+  box-shadow: 0 12px 30px rgba(85,214,184,0.2);
+}
+
+#poetry .poem-feature {
+  border-color: rgba(164,124,255,0.34);
+  background:
+    radial-gradient(circle at 88% 10%, rgba(164,124,255,0.18), transparent 20rem),
+    linear-gradient(145deg, rgba(21,28,74,0.9), rgba(8,15,39,0.94));
+}
+
+#poetry .poem-feature--love {
+  border-color: rgba(88,184,255,0.38);
+  background:
+    radial-gradient(circle at 90% 0, rgba(88,184,255,0.21), transparent 25rem),
+    linear-gradient(145deg, rgba(29,25,78,0.9), rgba(7,18,42,0.95));
+}
+
+#poetry .authored-poem,
+#poetry .future-vow-poems {
+  border-color: rgba(164,124,255,0.36);
+  background:
+    radial-gradient(circle at 86% 6%, rgba(88,184,255,0.2), transparent 24rem),
+    radial-gradient(circle at 8% 82%, rgba(164,124,255,0.24), transparent 29rem),
+    linear-gradient(145deg, rgba(26,25,77,0.95), rgba(7,15,37,0.98));
+  box-shadow: 0 40px 120px rgba(3,7,28,0.55), inset 0 1px rgba(255,255,255,0.07);
+}
+
+#poetry .authored-poem__paper {
+  background:
+    linear-gradient(rgba(81,117,255,0.045) 1px, transparent 1px) 0 56px / 100% 56px,
+    linear-gradient(115deg, #fffdf7, #eef5ff 57%, #fff7ef);
+}
+
+#timecapsule .time-capsule {
+  border-color: rgba(69,212,194,0.42);
+  background:
+    radial-gradient(circle at 18% 0, rgba(81,117,255,0.22), transparent 25rem),
+    radial-gradient(circle at 88% 92%, rgba(69,212,194,0.17), transparent 24rem),
+    linear-gradient(145deg, rgba(14,27,62,0.96), rgba(6,17,35,0.98));
+  box-shadow: 0 30px 90px rgba(0,0,0,0.38), 0 0 40px rgba(69,212,194,0.08);
+}
+
+#timecapsule .time-capsule__ribbon {
+  background: radial-gradient(circle at 35% 30%, #6f8cff, #258c80);
+  box-shadow: 0 18px 44px rgba(69,212,194,0.28), inset 0 0 0 6px rgba(255,255,255,0.055);
+}
+
+#finale .final-message__ring {
+  border-color: transparent;
+  background:
+    linear-gradient(#0b1732, #0b1732) padding-box,
+    conic-gradient(var(--atlas-rose), var(--atlas-sun), var(--atlas-mint), var(--atlas-sky), var(--atlas-violet), var(--atlas-rose)) border-box;
+}
+
+#tomorrow .dream-builder {
+  border-color: rgba(88,184,255,0.3);
+  background:
+    radial-gradient(circle at 10% 8%, rgba(255,154,112,0.16), transparent 19rem),
+    radial-gradient(circle at 90% 90%, rgba(88,184,255,0.14), transparent 20rem),
+    linear-gradient(145deg, rgba(17,30,59,0.9), rgba(8,17,37,0.94));
+}
+
+#tomorrow .dream-options button.is-selected {
+  border-color: rgba(255,224,138,0.62);
+  background: linear-gradient(135deg, rgba(255,154,112,0.18), rgba(88,184,255,0.14));
+  color: #fff4d3;
+}
+
+#tomorrow .dream-result {
+  background: linear-gradient(135deg, rgba(255,154,112,0.1), rgba(88,184,255,0.1));
+}
+
+#finale .cake__top {
+  background: linear-gradient(120deg, #fff0d0, #ffd0b8 48%, #d8eaff);
+}
+
+#finale .cake__middle {
+  border-top-color: rgba(255,232,168,0.52);
+  background: linear-gradient(90deg, #74345e, #347d83 50%, #4c4b93);
+}
+
+#finale .cake__base { background: #18294b; }
+
+#finale .wish-vault {
+  border-color: rgba(88,184,255,0.28);
+  background: linear-gradient(145deg, rgba(255,48,79,0.08), rgba(85,214,184,0.06)), rgba(8,17,38,0.82);
+}
+
+#finale .wish-vault textarea {
+  border-color: rgba(88,184,255,0.2);
+  background: rgba(4,12,29,0.76);
+}
+
+.gift-library {
+  border-color: transparent;
+  border-radius: 96px 36px 96px 36px;
+  background:
+    radial-gradient(circle at 12% 18%, rgba(164,124,255,0.19), transparent 29rem) padding-box,
+    radial-gradient(circle at 88% 82%, rgba(85,214,184,0.17), transparent 30rem) padding-box,
+    linear-gradient(145deg, rgba(13,23,49,0.94), rgba(7,12,30,0.97)) padding-box,
+    var(--atlas-spectrum) border-box;
+}
+
+.gift-page-card:first-child { --card-accent: var(--atlas-violet); }
+.gift-page-card:last-child { --card-accent: var(--atlas-mint); }
+#poetry .vow-poem-card--gold {
+  --card-accent: var(--atlas-sun);
+  background:
+    radial-gradient(circle at 10% 0, rgba(255,209,102,0.21), transparent 16rem),
+    linear-gradient(155deg, rgba(76,58,38,0.94), rgba(27,22,54,0.97));
+}
+
+#poetry .vow-poem-card--rose {
+  --card-accent: var(--atlas-rose);
+  background:
+    radial-gradient(circle at 90% 0, rgba(255,48,79,0.22), transparent 16rem),
+    linear-gradient(155deg, rgba(72,30,78,0.95), rgba(49,13,50,0.97));
+}
+
+.photo-modal {
+  border-color: transparent;
+  border-radius: 36px 78px 36px 78px;
+  background:
+    linear-gradient(145deg, rgba(13,24,52,0.98), rgba(6,11,27,0.99)) padding-box,
+    conic-gradient(from 24deg, var(--atlas-rose), var(--atlas-sun), var(--atlas-mint), var(--atlas-sky), var(--atlas-violet), var(--atlas-rose)) border-box;
+  box-shadow: 0 42px 140px rgba(0,0,0,0.78), 0 0 52px rgba(88,184,255,0.12);
+}
+
+.photo-modal::backdrop { background: rgba(3,7,18,0.9); }
+
+.photo-modal__frame {
+  border: 1px solid rgba(88,184,255,0.2);
+  border-radius: 28px 64px 28px 64px;
+  background: #040917;
+}
+
+.photo-modal__close {
+  border-color: rgba(88,184,255,0.36);
+  background: rgba(7,15,34,0.9);
+  box-shadow: 0 8px 28px rgba(0,0,0,0.38);
+}
+
+.photo-modal__copy h2 {
+  background: linear-gradient(100deg, var(--atlas-rose), var(--atlas-sun), var(--atlas-mint), var(--atlas-sky));
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.final-message,
+.birthday-stage,
+.message-modal {
+  border-color: rgba(88, 184, 255, 0.26);
+  background:
+    radial-gradient(circle at 12% 12%, rgba(255,48,79,0.16), transparent 18rem),
+    radial-gradient(circle at 88% 88%, rgba(85,214,184,0.12), transparent 18rem),
+    linear-gradient(145deg, rgba(13,24,52,0.96), rgba(7,12,29,0.98));
+}
+
+/* Companion books: two related but clearly different worlds. */
+body[data-page="poems"] {
+  --scene-accent: #a47cff;
+  --scene-secondary: #58b8ff;
+  --scene-gold: #f1c97b;
+  --love: #a47cff;
+  --love-dark: #55419f;
+  --love-bright: #58b8ff;
+  --love-soft: #c8b8ff;
+  --gold: #f1c97b;
+  --gold-light: #ffe7ae;
+  background-image:
+    radial-gradient(circle at 11% 10%, rgba(164,124,255,0.22), transparent 31rem),
+    radial-gradient(circle at 88% 32%, rgba(88,184,255,0.18), transparent 34rem),
+    radial-gradient(circle at 28% 84%, rgba(85,214,184,0.09), transparent 31rem),
+    linear-gradient(145deg, #050916, #10143a 48%, #071528 100%);
+}
+
+body[data-page="wishes"] {
+  --scene-accent: #ff8a5b;
+  --scene-secondary: #55d6b8;
+  --scene-gold: #ffd166;
+  --love: #ff8a5b;
+  --love-dark: #a54b37;
+  --love-bright: #55d6b8;
+  --love-soft: #9ef0dc;
+  --gold: #ffd166;
+  --gold-light: #ffe8a8;
+  background-image:
+    radial-gradient(circle at 10% 12%, rgba(255,138,91,0.22), transparent 31rem),
+    radial-gradient(circle at 90% 30%, rgba(85,214,184,0.2), transparent 34rem),
+    radial-gradient(circle at 26% 88%, rgba(164,124,255,0.12), transparent 31rem),
+    linear-gradient(145deg, #06101c, #0b2333 48%, #10132d 100%);
+}
+
+.reading-progress {
+  height: 3px;
+  background: var(--atlas-spectrum);
+  box-shadow: 0 0 18px rgba(88,184,255,0.55);
+}
+
+.companion-nav {
+  border-bottom-color: rgba(88,184,255,0.16);
+  background: rgba(5,10,25,0.82);
+}
+
+.companion-nav.is-scrolled {
+  border-color: rgba(88,184,255,0.24);
+  background: rgba(5,10,25,0.95);
+  box-shadow: 0 14px 48px rgba(0,0,0,0.4);
+}
+
+.companion-nav::after { background: var(--atlas-spectrum); }
+
+.companion-brand span {
+  border-color: transparent;
+  background:
+    linear-gradient(#0c1731, #0c1731) padding-box,
+    conic-gradient(var(--atlas-rose), var(--atlas-sun), var(--atlas-mint), var(--atlas-sky), var(--atlas-violet), var(--atlas-rose)) border-box;
+}
+
+.companion-links a:hover,
+.companion-links a[aria-current="page"],
+.back-home:hover {
+  border-color: rgba(88,184,255,0.3);
+  background: linear-gradient(135deg, rgba(164,124,255,0.16), rgba(85,214,184,0.13));
+  color: var(--atlas-cream);
+}
+
+.companion-links a[aria-current="page"] { color: #dff9ff; }
+.back-home { border-color: rgba(88,184,255,0.2); }
+
+.book-hero::before {
+  border-color: rgba(88,184,255,0.13);
+  background:
+    linear-gradient(90deg, rgba(4,8,20,0.58), transparent 18%, transparent 82%, rgba(4,8,20,0.58)),
+    radial-gradient(circle at 15% 20%, color-mix(in srgb, var(--scene-accent) 24%, transparent), transparent 27rem),
+    radial-gradient(circle at 84% 70%, color-mix(in srgb, var(--scene-secondary) 25%, transparent), transparent 31rem),
+    url("love-atlas.svg") center / cover no-repeat,
+    linear-gradient(145deg, rgba(13,24,52,0.8), rgba(7,12,30,0.84));
+}
+
+.book-hero::after {
+  content: "\2726   \25C7   \25CB   \25C7   \2726";
+  color: color-mix(in srgb, var(--scene-gold) 48%, transparent);
+}
+
+body[data-page="poems"] .book-hero::before {
+  background-position: center, center, center, 74% 38%, center;
+  background-size: auto, auto, auto, 118% auto, auto;
+}
+
+body[data-page="wishes"] .book-hero::before {
+  background-position: center, center, center, 28% 64%, center;
+  background-size: auto, auto, auto, 142% auto, auto;
+}
+
+.hero-copy {
+  border-color: transparent;
+  border-radius: 38px 92px 38px 92px;
+  background:
+    linear-gradient(145deg, rgba(14,26,55,0.82), rgba(7,13,32,0.88)) padding-box,
+    linear-gradient(125deg, var(--scene-accent), var(--scene-gold), var(--scene-secondary)) border-box;
+}
+
+body[data-page="poems"] .hero-copy { border-radius: 12px 52px 12px 52px; }
+body[data-page="wishes"] .hero-copy { border-radius: 52px 96px 52px 96px; }
+
+.book-hero h1 em {
+  background: linear-gradient(105deg, var(--scene-accent), var(--scene-gold), var(--scene-secondary));
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+.book-cover {
+  border-color: transparent;
+  background-image:
+    linear-gradient(90deg, rgba(2,6,17,0.44), transparent 9%, transparent 92%, rgba(255,255,255,0.03)),
+    url("love-atlas.svg"),
+    radial-gradient(circle at 22% 22%, color-mix(in srgb, var(--scene-accent) 34%, transparent), transparent 14rem),
+    radial-gradient(circle at 84% 80%, color-mix(in srgb, var(--scene-secondary) 32%, transparent), transparent 15rem),
+    linear-gradient(145deg, #182650, #111535 52%, #081329);
+  background-size: auto, cover, auto, auto, auto;
+  box-shadow: -9px 11px 0 #060b18, -17px 20px 0 rgba(88,184,255,0.14), -30px 42px 95px rgba(0,0,0,0.58), inset 11px 0 20px rgba(0,0,0,0.25);
+}
+
+.book-cover--wishes {
+  background-image:
+    url("love-atlas.svg"),
+    radial-gradient(circle at 50% 40%, rgba(255,209,102,0.22), transparent 12rem),
+    conic-gradient(from 20deg, #163a4b, #2b8c83, #ff9f70, #a47cff, #163a4b);
+  background-size: cover, auto, auto;
+}
+
+body[data-page="poems"] .poem-chapter {
+  --chapter-accent: var(--atlas-violet);
+  --chapter-secondary: var(--atlas-sky);
+  border-color: color-mix(in srgb, var(--chapter-accent) 32%, transparent);
+  background:
+    radial-gradient(circle at 90% 9%, color-mix(in srgb, var(--chapter-accent) 23%, transparent), transparent 24rem),
+    radial-gradient(circle at 9% 86%, color-mix(in srgb, var(--chapter-secondary) 17%, transparent), transparent 27rem),
+    linear-gradient(145deg, rgba(13,24,52,0.86), rgba(7,12,30,0.91));
+}
+
+body[data-page="poems"] #poem-one { --chapter-accent: #55d6b8; --chapter-secondary: #ffd166; }
+body[data-page="poems"] #poem-two { --chapter-accent: #7192ff; --chapter-secondary: #a47cff; }
+body[data-page="poems"] #poem-three { --chapter-accent: #ff9a70; --chapter-secondary: #8d7cff; }
+body[data-page="poems"] #poem-four { --chapter-accent: #ff7fa5; --chapter-secondary: #ffd0b0; }
+body[data-page="poems"] #poem-five { --chapter-accent: #ffd166; --chapter-secondary: #ff8a5b; }
+body[data-page="poems"] #poem-from-azouz { --chapter-accent: #d91f45; --chapter-secondary: #f1c97b; }
+body[data-page="poems"] #poem-pride { --chapter-accent: #a47cff; --chapter-secondary: #ffd166; }
+body[data-page="poems"] #poem-strength { --chapter-accent: #58b8ff; --chapter-secondary: #ff7fa5; }
+
+body[data-page="poems"] #poem-six {
+  --chapter-accent: #55d6b8;
+  --chapter-secondary: #ffd166;
+  padding-inline: clamp(20px, 4vw, 50px);
+  border: 1px solid rgba(85,214,184,0.24);
+  border-radius: 38px 92px 38px 92px;
+  background:
+    radial-gradient(circle at 12% 14%, rgba(85,214,184,0.2), transparent 24rem),
+    radial-gradient(circle at 88% 84%, rgba(255,209,102,0.12), transparent 24rem),
+    linear-gradient(145deg, rgba(10,38,50,0.72), rgba(12,17,48,0.78));
+}
+
+body[data-page="poems"] #poem-six .acrostic p {
+  border-color: rgba(85,214,184,0.22);
+  background:
+    radial-gradient(circle at 96% 20%, rgba(85,214,184,0.14), transparent 12rem),
+    linear-gradient(145deg, rgba(18,45,59,0.72), rgba(12,23,52,0.78));
+}
+
+body[data-page="poems"] #poem-six .acrostic p:nth-child(even) {
+  border-color: rgba(255,209,102,0.22);
+  background:
+    radial-gradient(circle at 96% 20%, rgba(255,209,102,0.12), transparent 12rem),
+    linear-gradient(145deg, rgba(27,39,67,0.76), rgba(9,28,48,0.8));
+}
+
+body[data-page="poems"] #poem-six .acrostic b {
+  background: linear-gradient(145deg, #258c80, #367eb0 54%, #9b7a32);
+  box-shadow: 0 10px 28px rgba(85,214,184,0.2), inset 0 1px rgba(255,255,255,0.16);
+}
+
+body[data-page="poems"] :is(#poem-one, #poem-two, #poem-three, #poem-four, #poem-five, #poem-from-azouz, #poem-pride, #poem-strength) {
+  border-color: color-mix(in srgb, var(--chapter-accent) 32%, transparent);
+  background:
+    radial-gradient(circle at 90% 9%, color-mix(in srgb, var(--chapter-accent) 23%, transparent), transparent 24rem),
+    radial-gradient(circle at 9% 86%, color-mix(in srgb, var(--chapter-secondary) 17%, transparent), transparent 27rem),
+    linear-gradient(145deg, rgba(13,24,52,0.86), rgba(7,12,30,0.91));
+}
+
+body[data-page="poems"] .poem-sheet {
+  border-color: color-mix(in srgb, var(--chapter-accent) 24%, #b98379);
+  background:
+    linear-gradient(color-mix(in srgb, var(--chapter-secondary) 7%, transparent) 1px, transparent 1px) 0 52px / 100% 52px,
+    radial-gradient(circle at 87% 4%, color-mix(in srgb, var(--chapter-accent) 14%, transparent), transparent 15rem),
+    radial-gradient(circle at 12% 92%, color-mix(in srgb, var(--chapter-secondary) 10%, transparent), transparent 13rem),
+    linear-gradient(125deg, #fffdf7, #f3f7ff 56%, #fff8ef);
+  box-shadow: 0 2px 0 rgba(255,255,255,0.8) inset, 13px 15px 0 color-mix(in srgb, var(--chapter-accent) 11%, transparent), 0 38px 105px rgba(0,0,0,0.48);
+}
+
+body[data-page="poems"] :is(#poem-one, #poem-two, #poem-three, #poem-four, #poem-five, #poem-from-azouz, #poem-pride, #poem-strength) .poem-sheet {
+  border-color: color-mix(in srgb, var(--chapter-accent) 24%, #b98379);
+  background:
+    linear-gradient(color-mix(in srgb, var(--chapter-secondary) 7%, transparent) 1px, transparent 1px) 0 52px / 100% 52px,
+    radial-gradient(circle at 87% 4%, color-mix(in srgb, var(--chapter-accent) 14%, transparent), transparent 15rem),
+    radial-gradient(circle at 12% 92%, color-mix(in srgb, var(--chapter-secondary) 10%, transparent), transparent 13rem),
+    linear-gradient(125deg, #fffdf7, #f3f7ff 56%, #fff8ef);
+  box-shadow: 0 2px 0 rgba(255,255,255,0.8) inset, 13px 15px 0 color-mix(in srgb, var(--chapter-accent) 11%, transparent), 0 38px 105px rgba(0,0,0,0.48);
+}
+
+body[data-page="wishes"] .wishes-stage::before {
+  border-color: rgba(85,214,184,0.16);
+  background:
+    radial-gradient(circle at 12% 16%, rgba(255,138,91,0.22), transparent 29rem),
+    radial-gradient(circle at 86% 73%, rgba(85,214,184,0.22), transparent 31rem),
+    radial-gradient(circle at 54% 7%, rgba(255,209,102,0.12), transparent 20rem),
+    linear-gradient(150deg, rgba(13,36,50,0.72), rgba(19,18,54,0.7));
+}
+
+body[data-page="wishes"] .wishes-toolbar {
+  border-color: rgba(85,214,184,0.32);
+  background: linear-gradient(120deg, rgba(255,138,91,0.15), rgba(85,214,184,0.13)), rgba(5,17,31,0.92);
+}
+
+body[data-page="wishes"] .wish-card {
+  --wish-accent: #ff304f;
+  --wish-rgb: 255, 48, 79;
+  border-width: 1px;
+  border-radius: 28px 72px 28px 72px;
+  background:
+    radial-gradient(circle at 100% 0, rgba(var(--wish-rgb), 0.28), transparent 13rem),
+    radial-gradient(circle at 0 100%, rgba(var(--wish-rgb), 0.08), transparent 11rem),
+    linear-gradient(145deg, rgba(20,37,66,0.92), rgba(7,16,35,0.96));
+}
+
+body[data-page="wishes"] .wishes-grid .wish-card:not(.is-kept) {
+  background:
+    radial-gradient(circle at 100% 0, rgba(var(--wish-rgb), 0.28), transparent 13rem),
+    radial-gradient(circle at 0 100%, rgba(var(--wish-rgb), 0.08), transparent 11rem),
+    linear-gradient(145deg, rgba(20,37,66,0.92), rgba(7,16,35,0.96));
+}
+
+body[data-page="wishes"] .wishes-grid .wish-card:not(.is-kept):hover,
+body[data-page="wishes"] .wishes-grid .wish-card:not(.is-kept):focus-visible {
+  background:
+    radial-gradient(circle at 100% 0, rgba(var(--wish-rgb), 0.36), transparent 13rem),
+    radial-gradient(circle at 0 100%, rgba(var(--wish-rgb), 0.12), transparent 11rem),
+    linear-gradient(145deg, rgba(24,43,76,0.96), rgba(8,18,40,0.98));
+}
+
+body[data-page="wishes"] .wishes-grid .wish-card:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--wish-accent) 76%, white);
+  outline-offset: 4px;
+  box-shadow: 0 0 0 7px rgba(var(--wish-rgb),0.14), 0 28px 65px rgba(0,0,0,0.4);
+}
+
+body[data-page="wishes"] .wishes-grid .wish-card.is-selected {
+  box-shadow: 0 0 0 4px rgba(var(--wish-rgb),0.2), 0 26px 66px rgba(0,0,0,0.4), 0 0 34px rgba(var(--wish-rgb),0.18);
+}
+
+body[data-page="wishes"] .wish-card:nth-child(even) { border-radius: 72px 28px 72px 28px; }
+body[data-page="wishes"] .wish-card:nth-child(6n + 2) { --wish-accent: #ff9a5c; --wish-rgb: 255, 154, 92; }
+body[data-page="wishes"] .wish-card:nth-child(6n + 3) { --wish-accent: #ffd166; --wish-rgb: 255, 209, 102; }
+body[data-page="wishes"] .wish-card:nth-child(6n + 4) { --wish-accent: #55d6b8; --wish-rgb: 85, 214, 184; }
+body[data-page="wishes"] .wish-card:nth-child(6n + 5) { --wish-accent: #58b8ff; --wish-rgb: 88, 184, 255; }
+body[data-page="wishes"] .wish-card:nth-child(6n + 6) { --wish-accent: #a47cff; --wish-rgb: 164, 124, 255; }
+
+body[data-page="wishes"] .wish-card.is-kept {
+  border-color: rgba(var(--wish-rgb), 0.72);
+  background:
+    radial-gradient(circle at 100% 0, rgba(var(--wish-rgb),0.34), transparent 13rem),
+    radial-gradient(circle at 0 100%, rgba(255,209,102,0.13), transparent 11rem),
+    linear-gradient(145deg, rgba(21,45,65,0.96), rgba(15,19,49,0.96));
+}
+
+body[data-page="poems"] .closing-letter {
+  background-image: radial-gradient(circle at 12% 13%, rgba(164,124,255,0.2), transparent 20rem), radial-gradient(circle at 89% 83%, rgba(88,184,255,0.2), transparent 22rem), linear-gradient(145deg, rgba(18,24,67,0.85), rgba(8,19,40,0.9));
+}
+
+body[data-page="wishes"] .closing-letter {
+  background-image: radial-gradient(circle at 12% 13%, rgba(255,138,91,0.2), transparent 20rem), radial-gradient(circle at 89% 83%, rgba(85,214,184,0.2), transparent 22rem), linear-gradient(145deg, rgba(13,43,50,0.85), rgba(20,18,55,0.9));
+}
+
+body[data-page="poems"] .closing-letter__mark {
+  border-color: rgba(88,184,255,0.52);
+  background: linear-gradient(145deg, #7159c7, #276ea6);
+  box-shadow: 0 0 0 8px rgba(255,255,255,0.018), 0 0 38px rgba(88,184,255,0.22);
+}
+
+body[data-page="wishes"] .closing-letter__mark {
+  border-color: rgba(255,209,102,0.52);
+  background: linear-gradient(145deg, #d86748, #258c80);
+  box-shadow: 0 0 0 8px rgba(255,255,255,0.018), 0 0 38px rgba(85,214,184,0.22);
+}
+
+.back-to-top {
+  border-color: rgba(88,184,255,0.38);
+  background: linear-gradient(145deg, #173665, #213065 52%, #27685f);
+  color: #fff9f0;
+}
+
+.heart-pop { color: var(--heart-color, var(--scene-accent)); }
+
+.ambient-star--rose { color: var(--atlas-rose); }
+.ambient-star--gold { color: var(--atlas-mint); }
+.ambient-star--ivory { color: var(--atlas-sky); }
+
+/* Hearts keep their unmistakable love-red while flowers and stars stay multicolour. */
+.falling-love.falling-love--heart,
+.section-love-rain__piece--heart,
+body[data-page] .ambient-love--heart,
+body[data-page] .ambient-love--heart-outline {
+  color: var(--atlas-love-red) !important;
+}
+
+.section-love-rain i { animation-play-state: paused; }
+.section-love-rain.is-active i { animation-play-state: running; }
+
+body:not(.scene-is-night) .night-sky__aurora,
+body:not(.scene-is-night) .night-sky__stars i,
+body:not(.scene-is-night) .night-sky__shooting-star,
+body:not(.scene-is-night) .night-sky__sun::before,
+body:not(.scene-is-night) .night-sky__sun::after,
+body:not(.scene-is-night) .night-sky__sunrise-rays,
+body:not(.scene-is-night) .night-sky__clouds i,
+body:not(.scene-is-night) .night-sky__birds i,
+body:not(.scene-is-night) .night-sky__wave i,
+body:not(.scene-is-night) .voice-card__visual i {
+  animation-play-state: paused !important;
+}
+
+body:not(.scene-is-finale) .candle-light::after,
+body:not(.scene-is-finale) .final-message__ring::before {
+  animation-play-state: paused !important;
+}
+
+body[data-page="poems"] :is(.ambient-love--heart, .ambient-love--heart-outline, .ambient-love--rose, .ambient-love--rosebud) { color: var(--atlas-violet); }
+body[data-page="poems"] :is(.ambient-love--star, .ambient-love--sparkle) { color: var(--atlas-sky); }
+body[data-page="poems"] .ambient-love--petal { color: var(--atlas-mint); }
+
+body[data-page="wishes"] :is(.ambient-love--heart, .ambient-love--heart-outline, .ambient-love--rose, .ambient-love--rosebud) { color: var(--atlas-coral); }
+body[data-page="wishes"] :is(.ambient-love--star, .ambient-love--sparkle) { color: var(--atlas-sun); }
+body[data-page="wishes"] .ambient-love--petal { color: var(--atlas-mint); }
+
+body[data-page="poems"] .ambient-love--petal {
+  border-color: rgba(206,235,255,0.48);
+  background: linear-gradient(145deg, #dff8ff, #8d7cff 54%, #5175ff);
+  box-shadow: inset 3px 2px 5px rgba(255,255,255,0.36), 0 0 12px rgba(88,184,255,0.58);
+}
+
+body[data-page="wishes"] .ambient-love--petal {
+  border-color: rgba(231,255,244,0.5);
+  background: linear-gradient(145deg, #e7fff6, #55d6b8 52%, #ff8a5b);
+  box-shadow: inset 3px 2px 5px rgba(255,255,255,0.38), 0 0 12px rgba(85,214,184,0.58);
+}
+
+@media (max-width: 900px) {
+  :root { transition: none !important; }
+  body { background-attachment: scroll; }
+  body::after {
+    inset: -12%;
+    opacity: 0.34;
+    filter: none;
+    transition: none;
+    animation: none;
+  }
+  .ambient__glow,
+  .ambient::before,
+  .ambient::after,
+  .section-love-rain { display: none; }
+  .topbar,
+  .chapter-nav,
+  .hero__facts div,
+  .hero__age {
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+  .topbar { background: rgba(5,10,25,0.94); }
+  .falling-love { filter: none; text-shadow: 0 0 8px var(--love-glow); }
+
+  body[data-page="home"] #welcome.hero {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: "visual" "copy";
+    align-items: start;
+    row-gap: 28px;
+    min-height: auto;
+    padding-top: calc(var(--topbar-height) + 28px);
+    padding-bottom: 50px;
+    border-radius: 42px 24px 64px 28px;
+  }
+  body[data-page="home"] #welcome .hero__visual {
+    grid-area: visual;
+    width: min(62vw, 56svh, 420px);
+    margin: 0 auto 12px;
+    justify-self: center;
+  }
+  body[data-page="home"] #welcome .hero__copy { grid-area: copy; }
+  .js.reveal-ready body[data-page="home"] #welcome .hero__visual[data-reveal] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  body[data-page="home"] #welcome .portrait-card {
+    margin: 0;
+    padding: 8px;
+    transform: none;
+  }
+  body[data-page="home"] #welcome .portrait-card::before { inset: 8px; }
+  body[data-page="home"] #welcome .portrait-card img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: auto;
+    object-fit: contain;
+    object-position: center;
+  }
+  body[data-page="home"] .hero::before,
+  body[data-page="home"] .portrait-halo { display: none; }
+  main > .section.chapter,
+  main > .gallery-section,
+  .gift-library { border-radius: 44px 24px 44px 24px !important; }
+  :is(#story, #reasons, #comfort, #timecapsule) { border-radius: 56px 22px 56px 22px !important; }
+  :is(#gallery, #night, #dictionary, #poetry, #wishes, #letter, #tomorrow, #finale, #library) { border-radius: 22px 56px 22px 56px !important; }
+  .portrait-card { border-radius: 38px 72px 38px 72px; }
+  .portrait-card::before { border-radius: 27px 61px 27px 61px; }
+  .portrait-card img { border-radius: 27px 61px 22px 52px; }
+}
+
+@media (max-width: 720px) {
+  body { background-attachment: scroll; }
+  .entry-card { border-radius: 28px 54px 28px 54px; }
+  .topbar { background: rgba(5,10,25,0.94); }
+  .chapter-nav { background: rgba(6,12,29,0.97); }
+  body[data-page="home"] #welcome.hero {
+    width: min(620px, calc(100% - 18px));
+    row-gap: 22px;
+    margin-top: 0;
+    padding: calc(var(--topbar-height) + 12px) clamp(12px, 4vw, 20px) 44px;
+    border-radius: 28px 18px 44px 22px;
+  }
+  body[data-page="home"] #welcome .hero__visual {
+    width: min(84vw, 56svh, 360px);
+    margin: 0 auto 14px;
+  }
+  body[data-page="home"] #welcome .portrait-card { padding: 6px; }
+  body[data-page="home"] #welcome .portrait-card::before { inset: 6px; }
+  body[data-page="home"] #welcome .portrait-card figcaption {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 8px 2px;
+    font-size: 0.68rem;
+    line-height: 1.35;
+    text-align: right;
+  }
+  body[data-page="home"] #welcome .portrait-card figcaption b { font-size: 0.62rem; }
+  body[data-page="home"] #welcome .hero__age {
+    bottom: -12px;
+    left: -8px;
+    width: 76px;
+    height: 76px;
+  }
+  body[data-page="home"] #welcome .hero__age span { font-size: 2rem; }
+  body[data-page="home"] #welcome .hero__age small { font-size: 0.5rem; }
+  body[data-page="home"] .hero::after { opacity: 0.34; }
+  .ambient__stars::before,
+  .ambient__stars i,
+  .reasons-section::after,
+  .night-sky__aurora,
+  .night-sky__stars i,
+  .night-sky__sun::before,
+  .night-sky__sun::after,
+  .night-sky__sunrise-rays,
+  .night-sky__clouds i,
+  .night-sky__birds i,
+  .night-sky__wave i,
+  .voice-card__visual i,
+  .candle-light::after {
+    animation: none !important;
+  }
+  .ambient__stars i { filter: none; will-change: auto; }
+  .night-sky__shooting-star,
+  .dictionary-section::before,
+  .time-capsule-section::before,
+  .gift-library::before,
+  .future-vow-poems::after { display: none; }
+  main > .section.chapter,
+  main > .gallery-section,
+  .gift-library { border-radius: 30px 18px 30px 18px !important; }
+  :is(#story, #reasons, #comfort, #timecapsule) { border-radius: 38px 16px 38px 16px !important; }
+  :is(#gallery, #night, #dictionary, #poetry, #wishes, #letter, #tomorrow, #finale, #library) { border-radius: 16px 38px 16px 38px !important; }
+  .section-heading::before { width: min(220px, 68vw); }
+  body[data-page="poems"] .hero-copy { border-radius: 8px 36px 8px 36px; }
+  body[data-page="wishes"] .hero-copy { border-radius: 34px 58px 34px 58px; }
+  body[data-page="wishes"] .wish-card { border-radius: 24px 48px 24px 48px; }
+  body[data-page="wishes"] .wish-card:nth-child(even) { border-radius: 48px 24px 48px 24px; }
+  body[data-page="poems"] #poem-six { border-radius: 24px 52px 24px 52px; }
+  .photo-modal { border-radius: 22px 38px 22px 38px; }
+  .photo-modal__frame { border-radius: 15px 30px 15px 30px; }
+}
+
+@media (max-width: 480px) {
+  body[data-page="home"] .hero,
+  main > .section.chapter,
+  main > .gallery-section { width: calc(100% - 18px); }
+  .hero__facts div { padding-inline: 10px; }
+  body[data-page="home"] #welcome .hero__visual { width: min(80vw, 54svh, 280px); }
+  body[data-page="home"] #welcome .portrait-card figcaption {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: center;
+  }
+  body[data-page="home"] #welcome .portrait-card figcaption > span:first-child { display: none; }
+  .portrait-card { border-radius: 28px 52px 28px 52px; }
+  .portrait-card img { border-radius: 19px 43px 17px 39px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body::after,
+  .section-heading::before { animation: none !important; }
+}

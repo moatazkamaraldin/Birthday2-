@@ -9,8 +9,10 @@
     const progress = $("#readingProgress");
     const nav = $("#companionNav");
     const topButton = $("#backToTop");
+    let frame = 0;
 
     const update = () => {
+      frame = 0;
       const scrollable = document.documentElement.scrollHeight - window.innerHeight;
       const amount = scrollable > 0 ? Math.min(1, window.scrollY / scrollable) : 0;
       if (progress) progress.style.width = `${amount * 100}%`;
@@ -18,8 +20,12 @@
       topButton?.classList.toggle("is-visible", window.scrollY > window.innerHeight * 0.75);
     };
 
-    window.addEventListener("scroll", update, { passive: true });
-    window.addEventListener("resize", update, { passive: true });
+    const scheduleUpdate = () => {
+      if (!frame) frame = window.requestAnimationFrame(update);
+    };
+
+    window.addEventListener("scroll", scheduleUpdate, { passive: true });
+    window.addEventListener("resize", scheduleUpdate, { passive: true });
     topButton?.addEventListener("click", () => window.scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" }));
     update();
   }
@@ -58,7 +64,7 @@
     starField.className = "ambient-starfield";
     fallingLayer.className = "ambient-fall";
 
-    const starCount = compact ? 34 : 54;
+    const starCount = compact ? 24 : 36;
     for (let index = 0; index < starCount; index += 1) {
       const star = document.createElement("i");
       const starSize = randomBetween(compact ? 2 : 2.4, compact ? 4.8 : 6);
@@ -85,7 +91,7 @@
       ["petal", ""],
       ["star", "\u2727"]
     ];
-    const fallingCount = reduceMotion ? (compact ? 7 : 10) : (compact ? 20 : 30);
+    const fallingCount = reduceMotion ? (compact ? 4 : 6) : (compact ? 10 : 16);
     for (let index = 0; index < fallingCount; index += 1) {
       const piece = document.createElement("span");
       const [type, symbol] = movingTypes[index % movingTypes.length];
@@ -123,7 +129,8 @@
     const rect = target.getBoundingClientRect();
     const originX = rect.left + rect.width / 2;
     const originY = rect.top + rect.height / 2;
-    for (let index = 0; index < 7; index += 1) {
+    const heartColors = ["#ff304f", "#ff8a5b", "#ffd166", "#55d6b8", "#58b8ff", "#a47cff"];
+    for (let index = 0; index < 5; index += 1) {
       const heart = document.createElement("span");
       heart.className = "heart-pop";
       heart.textContent = index % 3 ? "♥" : "✦";
@@ -132,6 +139,7 @@
       heart.style.setProperty("--heart-x", `${(Math.random() - 0.5) * 100}px`);
       heart.style.setProperty("--heart-rotate", `${(Math.random() - 0.5) * 70}deg`);
       heart.style.setProperty("--heart-size", `${13 + Math.random() * 15}px`);
+      heart.style.setProperty("--heart-color", heartColors[index % heartColors.length]);
       document.body.append(heart);
       heart.addEventListener("animationend", () => heart.remove(), { once: true });
     }
@@ -190,8 +198,12 @@
   document.addEventListener("DOMContentLoaded", () => {
     setupScrollUI();
     setupReveals();
-    setupAmbient();
     setupWishes();
     setupHeartButtons();
+    if ("requestIdleCallback" in window) {
+      window.requestIdleCallback(setupAmbient, { timeout: 700 });
+    } else {
+      window.setTimeout(setupAmbient, 70);
+    }
   });
 }());
