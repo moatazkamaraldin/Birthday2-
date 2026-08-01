@@ -1,0 +1,633 @@
+/*
+   MOBILE FINISH
+   Shared iPhone / Samsung compatibility layer. Loaded after the art direction
+   styles so the visual identity stays intact while geometry and touch behavior
+   remain predictable on narrow, notched and short viewports.
+*/
+
+:root {
+  --safe-top: 0px;
+  --safe-right: 0px;
+  --safe-bottom: 0px;
+  --safe-left: 0px;
+}
+
+@supports (padding-top: constant(safe-area-inset-top)) {
+  :root {
+    --safe-top: constant(safe-area-inset-top);
+    --safe-right: constant(safe-area-inset-right);
+    --safe-bottom: constant(safe-area-inset-bottom);
+    --safe-left: constant(safe-area-inset-left);
+  }
+}
+
+@supports (padding-top: env(safe-area-inset-top)) {
+  :root {
+    --safe-top: env(safe-area-inset-top);
+    --safe-right: env(safe-area-inset-right);
+    --safe-bottom: env(safe-area-inset-bottom);
+    --safe-left: env(safe-area-inset-left);
+  }
+}
+
+html {
+  width: 100%;
+  min-width: 0;
+  overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  overflow-x: visible;
+  overscroll-behavior-x: none;
+}
+
+@supports (overflow: clip) {
+  html,
+  body { overflow-x: clip; }
+}
+
+main,
+.book-main,
+section,
+aside,
+header,
+footer,
+nav,
+dialog,
+figure,
+fieldset {
+  min-width: 0;
+}
+
+img,
+svg,
+video,
+canvas {
+  max-width: 100%;
+  height: auto;
+}
+
+input,
+textarea,
+select {
+  font-size: 16px;
+}
+
+button,
+a,
+[role="button"] {
+  touch-action: manipulation;
+}
+
+textarea {
+  max-width: 100%;
+  scroll-margin-block: 24px;
+}
+
+[id] {
+  scroll-margin-top: calc(var(--topbar-height, 68px) + 14px);
+}
+
+@media (max-width: 900px), (pointer: coarse) {
+  :root {
+    --topbar-height: calc(66px + var(--safe-top));
+  }
+
+  body {
+    background-attachment: scroll !important;
+    text-rendering: auto;
+  }
+
+  body::after {
+    filter: none !important;
+    animation: none !important;
+  }
+
+  .topbar,
+  .chapter-nav,
+  .companion-nav,
+  .wishes-toolbar,
+  .entry-card,
+  .photo-modal__close {
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
+  }
+
+  .topbar {
+    min-height: var(--topbar-height);
+    padding-top: calc(10px + var(--safe-top));
+    padding-right: calc(18px + var(--safe-right));
+    padding-left: calc(18px + var(--safe-left));
+  }
+
+  .companion-nav {
+    min-height: calc(68px + var(--safe-top));
+    padding-top: calc(10px + var(--safe-top));
+    padding-right: calc(16px + var(--safe-right));
+    padding-left: calc(16px + var(--safe-left));
+  }
+
+  .chapter-nav a,
+  .companion-links a,
+  .candle-light {
+    min-height: 44px;
+  }
+
+  .candle-light { min-width: 44px; }
+
+  .message-modal::backdrop,
+  .photo-modal::backdrop {
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
+  }
+
+  .entry-gate {
+    height: 100vh;
+    height: -webkit-fill-available;
+    min-height: 0;
+    place-items: start center;
+    align-content: start;
+    padding:
+      calc(14px + var(--safe-top))
+      calc(14px + var(--safe-right))
+      calc(14px + var(--safe-bottom))
+      calc(14px + var(--safe-left));
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  @supports (height: 100dvh) {
+    .entry-gate { height: 100dvh; }
+  }
+
+  .entry-card {
+    width: min(100%, 560px);
+    margin-block: auto;
+  }
+
+  body[data-page="home"] :is(
+    .hero,
+    .birthday-overture,
+    main > .section.chapter,
+    main > .gallery-section,
+    .gift-library
+  ),
+  body:is([data-page="poems"], [data-page="wishes"]) :is(
+    .book-hero,
+    .page-section,
+    .poem-chapter,
+    .wishes-stage,
+    .closing-letter
+  ) {
+    max-width: calc(100% - 16px - var(--safe-left) - var(--safe-right));
+  }
+
+  .message-modal,
+  .photo-modal {
+    width: calc(100vw - 16px - var(--safe-left) - var(--safe-right));
+    max-width: 920px;
+    max-height: calc(100vh - 12px - var(--safe-top) - var(--safe-bottom));
+    margin: auto;
+  }
+
+  @supports (height: 100dvh) {
+    .message-modal,
+    .photo-modal {
+      max-height: calc(100dvh - 12px - var(--safe-top) - var(--safe-bottom));
+    }
+  }
+
+  .photo-modal__frame img {
+    max-height: calc(100vh - 100px - var(--safe-top) - var(--safe-bottom));
+  }
+
+  @supports (height: 100dvh) {
+    .photo-modal__frame img {
+      max-height: calc(100dvh - 100px - var(--safe-top) - var(--safe-bottom));
+    }
+  }
+}
+
+@media (max-width: 720px) {
+  :root {
+    --topbar-height: calc(62px + var(--safe-top));
+  }
+
+  html {
+    scroll-padding-top: calc(var(--topbar-height) + 12px);
+  }
+
+  body[data-page="home"] {
+    padding-bottom: calc(86px + var(--safe-bottom));
+  }
+
+  body::before { display: none; }
+
+  .topbar {
+    min-height: var(--topbar-height);
+    padding:
+      calc(8px + var(--safe-top))
+      calc(12px + var(--safe-right))
+      8px
+      calc(12px + var(--safe-left));
+    background: rgba(5, 10, 25, 0.97) !important;
+  }
+
+  .topbar__progress { bottom: 0; }
+  .brand { min-height: 44px; }
+  .sound-toggle { width: 46px; min-width: 46px; min-height: 46px; }
+
+  .chapter-nav {
+    right: calc(8px + var(--safe-right));
+    bottom: calc(8px + var(--safe-bottom));
+    left: calc(8px + var(--safe-left));
+    min-height: 62px;
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+    scroll-padding-inline: 10px;
+    scroll-snap-type: inline proximity;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .chapter-nav a {
+    min-height: 46px;
+    scroll-snap-align: center;
+  }
+
+  body.mobile-keyboard-open .chapter-nav {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(125%);
+  }
+
+  body[data-page="home"] #welcome.hero {
+    width: calc(100% - 16px);
+    row-gap: 22px;
+    margin-top: 0;
+    padding:
+      calc(var(--topbar-height) + 10px)
+      14px
+      48px;
+    overflow: hidden;
+  }
+
+  body[data-page="home"] #welcome .hero__visual {
+    width: min(84vw, 330px);
+    max-width: 100%;
+    margin: 0 auto 10px;
+  }
+
+  @supports (height: 100svh) {
+    body[data-page="home"] #welcome .hero__visual {
+      width: min(84vw, 52svh, 330px);
+    }
+  }
+
+  body[data-page="home"] #welcome .portrait-card img {
+    width: 100%;
+    height: auto;
+    max-height: 46vh;
+    aspect-ratio: auto;
+    object-fit: contain;
+  }
+
+  @supports (height: 100dvh) {
+    body[data-page="home"] #welcome .portrait-card img {
+      max-height: 46dvh;
+    }
+  }
+
+  body[data-page="home"] #welcome .hero__age {
+    bottom: -10px;
+    left: -5px;
+    width: 74px;
+    height: 74px;
+  }
+
+  body[data-page="home"] #welcome .hero__age span { font-size: 2rem; }
+  body[data-page="home"] #welcome .hero__age small { font-size: 0.5rem; }
+
+  .hero__copy,
+  .hero__copy h1,
+  .hero__lede,
+  .section-heading,
+  .section-heading h2,
+  .section-heading > p:last-child {
+    min-width: 0;
+    max-width: 100%;
+    overflow-wrap: break-word;
+  }
+
+  .button,
+  .name-choice button,
+  .night-stages button,
+  .dream-options button,
+  .companion-button,
+  .companion-links a,
+  .page-footer a,
+  .back-home {
+    min-height: 46px;
+  }
+
+  .night-stages {
+    overscroll-behavior-inline: contain;
+    scroll-padding-inline: 14px;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .night-slider input[type="range"] {
+    min-height: 46px;
+    margin-block: 0;
+  }
+
+  .night-slider input[type="range"]::-webkit-slider-thumb {
+    width: 30px;
+    height: 30px;
+  }
+
+  .night-slider input[type="range"]::-moz-range-thumb {
+    width: 30px;
+    height: 30px;
+  }
+
+  .companion-nav {
+    top: 0;
+    min-height: calc(62px + var(--safe-top));
+    padding:
+      calc(8px + var(--safe-top))
+      calc(10px + var(--safe-right))
+      8px
+      calc(10px + var(--safe-left));
+    background: rgba(5, 10, 25, 0.97) !important;
+  }
+
+  .companion-brand span {
+    width: 38px;
+    height: 38px;
+  }
+
+  body:is([data-page="poems"], [data-page="wishes"]) .book-hero {
+    grid-template-areas: "cover" "copy";
+    gap: 34px;
+    padding-block: 36px 68px;
+  }
+
+  body:is([data-page="poems"], [data-page="wishes"]) .hero-copy {
+    grid-area: copy;
+  }
+
+  body:is([data-page="poems"], [data-page="wishes"]) .book-cover {
+    grid-area: cover;
+    order: -1;
+    width: min(76vw, 290px);
+    max-width: 100%;
+    padding: 25px;
+    transform: none;
+  }
+
+  body[data-page="wishes"] .book-cover--wishes {
+    width: min(72vw, 280px);
+  }
+
+  body:is([data-page="poems"], [data-page="wishes"]) .hero-copy {
+    padding: 27px 18px 30px;
+  }
+
+  body:is([data-page="poems"], [data-page="wishes"]) .book-hero h1 {
+    font-size: clamp(2.9rem, 15vw, 4.5rem);
+  }
+
+  body[data-page="poems"] .poem-chapter,
+  body[data-page="wishes"] .wishes-stage,
+  body:is([data-page="poems"], [data-page="wishes"]) .page-section {
+    padding-block: 64px;
+  }
+
+  body[data-page="poems"] .poem-sheet {
+    padding: 40px 25px;
+  }
+
+  body[data-page="wishes"] .wishes-toolbar {
+    position: static;
+  }
+
+  .back-to-top {
+    bottom: calc(14px + var(--safe-bottom));
+    left: calc(14px + var(--safe-left));
+    width: 46px;
+    height: 46px;
+  }
+
+  .toast {
+    bottom: calc(88px + var(--safe-bottom));
+    max-width: calc(100% - 24px - var(--safe-left) - var(--safe-right));
+  }
+
+  .ambient-star:nth-child(n + 17),
+  .ambient-love:nth-child(n + 7) {
+    display: none;
+  }
+
+  .ambient-star,
+  .ambient-love {
+    filter: none !important;
+    will-change: auto !important;
+  }
+}
+
+@media (max-width: 430px) {
+  body[data-page="home"] #welcome.hero,
+  body[data-page="home"] main > .section.chapter,
+  body[data-page="home"] main > .gallery-section,
+  body[data-page="home"] .gift-library,
+  body[data-page="home"] .birthday-overture {
+    width: calc(100% - 12px);
+    max-width: calc(100% - 12px - var(--safe-left) - var(--safe-right));
+  }
+
+  body[data-page="home"] main > .section.chapter,
+  body[data-page="home"] main > .gallery-section {
+    padding-inline: 12px;
+  }
+
+  body[data-page="home"] #welcome .hero__visual {
+    width: min(78vw, 280px);
+  }
+
+  @supports (height: 100svh) {
+    body[data-page="home"] #welcome .hero__visual {
+      width: min(78vw, 48svh, 280px);
+    }
+  }
+
+  .reason-group__grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .reason-card {
+    min-height: 192px;
+  }
+
+  .reason-card__front,
+  .reason-card__back {
+    padding: 22px 20px;
+  }
+
+  .reason-card__back p {
+    font-size: 0.88rem;
+    line-height: 1.7;
+  }
+
+  .candles {
+    grid-template-columns: repeat(6, minmax(44px, 1fr));
+    gap: 4px;
+  }
+
+  .candle-light {
+    min-width: 44px;
+    min-height: 48px;
+  }
+
+  .entry-card {
+    padding: 72px 16px 26px;
+    border-radius: 24px 42px 24px 42px;
+  }
+
+  .entry-card h1 {
+    font-size: clamp(2.15rem, 12vw, 3.25rem);
+  }
+
+  .photo-modal {
+    padding: 6px;
+  }
+
+  .letter-paper,
+  .capsule-letter,
+  .closing-letter {
+    overflow-wrap: break-word;
+  }
+}
+
+@media (max-width: 350px) {
+  .brand > span:last-child { display: none; }
+  .name-choice { grid-template-columns: 1fr; }
+  .chapter-nav a { padding-inline: 11px; }
+  .hero__copy h1 { font-size: 2.55rem; }
+  .candles { grid-template-columns: repeat(5, minmax(44px, 1fr)); }
+  .night-sky { height: 260px; }
+  .companion-links a { padding-inline: 6px; font-size: 0.67rem; }
+  body:is([data-page="poems"], [data-page="wishes"]) .book-cover { width: min(75vw, 250px); }
+}
+
+@media (max-width: 720px) and (max-height: 700px) {
+  body[data-page="home"] #welcome .hero__visual {
+    width: min(76vw, 250px);
+  }
+
+  @supports (height: 100dvh) {
+    body[data-page="home"] #welcome .hero__visual {
+      width: min(76vw, 44dvh, 250px);
+    }
+  }
+
+  .entry-card { margin-block: 0; }
+}
+
+@media (orientation: landscape) and (max-width: 900px) and (max-height: 500px) {
+  :root { --topbar-height: calc(56px + var(--safe-top)); }
+
+  body[data-page="home"] #welcome.hero {
+    grid-template-columns: minmax(210px, 0.8fr) minmax(0, 1.2fr);
+    grid-template-areas: "visual copy";
+    align-items: center;
+    gap: 22px;
+    padding-top: calc(var(--topbar-height) + 12px);
+  }
+
+  body[data-page="home"] #welcome .hero__visual {
+    width: min(34vw, 265px);
+    margin: 0;
+  }
+
+  body[data-page="home"] #welcome .hero__copy {
+    align-items: flex-start;
+    text-align: right;
+  }
+
+  body[data-page="home"] #welcome .hero__copy h1 {
+    font-size: clamp(2.15rem, 5.4vw, 3.35rem);
+  }
+
+  body:is([data-page="poems"], [data-page="wishes"]) .book-hero {
+    grid-template-columns: minmax(0, 1fr) minmax(210px, 0.58fr);
+    grid-template-areas: "copy cover";
+    align-items: center;
+    gap: 28px;
+    padding-block: 34px 54px;
+    text-align: right;
+  }
+
+  body:is([data-page="poems"], [data-page="wishes"]) .book-cover {
+    order: 0;
+    width: min(28vw, 240px);
+  }
+
+  body:is([data-page="poems"], [data-page="wishes"]) .hero-actions {
+    justify-content: flex-start;
+  }
+}
+
+@media (hover: none), (pointer: coarse) {
+  .button:hover,
+  .name-choice button:hover,
+  .gallery-card:hover,
+  .dictionary-card:hover,
+  .birthday-wish-card:hover,
+  .comfort-card:hover,
+  .year-promises article:hover,
+  .gift-page-card:hover,
+  .companion-button:hover,
+  .contents a:hover,
+  .wish-card:hover,
+  .acrostic p:hover,
+  .book-cover:hover {
+    transform: none !important;
+  }
+
+  .gallery-card:hover img,
+  .reason-card:hover .reason-card__front b,
+  .letter-seal:hover {
+    transform: none !important;
+  }
+
+  .button:active,
+  .name-choice button:active,
+  .chapter-nav a:active,
+  .companion-button:active,
+  .companion-links a:active {
+    transform: scale(0.98) !important;
+  }
+}
+
+@supports (-webkit-touch-callout: none) {
+  .entry-gate,
+  .chapter-nav,
+  .night-stages {
+    -webkit-overflow-scrolling: touch;
+  }
+
+  @media (max-width: 720px) {
+    .topbar,
+    .chapter-nav,
+    .companion-nav {
+      -webkit-transform: translateZ(0);
+      transform: translateZ(0);
+    }
+  }
+}

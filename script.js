@@ -6,7 +6,7 @@ const $ = (selector, scope = document) => scope.querySelector(selector);
 const $$ = (selector, scope = document) => [...scope.querySelectorAll(selector)];
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 const compactViewport = window.matchMedia("(max-width: 720px)").matches;
-const performanceViewport = window.matchMedia("(max-width: 900px)").matches;
+const performanceViewport = window.matchMedia("(max-width: 1024px), (pointer: coarse)").matches;
 const lowEndHardware = (
   (Number.isFinite(navigator.hardwareConcurrency) && navigator.hardwareConcurrency <= 4) ||
   (Number.isFinite(navigator.deviceMemory) && navigator.deviceMemory <= 4)
@@ -461,10 +461,12 @@ function setupScrollExperience() {
   let ticking = false;
 
   const updateScroll = () => {
-    const total = document.documentElement.scrollHeight - window.innerHeight;
-    const percent = total > 0 ? Math.min(100, Math.max(0, (window.scrollY / total) * 100)) : 0;
+    const scroller = document.scrollingElement || document.documentElement;
+    const total = Math.max(0, scroller.scrollHeight - scroller.clientHeight);
+    const scrollTop = Math.max(0, scroller.scrollTop);
+    const percent = total > 0 ? Math.min(100, (scrollTop / total) * 100) : 0;
     progress.style.setProperty("--progress", `${percent}%`);
-    topbar.classList.toggle("is-scrolled", window.scrollY > 18);
+    topbar.classList.toggle("is-scrolled", scrollTop > 18);
     ticking = false;
   };
 
@@ -501,8 +503,15 @@ function setupScrollExperience() {
       if (!visible) return;
       navLinks.forEach(link => {
         const active = link.getAttribute("href") === `#${visible.target.id}`;
-        if (active) link.setAttribute("aria-current", "true");
-        else link.removeAttribute("aria-current");
+        if (active) {
+          const wasActive = link.hasAttribute("aria-current");
+          link.setAttribute("aria-current", "true");
+          if (!wasActive && compactViewport) {
+            link.scrollIntoView({ behavior: reducedMotion ? "auto" : "smooth", block: "nearest", inline: "center" });
+          }
+        } else {
+          link.removeAttribute("aria-current");
+        }
       });
     }, { threshold: [0.2, 0.45, 0.7], rootMargin: "-25% 0px -45%" });
     sections.forEach(section => chapterObserver.observe(section));
@@ -688,16 +697,24 @@ function setupCinematicSceneTransitions() {
     if (!frame) frame = window.requestAnimationFrame(pickSceneAtViewportFocus);
   };
 
+  let lastSceneViewportWidth = window.innerWidth;
+  const handleSceneResize = () => {
+    const nextWidth = window.innerWidth;
+    if (Math.abs(nextWidth - lastSceneViewportWidth) < 2) return;
+    lastSceneViewportWidth = nextWidth;
+    scheduleScenePick();
+  };
+
   if ("IntersectionObserver" in window) {
     const sceneObserver = new IntersectionObserver(scheduleScenePick, {
       threshold: [0, 0.08, 0.2, 0.4, 0.65],
       rootMargin: "-12% 0px -12%"
     });
     scenes.forEach(section => sceneObserver.observe(section));
-    window.addEventListener("resize", scheduleScenePick, { passive: true });
+    window.addEventListener("resize", handleSceneResize, { passive: true });
   } else {
     window.addEventListener("scroll", scheduleScenePick, { passive: true });
-    window.addEventListener("resize", scheduleScenePick, { passive: true });
+    window.addEventListener("resize", handleSceneResize, { passive: true });
   }
 
   pickSceneAtViewportFocus();
@@ -1369,8 +1386,16 @@ function scheduleDecorativeLayers() {
   if ("requestIdleCallback" in window) {
     window.requestIdleCallback(renderLayers, { timeout: 900 });
   } else {
-    window.setTimeout(renderLayers, 90);
+    window.setTimeout(renderLayers, 280);
   }
+}
+
+function setupMobileKeyboardGuard() {
+  const wishField = $("#birthdayWish");
+  if (!wishField) return;
+
+  wishField.addEventListener("focus", () => document.body.classList.add("mobile-keyboard-open"));
+  wishField.addEventListener("blur", () => document.body.classList.remove("mobile-keyboard-open"));
 }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -1389,6 +1414,7 @@ document.addEventListener("DOMContentLoaded", () => {
   setupCandlesAndWish();
   setupAmbientAudio();
   setupBirthdayOverture();
+  setupMobileKeyboardGuard();
   scheduleDecorativeLayers();
 
   $("#heartBurst").addEventListener("click", event => createHeartBurst(event.currentTarget, 30));

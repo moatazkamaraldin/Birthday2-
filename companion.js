@@ -13,11 +13,13 @@
 
     const update = () => {
       frame = 0;
-      const scrollable = document.documentElement.scrollHeight - window.innerHeight;
-      const amount = scrollable > 0 ? Math.min(1, window.scrollY / scrollable) : 0;
+      const scroller = document.scrollingElement || document.documentElement;
+      const scrollable = Math.max(0, scroller.scrollHeight - scroller.clientHeight);
+      const scrollTop = Math.max(0, scroller.scrollTop);
+      const amount = scrollable > 0 ? Math.min(1, scrollTop / scrollable) : 0;
       if (progress) progress.style.width = `${amount * 100}%`;
-      nav?.classList.toggle("is-scrolled", window.scrollY > 24);
-      topButton?.classList.toggle("is-visible", window.scrollY > window.innerHeight * 0.75);
+      nav?.classList.toggle("is-scrolled", scrollTop > 24);
+      topButton?.classList.toggle("is-visible", scrollTop > window.innerHeight * 0.75);
     };
 
     const scheduleUpdate = () => {
@@ -52,7 +54,7 @@
     const ambient = $("#companionAmbient");
     if (!ambient) return;
 
-    const compact = window.matchMedia("(max-width: 680px)").matches;
+    const compact = window.matchMedia("(max-width: 900px), (pointer: coarse)").matches;
     const randomBetween = (minimum, maximum) => minimum + Math.random() * (maximum - minimum);
     const edgePosition = () => {
       const edge = Math.random() < 0.5;
@@ -64,7 +66,7 @@
     starField.className = "ambient-starfield";
     fallingLayer.className = "ambient-fall";
 
-    const starCount = compact ? 24 : 36;
+    const starCount = compact ? 16 : 36;
     for (let index = 0; index < starCount; index += 1) {
       const star = document.createElement("i");
       const starSize = randomBetween(compact ? 2 : 2.4, compact ? 4.8 : 6);
@@ -91,7 +93,7 @@
       ["petal", ""],
       ["star", "\u2727"]
     ];
-    const fallingCount = reduceMotion ? (compact ? 4 : 6) : (compact ? 10 : 16);
+    const fallingCount = reduceMotion ? (compact ? 3 : 6) : (compact ? 6 : 16);
     for (let index = 0; index < fallingCount; index += 1) {
       const piece = document.createElement("span");
       const [type, symbol] = movingTypes[index % movingTypes.length];
@@ -203,7 +205,7 @@
     if ("requestIdleCallback" in window) {
       window.requestIdleCallback(setupAmbient, { timeout: 700 });
     } else {
-      window.setTimeout(setupAmbient, 70);
+      window.setTimeout(setupAmbient, 260);
     }
   });
 }());
