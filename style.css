@@ -196,42 +196,161 @@ button {
 .ambient__stars {
   position: absolute;
   inset: 0;
+  overflow: hidden;
+  opacity: 0.96;
+  transform: translateZ(0);
+}
+
+.ambient__stars::before,
+.ambient__stars::after {
+  position: absolute;
+  inset: -8%;
+  background-image:
+    radial-gradient(circle, rgba(255, 245, 218, 0.72) 0 0.7px, transparent 1.35px),
+    radial-gradient(circle, rgba(255, 141, 162, 0.48) 0 0.65px, transparent 1.25px),
+    radial-gradient(circle, rgba(216, 190, 255, 0.42) 0 0.55px, transparent 1.15px);
+  background-position: 17px 31px, 83px 11px, 47px 79px;
+  background-size: 137px 149px, 191px 173px, 223px 211px;
+  content: "";
+  opacity: 0.44;
+  animation: star-field-breathe 10s ease-in-out infinite alternate;
+}
+
+.ambient__stars::after {
+  inset: -14%;
+  opacity: 0.25;
+  transform: scale(1.12) rotate(7deg);
+  animation-delay: -5s;
+  animation-duration: 15s;
+}
+
+@keyframes star-field-breathe {
+  from { opacity: 0.22; transform: scale(1) rotate(0.01deg); }
+  to { opacity: 0.5; transform: scale(1.035) rotate(0.8deg); }
 }
 
 .ambient__love-fall {
   position: absolute;
   inset: -16vh 0 0;
   overflow: hidden;
+  perspective: 900px;
+  transform: translateZ(0);
 }
 
 .falling-love {
+  --love-depth: 1;
+  --love-blur: 0px;
+  --love-glow: rgba(255, 87, 119, 0.46);
   position: absolute;
   top: -12vh;
   left: var(--x);
   color: rgba(255, 87, 119, var(--alpha));
   font-family: Georgia, serif;
   font-size: var(--size);
+  font-style: normal;
+  font-weight: 700;
   line-height: 1;
-  text-shadow: 0 0 16px rgba(255, 87, 119, 0.25);
+  text-shadow:
+    0 0 3px rgba(255, 248, 242, 0.34),
+    0 0 10px var(--love-glow),
+    0 0 22px rgba(255, 87, 119, 0.2);
+  filter: blur(var(--love-blur)) drop-shadow(0 3px 4px rgba(25, 1, 10, 0.18));
+  scale: var(--love-depth);
+  transform-origin: 50% 42%;
   will-change: transform;
   animation: love-fall var(--duration) linear infinite;
   animation-delay: var(--delay);
 }
 
-.falling-love--rose { color: rgba(255, 141, 162, var(--alpha)); filter: drop-shadow(0 0 7px rgba(165, 15, 53, 0.28)); }
+.falling-love:nth-child(3n) { --love-depth: 0.78; --love-blur: 0.28px; }
+.falling-love:nth-child(4n + 1) { --love-depth: 1.16; }
+.falling-love:nth-child(7n + 2) { --love-glow: rgba(255, 199, 101, 0.55); }
+.falling-love.falling-love--depth-0 { --love-depth: 0.76; --love-blur: 0.28px; }
+.falling-love.falling-love--depth-1 { --love-depth: 0.98; --love-blur: 0px; }
+.falling-love.falling-love--depth-2 { --love-depth: 1.18; --love-blur: 0px; }
+
+.falling-love--heart {
+  color: rgba(255, 91, 125, var(--alpha));
+  -webkit-text-stroke: 0.25px rgba(255, 229, 233, 0.3);
+}
+
+.falling-love--heart:nth-child(8n + 1) {
+  color: rgba(255, 188, 111, var(--alpha));
+  text-shadow: 0 0 4px rgba(255, 252, 226, 0.42), 0 0 13px rgba(255, 199, 101, 0.5), 0 0 25px rgba(255, 92, 126, 0.17);
+}
+
+.falling-love--star {
+  color: var(--fall-color, #ffd071);
+  font-size: calc(var(--size) * 0.9);
+  -webkit-text-stroke: 0.2px rgba(255, 255, 255, 0.36);
+  text-shadow: 0 0 4px rgba(255, 255, 244, 0.64), 0 0 12px var(--fall-glow, rgba(255, 199, 101, 0.62)), 0 0 26px var(--fall-glow, rgba(255, 87, 119, 0.24));
+}
+
+.falling-love--star::before {
+  position: absolute;
+  inset: -0.42em;
+  z-index: -1;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 242, 194, 0.25), transparent 66%);
+  content: "";
+}
+
+.falling-love--rose {
+  --love-glow: rgba(255, 84, 127, 0.56);
+  color: rgba(255, 141, 162, var(--alpha));
+  text-shadow: 0 0 3px rgba(255, 245, 229, 0.42), 0 0 12px var(--love-glow), 0 0 24px rgba(147, 21, 62, 0.28);
+}
+
+.falling-love--rose::after {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: rgba(255, 211, 126, 0.84);
+  content: "\2022";
+  font-size: 0.46em;
+  text-shadow: 0 0 6px rgba(255, 221, 148, 0.75);
+}
+
 .falling-love--petal {
   width: calc(var(--size) * 0.7);
   height: var(--size);
+  border: 1px solid rgba(255, 232, 235, 0.16);
   border-radius: 80% 12% 72% 20%;
-  background: linear-gradient(145deg, rgba(255, 190, 202, var(--alpha)), rgba(242, 59, 97, var(--alpha)));
-  box-shadow: inset 2px 1px rgba(255, 255, 255, 0.18), 0 0 12px rgba(242, 59, 97, 0.14);
+  background:
+    radial-gradient(circle at 28% 22%, rgba(255, 246, 240, 0.48), transparent 25%),
+    linear-gradient(145deg, rgba(255, 191, 206, var(--alpha)), rgba(243, 74, 111, var(--alpha)) 66%, rgba(141, 21, 62, var(--alpha)));
+  box-shadow:
+    inset 2px 1px rgba(255, 255, 255, 0.28),
+    inset -2px -2px rgba(126, 11, 48, 0.12),
+    0 0 13px rgba(242, 59, 97, 0.25);
+}
+
+.falling-love--petal::before {
+  position: absolute;
+  top: 15%;
+  left: 47%;
+  width: 1px;
+  height: 68%;
+  border-radius: 50%;
+  background: linear-gradient(transparent, rgba(130, 20, 54, 0.34), transparent);
+  content: "";
+  transform: rotate(19deg);
+}
+
+.falling-love--petal:nth-child(6n + 2) {
+  background:
+    radial-gradient(circle at 28% 22%, rgba(255, 252, 232, 0.5), transparent 25%),
+    linear-gradient(145deg, rgba(255, 223, 169, var(--alpha)), rgba(251, 121, 118, var(--alpha)) 68%, rgba(167, 47, 83, var(--alpha)));
 }
 
 @keyframes love-fall {
-  0% { opacity: 0; transform: translate3d(0, -8vh, 0) rotate(0deg) scale(0.8); }
-  10% { opacity: 1; }
-  48% { transform: translate3d(var(--sway), 54vh, 0) rotate(190deg) scale(1); }
-  100% { opacity: 0; transform: translate3d(var(--drift), 126vh, 0) rotate(var(--spin)) scale(0.84); }
+  0% { opacity: 0; transform: translate3d(0, -8vh, 0) rotate3d(0.2, 0.7, 1, 0deg); }
+  9% { opacity: clamp(0.24, calc(var(--alpha) * 1.55), 0.72); }
+  30% { transform: translate3d(var(--sway), 34vh, 24px) rotate3d(0.35, 0.7, 1, 132deg); }
+  56% { opacity: clamp(0.2, calc(var(--alpha) * 1.42), 0.66); transform: translate3d(calc(var(--sway) * -0.35), 69vh, -18px) rotate3d(0.6, 0.2, 1, 278deg); }
+  80% { transform: translate3d(calc(var(--drift) * 0.58), 101vh, 12px) rotate3d(0.2, 0.8, 1, 418deg); }
+  100% { opacity: 0; transform: translate3d(var(--drift), 130vh, 0) rotate3d(0.3, 0.7, 1, var(--spin)); }
 }
 
 .heart-bursts {
@@ -249,15 +368,55 @@ button {
   width: var(--size);
   height: var(--size);
   border-radius: 50%;
-  background: var(--amber-light);
-  box-shadow: 0 0 10px rgba(244, 215, 162, 0.5);
+  background: #fff4ca;
+  box-shadow: 0 0 3px rgba(255, 255, 244, 0.9), 0 0 10px rgba(244, 215, 162, 0.72), 0 0 20px rgba(255, 141, 162, 0.18);
   opacity: var(--opacity);
-  animation: star-twinkle var(--duration) ease-in-out infinite alternate;
+  will-change: opacity, transform;
+  animation: star-twinkle var(--duration) ease-in-out infinite;
   animation-delay: var(--delay);
 }
 
+.ambient__stars i:nth-child(7n) {
+  background: #ffc2d0;
+  box-shadow: 0 0 3px rgba(255, 244, 248, 0.92), 0 0 12px rgba(255, 87, 119, 0.78), 0 0 24px rgba(255, 87, 119, 0.28);
+}
+
+.ambient__stars i:nth-child(11n) {
+  background: #dec9ff;
+  box-shadow: 0 0 3px rgba(255, 255, 255, 0.94), 0 0 12px rgba(190, 145, 255, 0.76), 0 0 24px rgba(112, 69, 177, 0.25);
+}
+
+.ambient__stars .ambient-star--depth-0 { filter: blur(0.28px); }
+.ambient__stars .ambient-star--depth-1 { filter: brightness(0.96); }
+.ambient__stars .ambient-star--depth-2 { filter: brightness(1.08); }
+.ambient__stars .ambient-star--depth-3 { filter: brightness(1.2); }
+
+.ambient__stars .ambient-star--sparkle {
+  font-weight: 700;
+  -webkit-text-stroke: 0.2px rgba(255,255,255,0.42);
+  transform-origin: center;
+}
+
+.ambient__stars i:nth-child(5n)::before,
+.ambient__stars i:nth-child(5n)::after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, transparent, currentColor 46%, #fff 50%, currentColor 54%, transparent);
+  color: rgba(255, 238, 197, 0.62);
+  content: "";
+  opacity: 0.72;
+  transform: translate(-50%, -50%);
+}
+
+.ambient__stars i:nth-child(5n)::before { width: calc(var(--size) * 5.2); height: 1px; }
+.ambient__stars i:nth-child(5n)::after { width: 1px; height: calc(var(--size) * 5.2); background: linear-gradient(transparent, currentColor 46%, #fff 50%, currentColor 54%, transparent); }
+
 @keyframes star-twinkle {
-  to { opacity: 0.12; transform: scale(0.55); }
+  0%, 100% { opacity: calc(var(--opacity) * 0.52); transform: scale(0.68) rotate(0deg); }
+  46% { opacity: var(--opacity); transform: scale(1.42) rotate(13deg); }
+  62% { opacity: calc(var(--opacity) * 0.72); transform: scale(0.92) rotate(18deg); }
 }
 
 .burst-heart {
@@ -1370,13 +1529,30 @@ main {
   height: var(--star-size);
   border-radius: 50%;
   background: #fff9e9;
-  box-shadow: 0 0 7px rgba(255,245,218,0.78);
+  box-shadow: 0 0 3px rgba(255,255,255,0.95), 0 0 9px rgba(255,245,218,0.88), 0 0 18px rgba(255, 187, 203, 0.24);
   animation: night-star-twinkle var(--star-speed) ease-in-out var(--star-delay) infinite alternate;
 }
 
+.night-sky__stars i:nth-child(4n)::before,
+.night-sky__stars i:nth-child(4n)::after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, transparent, rgba(255, 245, 218, 0.88), transparent);
+  content: "";
+  transform: translate(-50%, -50%);
+}
+
+.night-sky__stars i:nth-child(4n)::before { width: calc(var(--star-size) * 5.5); height: 1px; }
+.night-sky__stars i:nth-child(4n)::after { width: 1px; height: calc(var(--star-size) * 5.5); background: linear-gradient(transparent, rgba(255, 245, 218, 0.88), transparent); }
+.night-sky__stars i:nth-child(7n) { background: #ffc2d3; box-shadow: 0 0 3px #fff, 0 0 10px rgba(255, 112, 151, 0.92), 0 0 20px rgba(255, 87, 119, 0.34); }
+.night-sky__stars i:nth-child(9n) { background: #d9c8ff; box-shadow: 0 0 3px #fff, 0 0 10px rgba(186, 145, 255, 0.9), 0 0 20px rgba(112, 69, 177, 0.3); }
+
 @keyframes night-star-twinkle {
-  50% { opacity: 0.28; transform: scale(0.65); }
-  to { opacity: 0.92; transform: scale(1.35); }
+  0% { opacity: 0.34; transform: scale(0.62) rotate(0deg); }
+  52% { opacity: 0.72; transform: scale(1.08) rotate(12deg); }
+  to { opacity: 1; transform: scale(1.52) rotate(24deg); }
 }
 
 .night-sky__shooting-star {
@@ -1384,19 +1560,50 @@ main {
   z-index: 2;
   top: 17%;
   left: 14%;
-  width: 90px;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.9));
-  filter: drop-shadow(0 0 5px #fff);
+  width: clamp(96px, 13vw, 160px);
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, transparent, rgba(255, 129, 164, 0.18) 26%, rgba(255, 226, 184, 0.72) 72%, #fff 100%);
+  box-shadow: 0 0 6px rgba(255,255,255,0.82), 0 0 16px rgba(255, 141, 162, 0.34);
+  filter: drop-shadow(0 0 5px rgba(255,255,255,0.9));
   opacity: var(--star-opacity);
+  transform-origin: 100% 50%;
   transform: rotate(-24deg) translateX(-180px);
   animation: night-shooting-star 6.8s ease-in 1.8s infinite;
 }
 
+.night-sky__shooting-star::before {
+  position: absolute;
+  top: 50%;
+  right: -2px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #fffdf2;
+  box-shadow: 0 0 5px #fff, 0 0 13px rgba(255, 224, 172, 0.95), 0 0 25px rgba(255, 108, 149, 0.62);
+  content: "";
+  transform: translateY(-50%);
+}
+
+.night-sky__shooting-star::after {
+  position: absolute;
+  top: -5px;
+  right: 8px;
+  width: 48%;
+  height: 1px;
+  border-radius: inherit;
+  background: linear-gradient(90deg, transparent, rgba(218, 190, 255, 0.72));
+  content: "";
+  opacity: 0.66;
+  transform: rotate(2.5deg);
+  transform-origin: right center;
+}
+
 @keyframes night-shooting-star {
-  0%, 66% { opacity: 0; transform: rotate(-24deg) translateX(-180px); }
-  69% { opacity: var(--star-opacity); }
-  78%, 100% { opacity: 0; transform: rotate(-24deg) translateX(620px); }
+  0%, 64% { opacity: 0; transform: rotate(-24deg) translateX(-190px) scaleX(0.68); }
+  68% { opacity: var(--star-opacity); transform: rotate(-24deg) translateX(-80px) scaleX(1); }
+  76% { opacity: var(--star-opacity); }
+  82%, 100% { opacity: 0; transform: rotate(-24deg) translateX(650px) scaleX(0.86); }
 }
 
 .night-sky__moon {
@@ -3179,7 +3386,7 @@ main {
   to { translate: 18px -9px; }
 }
 
-/* A quiet shower of love inside every chapter. */
+/* A luminous, gentle shower of love inside every chapter. */
 .section-love-rain {
   position: absolute;
   z-index: 0;
@@ -3187,9 +3394,11 @@ main {
   overflow: hidden;
   border-radius: inherit;
   pointer-events: none;
+  transform: translateZ(0);
 }
 
 .section-love-rain i {
+  --section-depth: 1;
   position: absolute;
   top: -12%;
   left: var(--section-love-x);
@@ -3197,18 +3406,66 @@ main {
   font-family: Georgia, "Times New Roman", serif;
   font-size: var(--section-love-size);
   font-style: normal;
+  font-weight: 700;
   line-height: 1;
   opacity: 0;
-  filter: drop-shadow(0 0 9px currentColor);
+  text-shadow: 0 0 3px rgba(255, 250, 236, 0.62), 0 0 10px currentColor, 0 0 21px currentColor;
+  filter: drop-shadow(0 3px 3px rgba(23, 1, 11, 0.18));
+  scale: var(--section-depth);
+  transform-origin: center;
   will-change: transform;
   animation: section-love-fall var(--section-love-duration) linear var(--section-love-delay) infinite;
 }
 
+.section-love-rain i:nth-child(2n) { --section-depth: 0.8; }
+.section-love-rain i:nth-child(3n) { --section-depth: 1.18; }
+.section-love-rain .section-love-rain__piece--depth-0 { --section-depth: 0.76; }
+.section-love-rain .section-love-rain__piece--depth-1 { --section-depth: 0.98; }
+.section-love-rain .section-love-rain__piece--depth-2 { --section-depth: 1.2; }
+
+.section-love-rain__piece--heart {
+  -webkit-text-stroke: 0.25px rgba(255, 245, 247, 0.42);
+}
+
+.section-love-rain__piece--flower {
+  color: var(--section-love-color, #ff9caf);
+  text-shadow: 0 0 3px rgba(255, 249, 232, 0.55), 0 0 11px currentColor, 0 0 23px currentColor;
+}
+
+.section-love-rain__piece--star {
+  color: var(--section-love-color, #ffc765);
+  -webkit-text-stroke: 0.2px rgba(255, 255, 246, 0.5);
+  text-shadow: 0 0 4px rgba(255, 255, 240, 0.72), 0 0 12px currentColor, 0 0 25px currentColor;
+}
+
+.section-love-rain i::before {
+  position: absolute;
+  inset: -0.35em;
+  z-index: -1;
+  border-radius: 50%;
+  background: radial-gradient(circle, color-mix(in srgb, currentColor 24%, transparent), transparent 68%);
+  content: "";
+  opacity: 0.64;
+}
+
+.section-love-rain i:nth-child(3n)::after {
+  position: absolute;
+  top: -0.7em;
+  right: -0.72em;
+  color: #ffe4a3;
+  content: "\2726";
+  font-size: 0.55em;
+  text-shadow: 0 0 4px #fff8d8, 0 0 11px rgba(255, 199, 101, 0.82);
+  transform: rotate(-16deg);
+}
+
 @keyframes section-love-fall {
-  0% { opacity: 0; transform: translate3d(0, -12%, 0) rotate(0deg); }
-  12% { opacity: 0.2; }
-  82% { opacity: 0.13; }
-  100% { opacity: 0; transform: translate3d(var(--section-love-drift), 118vh, 0) rotate(430deg); }
+  0% { opacity: 0; transform: translate3d(0, -14vh, 0) rotate3d(0.2, 0.6, 1, 0deg); }
+  9% { opacity: clamp(0.26, calc(var(--section-love-alpha, 0.24) * 1.35), 0.46); }
+  32% { transform: translate3d(calc(var(--section-love-drift) * -0.38), 35vh, 12px) rotate3d(0.5, 0.3, 1, 138deg); }
+  58% { opacity: clamp(0.22, calc(var(--section-love-alpha, 0.22) * 1.18), 0.4); transform: translate3d(calc(var(--section-love-drift) * 0.42), 70vh, -10px) rotate3d(0.2, 0.8, 1, 284deg); }
+  83% { opacity: clamp(0.18, var(--section-love-alpha, 0.2), 0.34); transform: translate3d(calc(var(--section-love-drift) * -0.18), 101vh, 6px) rotate3d(0.6, 0.2, 1, 398deg); }
+  100% { opacity: 0; transform: translate3d(var(--section-love-drift), 128vh, 0) rotate3d(0.3, 0.7, 1, 520deg); }
 }
 
 /* Two highlighted vows before the complete poetry book. */
@@ -3396,6 +3653,11 @@ main {
 
 /* Mobile bottom chapter rail */
 @media (max-width: 720px) {
+  .ambient__stars::after { display: none; }
+  .ambient__stars::before { opacity: 0.3; animation-duration: 14s; }
+  .falling-love { text-shadow: 0 0 3px rgba(255, 248, 242, 0.3), 0 0 9px var(--love-glow); }
+  .section-love-rain i { text-shadow: 0 0 3px rgba(255, 250, 236, 0.48), 0 0 9px currentColor, 0 0 16px currentColor; }
+  .night-sky__shooting-star { width: 102px; }
   body { padding-bottom: calc(72px + env(safe-area-inset-bottom)); }
   .topbar { grid-template-columns: 1fr auto; padding: 8px 14px; }
   .chapter-nav {

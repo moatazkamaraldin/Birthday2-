@@ -169,15 +169,53 @@ function applyBelovedName(name) {
 function createAmbientStars() {
   if (reducedMotion) return;
   const container = $("#ambientStars");
+  if (!container) return;
+
+  container.setAttribute("aria-hidden", "true");
   const fragment = document.createDocumentFragment();
-  for (let index = 0; index < 58; index += 1) {
+  const isCompact = window.matchMedia("(max-width: 720px)").matches;
+  const starCount = isCompact ? 54 : 86;
+  const starColors = ["#fff7df", "#ffd99a", "#ffb7c7", "#f3c7ff", "#ffffff"];
+  const sparkleSymbols = ["\u2726", "\u2727", "\u22c6"];
+
+  for (let index = 0; index < starCount; index += 1) {
     const star = document.createElement("i");
+    const depth = index % 4;
+    const isSparkle = index % 9 === 0 || index % 13 === 0;
+    const color = starColors[(index * 3 + depth) % starColors.length];
+    const size = isSparkle
+      ? (isCompact ? 6 : 7) + Math.random() * (isCompact ? 5 : 7)
+      : 1.35 + depth * 0.42 + Math.random() * 2.15;
+    const opacity = 0.27 + depth * 0.075 + Math.random() * 0.3;
+
+    star.className = `ambient-star ambient-star--depth-${depth}${isSparkle ? " ambient-star--sparkle" : ""}`;
     star.style.setProperty("--x", `${Math.random() * 100}%`);
     star.style.setProperty("--y", `${Math.random() * 100}%`);
-    star.style.setProperty("--size", `${1 + Math.random() * 2.4}px`);
-    star.style.setProperty("--opacity", `${0.15 + Math.random() * 0.48}`);
-    star.style.setProperty("--duration", `${2.5 + Math.random() * 4.5}s`);
-    star.style.setProperty("--delay", `${-Math.random() * 5}s`);
+    star.style.setProperty("--size", `${size.toFixed(2)}px`);
+    star.style.setProperty("--opacity", opacity.toFixed(2));
+    star.style.setProperty("--duration", `${2.2 + Math.random() * 5.1}s`);
+    star.style.setProperty("--delay", `${-Math.random() * 7}s`);
+    star.style.setProperty("--star-color", color);
+    star.style.setProperty("--star-depth", `${depth}`);
+    star.style.zIndex = `${depth}`;
+
+    if (isSparkle) {
+      star.textContent = sparkleSymbols[index % sparkleSymbols.length];
+      star.style.width = "auto";
+      star.style.height = "auto";
+      star.style.borderRadius = "0";
+      star.style.background = "transparent";
+      star.style.color = color;
+      star.style.fontFamily = "Georgia, 'Times New Roman', serif";
+      star.style.fontSize = `${size.toFixed(2)}px`;
+      star.style.fontStyle = "normal";
+      star.style.lineHeight = "1";
+      star.style.textShadow = `0 0 ${8 + depth * 3}px ${color}, 0 0 ${18 + depth * 4}px rgba(255, 199, 101, 0.32)`;
+    } else {
+      star.style.background = color;
+      star.style.boxShadow = `0 0 ${5 + depth * 2}px ${color}, 0 0 ${12 + depth * 4}px rgba(255, 199, 101, ${0.12 + depth * 0.04})`;
+    }
+
     fragment.appendChild(star);
   }
   container.appendChild(fragment);
@@ -186,23 +224,51 @@ function createAmbientStars() {
 function createFallingLove() {
   const container = $("#loveFall");
   if (!container || reducedMotion) return;
-  const fragment = document.createDocumentFragment();
-  const types = ["heart", "petal", "petal", "rose"];
 
-  for (let index = 0; index < 24; index += 1) {
+  container.setAttribute("aria-hidden", "true");
+  const fragment = document.createDocumentFragment();
+  const isCompact = window.matchMedia("(max-width: 720px)").matches;
+  const pieceCount = isCompact ? 30 : 44;
+  const types = ["heart", "petal", "star", "heart", "rose", "petal", "heart", "star"];
+  const hearts = ["\u2665", "\u2661", "\u2764"];
+  const flowers = ["\u273f", "\u2740", "\u2698", "\ud83c\udf39"];
+  const stars = ["\u2726", "\u2727", "\u22c6"];
+  const palettes = [
+    { color: "#ff6f91", glow: "rgba(255, 74, 119, 0.5)" },
+    { color: "#ffb3c5", glow: "rgba(255, 141, 162, 0.44)" },
+    { color: "#ffd071", glow: "rgba(255, 199, 101, 0.46)" },
+    { color: "#e8a7ff", glow: "rgba(217, 108, 255, 0.4)" },
+    { color: "#fff0f3", glow: "rgba(255, 240, 243, 0.38)" }
+  ];
+
+  for (let index = 0; index < pieceCount; index += 1) {
     const piece = document.createElement("span");
     const type = types[index % types.length];
-    piece.className = `falling-love falling-love--${type}`;
-    if (type === "heart") piece.textContent = index % 3 === 0 ? "♥" : "♡";
-    if (type === "rose") piece.textContent = "✿";
+    const depth = index % 3;
+    const palette = palettes[(index * 2 + depth) % palettes.length];
+    const baseSize = [9, 13, 17][depth];
+    const durationBase = [25, 20, 15][depth];
+
+    piece.className = `falling-love falling-love--${type} falling-love--depth-${depth}`;
+    if (type === "heart") piece.textContent = hearts[(index + depth) % hearts.length];
+    if (type === "rose") piece.textContent = flowers[index % flowers.length];
+    if (type === "star") piece.textContent = stars[index % stars.length];
     piece.style.setProperty("--x", `${Math.random() * 100}%`);
-    piece.style.setProperty("--size", `${9 + Math.random() * 15}px`);
-    piece.style.setProperty("--alpha", `${0.16 + Math.random() * 0.32}`);
-    piece.style.setProperty("--duration", `${15 + Math.random() * 17}s`);
-    piece.style.setProperty("--delay", `${-Math.random() * 28}s`);
-    piece.style.setProperty("--sway", `${(Math.random() - 0.5) * 100}px`);
-    piece.style.setProperty("--drift", `${(Math.random() - 0.5) * 220}px`);
-    piece.style.setProperty("--spin", `${260 + Math.random() * 520}deg`);
+    piece.style.setProperty("--size", `${baseSize + Math.random() * (8 + depth * 3)}px`);
+    piece.style.setProperty("--alpha", `${0.3 + depth * 0.09 + Math.random() * 0.22}`);
+    piece.style.setProperty("--duration", `${durationBase + Math.random() * 11}s`);
+    piece.style.setProperty("--delay", `${-Math.random() * 34}s`);
+    piece.style.setProperty("--sway", `${(Math.random() - 0.5) * (95 + depth * 38)}px`);
+    piece.style.setProperty("--drift", `${(Math.random() - 0.5) * (190 + depth * 70)}px`);
+    piece.style.setProperty("--spin", `${300 + Math.random() * 660}deg`);
+    piece.style.setProperty("--fall-color", palette.color);
+    piece.style.setProperty("--fall-glow", palette.glow);
+    piece.style.setProperty("--fall-depth", `${depth}`);
+    piece.style.setProperty("--love-glow", palette.glow);
+    piece.style.setProperty("--love-depth", `${[0.78, 1, 1.18][depth]}`);
+    piece.style.setProperty("--love-blur", depth === 0 ? "0.28px" : "0px");
+    piece.style.zIndex = `${depth}`;
+
     fragment.appendChild(piece);
   }
 
@@ -212,24 +278,45 @@ function createFallingLove() {
 function createSectionLoveRain() {
   if (reducedMotion) return;
   const sections = $$("main > section, main > aside");
-  const symbols = ["♡", "♥", "❀", "♡"];
-  const colors = ["#ff8da2", "#ffc765", "#d96cff", "#ff5777"];
+  const isCompact = window.matchMedia("(max-width: 720px)").matches;
+  const pieceCount = isCompact ? 5 : 8;
+  const motifs = [
+    { symbol: "\u2661", type: "heart" },
+    { symbol: "\u2665", type: "heart" },
+    { symbol: "\u2740", type: "flower" },
+    { symbol: "\u2726", type: "star" },
+    { symbol: "\u273f", type: "flower" },
+    { symbol: "\u2764", type: "heart" },
+    { symbol: "\u2727", type: "star" },
+    { symbol: "\u2698", type: "flower" }
+  ];
+  const colors = ["#ff7291", "#ffc765", "#e79cff", "#ff9caf", "#fff0d1", "#ff4f78"];
 
   sections.forEach((section, sectionIndex) => {
     const layer = document.createElement("div");
     layer.className = "section-love-rain";
     layer.setAttribute("aria-hidden", "true");
 
-    for (let index = 0; index < 5; index += 1) {
+    for (let index = 0; index < pieceCount; index += 1) {
       const piece = document.createElement("i");
-      const seed = sectionIndex * 17 + index * 29;
-      piece.textContent = symbols[(sectionIndex + index) % symbols.length];
-      piece.style.setProperty("--section-love-x", `${6 + (seed * 37) % 89}%`);
-      piece.style.setProperty("--section-love-size", `${11 + (seed % 13)}px`);
-      piece.style.setProperty("--section-love-delay", `${-(seed % 21)}s`);
-      piece.style.setProperty("--section-love-duration", `${16 + (seed % 14)}s`);
-      piece.style.setProperty("--section-love-drift", `${-70 + (seed * 11) % 140}px`);
-      piece.style.setProperty("--section-love-color", colors[(sectionIndex + index) % colors.length]);
+      const seed = sectionIndex * 31 + index * 47 + 11;
+      const motif = motifs[(sectionIndex * 2 + index) % motifs.length];
+      const depth = (sectionIndex + index) % 3;
+      const color = colors[(sectionIndex + index * 2) % colors.length];
+
+      piece.className = `section-love-rain__piece section-love-rain__piece--${motif.type} section-love-rain__piece--depth-${depth}`;
+      piece.textContent = motif.symbol;
+      piece.style.setProperty("--section-love-x", `${4 + (seed * 37) % 92}%`);
+      piece.style.setProperty("--section-love-size", `${14 + depth * 4 + (seed % 9)}px`);
+      piece.style.setProperty("--section-love-delay", `${-(seed % 27)}s`);
+      piece.style.setProperty("--section-love-duration", `${17 + (2 - depth) * 4 + (seed % 11)}s`);
+      piece.style.setProperty("--section-love-drift", `${-95 + (seed * 13) % 190}px`);
+      piece.style.setProperty("--section-love-color", color);
+      piece.style.setProperty("--section-love-alpha", `${0.2 + depth * 0.07}`);
+      piece.style.setProperty("--section-love-depth", `${depth}`);
+      piece.style.setProperty("--section-depth", `${[0.8, 1, 1.18][depth]}`);
+      piece.style.zIndex = `${depth}`;
+      piece.style.fontWeight = motif.type === "heart" ? "700" : "600";
       layer.appendChild(piece);
     }
 

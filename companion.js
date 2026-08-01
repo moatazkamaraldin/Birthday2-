@@ -44,36 +44,78 @@
 
   function setupAmbient() {
     const ambient = $("#companionAmbient");
-    if (!ambient || reduceMotion) return;
+    if (!ambient) return;
+
+    const compact = window.matchMedia("(max-width: 680px)").matches;
+    const randomBetween = (minimum, maximum) => minimum + Math.random() * (maximum - minimum);
+    const edgePosition = () => {
+      const edge = Math.random() < 0.5;
+      return edge ? randomBetween(2, compact ? 28 : 31) : randomBetween(compact ? 72 : 69, 98);
+    };
     const fragment = document.createDocumentFragment();
-    for (let index = 0; index < 32; index += 1) {
+    const starField = document.createElement("div");
+    const fallingLayer = document.createElement("div");
+    starField.className = "ambient-starfield";
+    fallingLayer.className = "ambient-fall";
+
+    const starCount = compact ? 34 : 54;
+    for (let index = 0; index < starCount; index += 1) {
       const star = document.createElement("i");
-      star.className = "ambient-star";
+      const starSize = randomBetween(compact ? 2 : 2.4, compact ? 4.8 : 6);
+      star.className = `ambient-star ambient-star--${index % 5 === 0 ? "rose" : index % 3 === 0 ? "ivory" : "gold"}`;
       star.style.setProperty("--x", `${Math.random() * 100}%`);
       star.style.setProperty("--y", `${Math.random() * 100}%`);
-      star.style.setProperty("--size", `${1 + Math.random() * 2}px`);
-      star.style.setProperty("--opacity", `${0.2 + Math.random() * 0.55}`);
-      star.style.setProperty("--duration", `${2.5 + Math.random() * 4}s`);
-      star.style.setProperty("--delay", `${-Math.random() * 5}s`);
-      fragment.append(star);
+      star.style.setProperty("--size", `${starSize.toFixed(1)}px`);
+      star.style.setProperty("--star-glow", `${(starSize * 2.7).toFixed(1)}px`);
+      star.style.setProperty("--star-ray", `${(starSize * 3.5).toFixed(1)}px`);
+      star.style.setProperty("--opacity", `${randomBetween(0.38, 0.9).toFixed(2)}`);
+      star.style.setProperty("--duration", `${randomBetween(2.6, 6.8).toFixed(1)}s`);
+      star.style.setProperty("--delay", `${-randomBetween(0, 7).toFixed(1)}s`);
+      star.style.setProperty("--star-drift", `${randomBetween(-12, 12).toFixed(0)}px`);
+      starField.append(star);
     }
-    for (let index = 0; index < 18; index += 1) {
+
+    const movingTypes = [
+      ["heart", "\u2665"],
+      ["petal", ""],
+      ["sparkle", "\u2726"],
+      ["heart-outline", "\u2661"],
+      ["rose", "\u273F"],
+      ["rosebud", "\uD83C\uDF39"],
+      ["petal", ""],
+      ["star", "\u2727"]
+    ];
+    const fallingCount = reduceMotion ? (compact ? 7 : 10) : (compact ? 20 : 30);
+    for (let index = 0; index < fallingCount; index += 1) {
       const piece = document.createElement("span");
-      const type = index % 5 === 0 ? "rose" : index % 2 === 0 ? "petal" : "heart";
-      piece.className = `ambient-love ambient-love--${type}`;
-      if (type === "heart") piece.textContent = index % 3 ? "♡" : "♥";
-      if (type === "rose") piece.textContent = "✿";
-      piece.style.setProperty("--x", `${Math.random() * 100}%`);
-      piece.style.setProperty("--size", `${9 + Math.random() * 14}px`);
-      piece.style.setProperty("--alpha", `${0.16 + Math.random() * 0.3}`);
-      piece.style.setProperty("--duration", `${16 + Math.random() * 16}s`);
-      piece.style.setProperty("--delay", `${-Math.random() * 27}s`);
-      piece.style.setProperty("--sway", `${(Math.random() - 0.5) * 90}px`);
-      piece.style.setProperty("--drift", `${(Math.random() - 0.5) * 190}px`);
-      piece.style.setProperty("--spin", `${280 + Math.random() * 480}deg`);
-      fragment.append(piece);
+      const [type, symbol] = movingTypes[index % movingTypes.length];
+      const inQuietCenter = !reduceMotion && index % 7 === 0;
+      const pieceSize = randomBetween(compact ? 14 : 17, compact ? 26 : 36);
+      const sway = randomBetween(-80, 80);
+      piece.className = `ambient-love ambient-love--${type}${reduceMotion ? " ambient-love--static" : ""}${inQuietCenter ? " ambient-love--quiet" : ""}`;
+      piece.textContent = symbol;
+      piece.style.setProperty("--x", `${inQuietCenter ? randomBetween(32, 68).toFixed(1) : edgePosition().toFixed(1)}%`);
+      piece.style.setProperty("--y", `${randomBetween(5, 91).toFixed(1)}%`);
+      piece.style.setProperty("--size", `${pieceSize.toFixed(1)}px`);
+      piece.style.setProperty("--petal-width", `${(pieceSize * 0.68).toFixed(1)}px`);
+      piece.style.setProperty("--alpha", `${randomBetween(inQuietCenter ? 0.22 : 0.44, inQuietCenter ? 0.38 : 0.78).toFixed(2)}`);
+      piece.style.setProperty("--duration", `${randomBetween(13, 25).toFixed(1)}s`);
+      piece.style.setProperty("--delay", `${-randomBetween(0, 25).toFixed(1)}s`);
+      piece.style.setProperty("--sway", `${sway.toFixed(0)}px`);
+      piece.style.setProperty("--sway-back", `${(-sway * 0.42).toFixed(0)}px`);
+      piece.style.setProperty("--drift", `${randomBetween(-150, 150).toFixed(0)}px`);
+      piece.style.setProperty("--spin", `${randomBetween(320, 760).toFixed(0)}deg`);
+      piece.style.setProperty("--start-rotate", `${randomBetween(-35, 35).toFixed(0)}deg`);
+      piece.style.setProperty("--blur", `${index % 11 === 0 ? 0.7 : 0}px`);
+      fallingLayer.append(piece);
     }
+
+    fragment.append(starField, fallingLayer);
     ambient.append(fragment);
+
+    document.addEventListener("visibilitychange", () => {
+      ambient.classList.toggle("is-paused", document.hidden);
+    });
   }
 
   function burstHearts(target) {
