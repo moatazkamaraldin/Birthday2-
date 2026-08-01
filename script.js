@@ -772,6 +772,7 @@ function setupNightJourney() {
     const moonOpacity = 1 - clamp((value - 50) / 42);
     const aurora = 0.16 + clamp(1 - Math.abs(value - 54) / 54) * 0.7;
     const daylight = clamp((value - 80) / 20);
+    const sunRise = Math.pow(dawn, 0.72) * 230;
 
     experience.style.setProperty("--journey", journey.toFixed(3));
     experience.style.setProperty("--predawn", predawn.toFixed(3));
@@ -780,7 +781,7 @@ function setupNightJourney() {
     experience.style.setProperty("--moon-opacity", moonOpacity.toFixed(3));
     experience.style.setProperty("--aurora-opacity", aurora.toFixed(3));
     experience.style.setProperty("--daylight", daylight.toFixed(3));
-    experience.style.setProperty("--sun-rise", `${dawn * 215}px`);
+    experience.style.setProperty("--sun-rise", `${sunRise.toFixed(2)}px`);
     experience.style.setProperty("--sun-scale", (0.72 + daylight * 0.38).toFixed(3));
     experience.style.setProperty("--moon-drop", `${journey * 112}px`);
     experience.style.setProperty("--moon-drift", `${journey * -26}px`);
@@ -810,6 +811,7 @@ function setupNightJourney() {
     }
   };
   slider.addEventListener("input", update);
+  slider.addEventListener("change", update);
   stageButtons.forEach(button => {
     button.addEventListener("click", () => {
       slider.value = button.dataset.nightValue;
