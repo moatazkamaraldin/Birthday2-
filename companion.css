@@ -774,3 +774,932 @@ body {
   .ambient-love:not(.ambient-love--static), .heart-pop { display: none; }
   .ambient-love--static { display: block; opacity: var(--alpha); animation: none !important; }
 }
+
+/* --------------------------------------------------------------------------
+   Cinematic midnight love garden — final companion-page art direction
+   -------------------------------------------------------------------------- */
+
+:root {
+  --night: #080208;
+  --night-soft: #120713;
+  --surface: #1b0915;
+  --surface-light: #2b1023;
+  --ivory: #fff8f2;
+  --muted: #ead3d4;
+  --faint: #b68f99;
+  --gold: #f6c66f;
+  --gold-light: #ffe6ad;
+  --love: #e62d62;
+  --love-dark: #8f123c;
+  --love-bright: #ff5f83;
+  --love-soft: #ff9caf;
+  --cherry: #b5164d;
+  --coral: #ff806f;
+  --violet-night: #281641;
+  --violet-glow: #8d64bd;
+  --line: rgba(246, 198, 111, 0.25);
+  --line-soft: rgba(255, 232, 218, 0.11);
+  --shadow: 0 35px 100px rgba(2, 0, 8, 0.5);
+  --velvet-shadow: 0 30px 85px rgba(33, 2, 18, 0.48);
+  --paper: #fff9f2;
+  --paper-blush: #ffece8;
+  --paper-ink: #3b1d29;
+}
+
+body {
+  background-color: var(--night);
+  background-image:
+    radial-gradient(circle at 12% 9%, rgba(255, 103, 128, 0.2), transparent 29rem),
+    radial-gradient(circle at 88% 28%, rgba(105, 66, 157, 0.19), transparent 34rem),
+    radial-gradient(circle at 22% 69%, rgba(181, 22, 77, 0.16), transparent 31rem),
+    radial-gradient(circle at 80% 89%, rgba(255, 128, 111, 0.1), transparent 27rem),
+    linear-gradient(145deg, #080208 0%, #1a0718 38%, #24102f 66%, #090209 100%);
+  background-attachment: fixed;
+}
+
+body::before {
+  position: fixed;
+  z-index: -3;
+  inset: 0;
+  pointer-events: none;
+  content: "";
+  background-image:
+    radial-gradient(circle, rgba(255, 231, 178, 0.52) 0 1px, transparent 1.5px),
+    radial-gradient(circle, rgba(255, 145, 174, 0.32) 0 1px, transparent 1.4px),
+    radial-gradient(ellipse at center, transparent 35%, rgba(2, 0, 8, 0.48) 100%);
+  background-position: 0 0, 37px 53px, 0 0;
+  background-size: 91px 91px, 137px 137px, 100% 100%;
+  opacity: 0.54;
+}
+
+body::after {
+  inset: -20%;
+  z-index: -2;
+  background:
+    radial-gradient(circle at 22% 23%, rgba(230, 45, 98, 0.16), transparent 17%),
+    radial-gradient(circle at 76% 64%, rgba(112, 70, 165, 0.17), transparent 21%),
+    radial-gradient(circle at 58% 91%, rgba(246, 198, 111, 0.08), transparent 16%);
+  filter: blur(4px);
+  animation: cinematic-companion-mesh 28s ease-in-out infinite alternate;
+}
+
+@keyframes cinematic-companion-mesh {
+  0% { transform: translate3d(-2vw, 1vh, 0) scale(1) rotate(-1deg); }
+  100% { transform: translate3d(4vw, -3vh, 0) scale(1.09) rotate(1deg); }
+}
+
+.ambient-starfield { opacity: 1; }
+.ambient-star {
+  filter: drop-shadow(0 0 5px currentColor);
+}
+.ambient-love {
+  filter: blur(var(--blur)) drop-shadow(0 0 9px currentColor) drop-shadow(0 5px 10px rgba(39, 0, 22, 0.48));
+}
+.ambient-love--rose,
+.ambient-love--rosebud { color: #ff7599; }
+.ambient-love--star,
+.ambient-love--sparkle { color: #ffd986; }
+
+/* Gilded glass navigation */
+.companion-nav {
+  min-height: 74px;
+  padding: 10px clamp(16px, 4vw, 58px);
+  border-bottom-color: rgba(246, 198, 111, 0.13);
+  background:
+    linear-gradient(90deg, rgba(93, 13, 48, 0.18), transparent 30%, rgba(59, 31, 91, 0.18)),
+    rgba(8, 2, 8, 0.74);
+  box-shadow: 0 12px 40px rgba(3, 0, 9, 0.14);
+  backdrop-filter: blur(22px) saturate(135%);
+}
+
+.companion-nav::after {
+  position: absolute;
+  right: 8%;
+  bottom: -1px;
+  left: 8%;
+  height: 1px;
+  content: "";
+  background: linear-gradient(90deg, transparent, rgba(246, 198, 111, 0.62), rgba(255, 99, 132, 0.42), transparent);
+  transform: scaleX(0.72);
+  transition: transform 400ms var(--ease), opacity 300ms ease;
+}
+
+.companion-nav.is-scrolled {
+  border-color: rgba(246, 198, 111, 0.2);
+  background: rgba(8, 2, 9, 0.93);
+  box-shadow: 0 14px 48px rgba(3, 0, 9, 0.38);
+}
+.companion-nav.is-scrolled::after { opacity: 0.9; transform: scaleX(1); }
+
+.companion-brand {
+  gap: 12px;
+  color: var(--ivory);
+  font-family: var(--font-title);
+  font-size: 1.06rem;
+  letter-spacing: 0.01em;
+}
+.companion-brand span {
+  position: relative;
+  width: 42px;
+  height: 42px;
+  border-color: rgba(246, 198, 111, 0.5);
+  background:
+    radial-gradient(circle at 36% 28%, rgba(255,255,255,0.18), transparent 30%),
+    linear-gradient(145deg, rgba(181,22,77,0.72), rgba(56,22,81,0.76));
+  box-shadow: 0 0 0 4px rgba(246,198,111,0.04), 0 10px 28px rgba(181,22,77,0.28), inset 0 0 16px rgba(255,255,255,0.05);
+  color: var(--gold-light);
+  font-size: 1.15rem;
+}
+.companion-brand span::after {
+  position: absolute;
+  inset: 4px;
+  border: 1px dotted rgba(255, 230, 173, 0.32);
+  border-radius: inherit;
+  content: "";
+}
+
+.companion-links { gap: 7px; }
+.companion-links a,
+.back-home {
+  min-height: 44px;
+  padding-inline: 16px;
+  border: 1px solid transparent;
+  color: #d8bac2;
+  letter-spacing: 0.015em;
+}
+.companion-links a:hover,
+.companion-links a[aria-current="page"],
+.back-home:hover {
+  border-color: rgba(246, 198, 111, 0.26);
+  background: linear-gradient(135deg, rgba(181,22,77,0.2), rgba(95,57,137,0.19));
+  box-shadow: inset 0 0 20px rgba(255,255,255,0.025), 0 8px 22px rgba(18,0,13,0.18);
+  color: var(--ivory);
+}
+.companion-links a[aria-current="page"] { color: var(--gold-light); }
+.back-home { border-color: rgba(246, 198, 111, 0.18); }
+
+/* Opening garden and collector's-edition cover */
+.book-main { overflow: clip; }
+.book-hero {
+  min-height: calc(100svh - 74px);
+  gap: clamp(42px, 8vw, 116px);
+  width: min(1240px, calc(100% - 48px));
+  padding-block: clamp(76px, 10vw, 142px);
+  isolation: isolate;
+}
+.book-hero::before {
+  inset-block: 2%;
+  width: 100vw;
+  border-block: 1px solid rgba(246, 198, 111, 0.1);
+  background:
+    linear-gradient(90deg, rgba(5,1,8,0.56), transparent 18%, transparent 82%, rgba(5,1,8,0.58)),
+    radial-gradient(circle at 16% 22%, rgba(255, 106, 125, 0.23), transparent 27rem),
+    radial-gradient(circle at 83% 68%, rgba(118, 77, 169, 0.25), transparent 31rem),
+    radial-gradient(circle at 58% 3%, rgba(246, 198, 111, 0.12), transparent 21rem),
+    linear-gradient(145deg, rgba(77, 8, 36, 0.66), rgba(39, 17, 61, 0.62) 58%, rgba(14, 3, 13, 0.74));
+  box-shadow: inset 0 -80px 100px rgba(4,0,8,0.18);
+}
+.book-hero::after {
+  top: 7%;
+  content: "♡   ❀   ✦   ❦   ✦   ❀   ♡";
+  color: rgba(255, 215, 139, 0.28);
+  font-size: clamp(1rem, 2vw, 1.55rem);
+  letter-spacing: clamp(0.28em, 1.4vw, 0.8em);
+}
+
+.hero-copy {
+  padding: clamp(28px, 4vw, 50px);
+  border: 1px solid rgba(246, 198, 111, 0.14);
+  border-radius: 10px 38px 10px 38px;
+  background:
+    linear-gradient(135deg, rgba(255,255,255,0.055), transparent 46%),
+    rgba(22, 5, 19, 0.34);
+  box-shadow: 0 28px 75px rgba(5,0,12,0.2), inset 0 0 50px rgba(255,255,255,0.018);
+  backdrop-filter: blur(6px);
+}
+.hero-copy::before {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  width: 54px;
+  height: 54px;
+  border-top: 1px solid rgba(246,198,111,0.54);
+  border-right: 1px solid rgba(246,198,111,0.54);
+  border-radius: 0 12px 0 0;
+  content: "";
+  opacity: 0.65;
+}
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 18px;
+  padding: 7px 13px;
+  border: 1px solid rgba(246, 198, 111, 0.2);
+  border-radius: 999px;
+  background: rgba(181, 22, 77, 0.12);
+  color: var(--gold-light);
+  letter-spacing: 0.065em;
+}
+.eyebrow::before { color: var(--love-soft); content: "✦"; }
+.book-hero h1 {
+  max-width: 11ch;
+  font-family: var(--font-title);
+  font-size: clamp(3.65rem, 8vw, 7.5rem);
+  line-height: 1.25;
+  color: var(--ivory);
+  text-shadow: 0 18px 55px rgba(0,0,0,0.45), 0 0 44px rgba(255, 93, 131, 0.13);
+}
+.book-hero h1 em {
+  padding-inline: 0.05em;
+  background: linear-gradient(110deg, #ff7796 5%, #ffab91 48%, #ffe0a0 88%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: var(--love-bright);
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 9px 22px rgba(181, 22, 77, 0.25));
+}
+.hero-lede { margin-top: 27px; color: #edd9d8; font-size: clamp(1rem, 1.55vw, 1.14rem); line-height: 2; }
+.hero-actions { gap: 13px; margin-top: 32px; }
+
+.companion-button {
+  position: relative;
+  min-height: 52px;
+  padding-inline: 24px;
+  overflow: hidden;
+  border-color: rgba(246, 198, 111, 0.27);
+  background: linear-gradient(135deg, rgba(255,255,255,0.055), rgba(255,255,255,0.018));
+  box-shadow: inset 0 0 22px rgba(255,255,255,0.018);
+}
+.companion-button::before {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -50%;
+  width: 36%;
+  content: "";
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.22), transparent);
+  transform: skewX(-18deg);
+  transition: left 600ms var(--ease);
+}
+.companion-button:hover { border-color: rgba(255, 222, 156, 0.58); box-shadow: 0 14px 34px rgba(3,0,9,0.27), inset 0 0 24px rgba(255,255,255,0.035); }
+.companion-button:hover::before { left: 115%; }
+.companion-button--primary {
+  border-color: rgba(255, 216, 143, 0.28);
+  background: linear-gradient(125deg, #8c123b, #d92b5f 52%, #bd385e);
+  box-shadow: 0 16px 42px rgba(143, 18, 60, 0.42), inset 0 1px rgba(255,255,255,0.15);
+}
+
+.book-cover {
+  width: min(410px, 92%);
+  padding: 34px;
+  border: 1px solid rgba(255, 221, 154, 0.58);
+  border-radius: 12px 38px 38px 12px;
+  background-image:
+    linear-gradient(90deg, rgba(3,0,8,0.43), transparent 8%, transparent 92%, rgba(255,255,255,0.025)),
+    url("ornament-garden.svg"),
+    radial-gradient(circle at 50% 28%, rgba(255, 216, 142, 0.19), transparent 13rem),
+    radial-gradient(circle at 84% 82%, rgba(123, 79, 172, 0.24), transparent 14rem),
+    linear-gradient(145deg, #951341 0%, #5c113a 38%, #311344 72%, #170713 100%);
+  background-position: center, center, center, center, center;
+  background-repeat: no-repeat;
+  background-size: auto, 88% auto, auto, auto, auto;
+  box-shadow:
+    -9px 11px 0 #0e040b,
+    -17px 20px 0 rgba(246, 198, 111, 0.13),
+    -30px 42px 95px rgba(1,0,7,0.58),
+    inset 11px 0 20px rgba(0,0,0,0.25),
+    inset 0 0 55px rgba(255,255,255,0.025);
+  transform: perspective(950px) rotateY(-5deg) rotateZ(-1.7deg);
+  transform-style: preserve-3d;
+  transition: transform 700ms var(--ease), box-shadow 700ms var(--ease);
+}
+.book-cover:hover {
+  box-shadow: -6px 10px 0 #0e040b, -12px 17px 0 rgba(246,198,111,0.16), -24px 48px 110px rgba(1,0,7,0.66), inset 11px 0 20px rgba(0,0,0,0.22), inset 0 0 55px rgba(255,255,255,0.035);
+  transform: perspective(950px) rotateY(-1deg) rotateZ(0deg) translateY(-7px);
+}
+.book-cover::before {
+  inset: 17px;
+  border: 1px solid rgba(255, 221, 154, 0.42);
+  border-radius: 7px 27px 27px 7px;
+  box-shadow: inset 0 0 0 5px rgba(255,255,255,0.018), inset 0 0 28px rgba(246,198,111,0.045);
+}
+.book-cover::after {
+  right: 38px;
+  bottom: 31px;
+  left: 38px;
+  height: 9px;
+  background:
+    radial-gradient(circle, var(--gold) 0 2px, transparent 2.5px) center / 18px 8px repeat-x,
+    linear-gradient(90deg, transparent, rgba(246,198,111,0.75), transparent) center / 100% 1px no-repeat;
+  opacity: 0.72;
+}
+.book-cover__heart {
+  width: 96px;
+  height: 96px;
+  display: grid;
+  place-items: center;
+  margin-inline: auto;
+  border: 1px solid rgba(255, 225, 165, 0.5);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(246,198,111,0.15), rgba(123,13,50,0.34));
+  box-shadow: 0 0 0 8px rgba(255,255,255,0.018), 0 0 40px rgba(246,198,111,0.14);
+  color: var(--gold-light);
+  font-size: 4rem;
+  text-shadow: 0 0 24px rgba(246,198,111,0.45);
+}
+.book-cover h2 { color: #fff9f0; font-family: var(--font-title); font-size: clamp(2.15rem, 4vw, 3.45rem); line-height: 1.38; text-shadow: 0 12px 30px rgba(0,0,0,0.45); }
+.book-cover p { color: var(--gold-light); letter-spacing: 0.04em; }
+.book-cover small { right: 50%; bottom: 47px; width: 80%; color: #eacbd0; transform: translateX(50%); }
+
+.book-cover--wishes {
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background-image:
+    url("ornament-garden.svg"),
+    radial-gradient(circle at 50% 40%, rgba(255, 225, 164, 0.22), transparent 12rem),
+    conic-gradient(from 20deg, #39133f, #9a1744, #d45162, #572150, #39133f);
+  background-size: 82% auto, auto, auto;
+  box-shadow: 0 0 0 10px rgba(246,198,111,0.045), 0 0 0 11px rgba(246,198,111,0.3), 0 34px 100px rgba(1,0,7,0.56), inset 0 0 58px rgba(8,2,8,0.4);
+  transform: none;
+}
+.book-cover--wishes:hover { transform: translateY(-7px) rotate(1deg); }
+.book-cover--wishes::before { inset: 19px; border-radius: 50%; border-style: double; border-width: 3px; }
+.book-cover--wishes strong { color: #ffe3a0; text-shadow: 0 0 34px rgba(246,198,111,0.28), 0 16px 36px rgba(0,0,0,0.42); }
+.book-cover--wishes span { color: #ffc3cb; }
+
+/* Dedication and contents */
+.dedication-strip {
+  position: relative;
+  overflow: hidden;
+  border-color: rgba(246, 198, 111, 0.13);
+  background:
+    linear-gradient(90deg, rgba(6,1,8,0.58), transparent 18%, transparent 82%, rgba(6,1,8,0.58)),
+    radial-gradient(circle at 12% 50%, rgba(255, 113, 132, 0.17), transparent 22rem),
+    radial-gradient(circle at 88% 50%, rgba(121, 79, 171, 0.17), transparent 22rem),
+    linear-gradient(90deg, rgba(94,10,42,0.5), rgba(44,20,63,0.48), rgba(94,10,42,0.5));
+  box-shadow: inset 0 20px 50px rgba(4,0,8,0.18), inset 0 -20px 50px rgba(4,0,8,0.18);
+}
+.dedication-strip::before {
+  position: absolute;
+  top: 50%;
+  right: max(4vw, 24px);
+  color: rgba(246,198,111,0.12);
+  content: "❝";
+  font-family: Georgia, serif;
+  font-size: clamp(7rem, 15vw, 13rem);
+  line-height: 1;
+  transform: translateY(-43%);
+}
+.dedication-strip blockquote { position: relative; z-index: 1; color: #fff8f1; line-height: 1.75; text-shadow: 0 10px 32px rgba(0,0,0,0.32); }
+.dedication-strip cite { color: var(--gold-light); }
+
+.page-section {
+  --petal-color: rgba(246, 198, 111, 0.2);
+  position: relative;
+  isolation: isolate;
+}
+.page-section::before {
+  top: 3%;
+  bottom: 3%;
+  border-block-color: rgba(246,198,111,0.075);
+  background:
+    radial-gradient(circle at 18% 17%, rgba(255, 128, 111, 0.13), transparent 25rem),
+    radial-gradient(circle at 82% 78%, rgba(122, 76, 168, 0.14), transparent 28rem),
+    linear-gradient(145deg, rgba(78,9,37,0.27), rgba(38,17,56,0.29));
+}
+.page-section::after {
+  top: 7%;
+  content: "♡  ❀  ✦  ❦  ✦  ❀  ♡";
+  color: var(--petal-color);
+}
+
+.section-intro h2 {
+  color: #fff7ef;
+  font-family: var(--font-title);
+  font-size: clamp(2.8rem, 6.4vw, 5.15rem);
+  line-height: 1.42;
+  text-shadow: 0 14px 46px rgba(0,0,0,0.35), 0 0 32px rgba(230,45,98,0.12);
+}
+.section-intro p:not(.eyebrow) { color: #dec5ca; line-height: 2; }
+
+.contents { gap: 16px; }
+.contents a {
+  --index-accent: #ff6687;
+  min-height: 165px;
+  padding: 26px;
+  border-color: rgba(246,198,111,0.14);
+  border-radius: 10px 28px 10px 28px;
+  background:
+    radial-gradient(circle at 92% 4%, color-mix(in srgb, var(--index-accent) 20%, transparent), transparent 11rem),
+    linear-gradient(145deg, rgba(255,255,255,0.055), rgba(255,255,255,0.017));
+  box-shadow: 0 16px 45px rgba(2,0,8,0.18), inset 0 0 30px rgba(255,255,255,0.015);
+}
+.contents a:nth-child(3n + 2) { --index-accent: #9570c0; }
+.contents a:nth-child(3n + 3) { --index-accent: #f6c66f; }
+.contents a::before {
+  position: absolute;
+  top: 0;
+  right: 20px;
+  width: 56px;
+  height: 2px;
+  border-radius: 99px;
+  background: var(--index-accent);
+  box-shadow: 0 0 16px var(--index-accent);
+  content: "";
+  opacity: 0.65;
+  transition: width 350ms var(--ease);
+}
+.contents a:hover {
+  border-color: color-mix(in srgb, var(--index-accent) 56%, transparent);
+  background:
+    radial-gradient(circle at 92% 4%, color-mix(in srgb, var(--index-accent) 27%, transparent), transparent 11rem),
+    linear-gradient(145deg, rgba(255,255,255,0.075), rgba(255,255,255,0.02));
+  box-shadow: 0 24px 55px rgba(2,0,8,0.32);
+  transform: translateY(-6px);
+}
+.contents a:hover::before { width: calc(100% - 40px); }
+.contents span { color: var(--index-accent); }
+.contents strong { margin-top: 28px; color: #fff5ed; font-family: var(--font-title); font-size: 1.23rem; line-height: 1.55; }
+.contents i { color: color-mix(in srgb, var(--index-accent) 18%, transparent); }
+
+/* Poetry rooms and fine paper */
+.poem-chapter {
+  --chapter-accent: #ff6a89;
+  --chapter-soft: rgba(230, 45, 98, 0.16);
+  --petal-color: rgba(255, 139, 158, 0.22);
+  overflow: hidden;
+  padding-inline: clamp(20px, 4vw, 50px);
+  border: 1px solid rgba(246,198,111,0.08);
+  border-radius: clamp(26px, 4vw, 52px);
+  background:
+    radial-gradient(circle at 90% 9%, var(--chapter-soft), transparent 24rem),
+    radial-gradient(circle at 9% 86%, rgba(102, 59, 151, 0.12), transparent 27rem),
+    linear-gradient(145deg, rgba(80,9,38,0.34), rgba(24,8,28,0.24));
+  box-shadow: inset 0 1px rgba(255,255,255,0.025), 0 35px 90px rgba(2,0,8,0.12);
+  isolation: isolate;
+}
+.poem-chapter::before {
+  top: 0;
+  right: 8%;
+  width: 34%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--chapter-accent), var(--gold), transparent);
+  transform: none;
+  opacity: 0.6;
+}
+.poem-chapter::after {
+  top: 4.25rem;
+  content: "✦   ❀   ♡   ❦   ♡   ❀   ✦";
+  color: var(--petal-color);
+}
+.poem-chapter > * { position: relative; z-index: 1; }
+.poem-heading { max-width: 740px; margin-bottom: 50px; }
+.poem-heading span {
+  color: color-mix(in srgb, var(--chapter-accent) 36%, transparent);
+  font-size: clamp(5.4rem, 12vw, 9.6rem);
+  text-shadow: 0 0 34px color-mix(in srgb, var(--chapter-accent) 13%, transparent);
+}
+.poem-heading h2 {
+  color: #fff8f1;
+  font-family: var(--font-title);
+  font-size: clamp(2.55rem, 5.4vw, 4.7rem);
+  line-height: 1.42;
+  text-shadow: 0 13px 42px rgba(0,0,0,0.4), 0 0 32px color-mix(in srgb, var(--chapter-accent) 13%, transparent);
+}
+.poem-heading p { max-width: 58ch; color: color-mix(in srgb, var(--chapter-accent) 72%, #fff); line-height: 1.9; }
+
+.poem-sheet {
+  max-width: 890px;
+  padding: clamp(42px, 7vw, 82px);
+  overflow: hidden;
+  border: 1px solid rgba(121, 57, 69, 0.14);
+  border-radius: 7px 34px 7px 34px;
+  background:
+    linear-gradient(rgba(110,48,66,0.04) 1px, transparent 1px) 0 52px / 100% 52px,
+    radial-gradient(circle at 87% 4%, rgba(255,177,145,0.15), transparent 15rem),
+    radial-gradient(circle at 12% 92%, rgba(246,198,111,0.12), transparent 13rem),
+    linear-gradient(125deg, var(--paper), var(--paper-blush) 58%, #fff6ed);
+  box-shadow:
+    0 2px 0 rgba(255,255,255,0.7) inset,
+    13px 15px 0 rgba(92,18,45,0.1),
+    0 38px 105px rgba(1,0,8,0.48);
+  color: var(--paper-ink);
+}
+.poem-sheet::before {
+  top: 28px;
+  right: 27px;
+  bottom: 28px;
+  width: 2px;
+  background: linear-gradient(transparent, rgba(181,22,77,0.27) 10%, rgba(181,22,77,0.27) 90%, transparent);
+}
+.poem-sheet::after {
+  position: absolute;
+  top: 22px;
+  left: 27px;
+  color: rgba(143,18,60,0.16);
+  content: "❦";
+  font-family: Georgia, serif;
+  font-size: 3rem;
+  line-height: 1;
+}
+.poem-lines { color: #42212c; font-size: clamp(1.32rem, 2.25vw, 1.8rem); line-height: 2.18; text-shadow: 0 1px rgba(255,255,255,0.6); }
+.poem-sign { padding-top: 24px; border-top: 1px solid rgba(143,18,60,0.12); color: #8c3049; line-height: 1.8; }
+.poem-chapter--left .poem-sheet { box-shadow: 0 2px 0 rgba(255,255,255,0.7) inset, -13px 15px 0 rgba(74,29,101,0.1), 0 38px 105px rgba(1,0,8,0.48); }
+
+#poem-two,
+#poem-four {
+  --chapter-accent: #ae83dc;
+  --chapter-soft: rgba(120, 77, 170, 0.2);
+  --petal-color: rgba(196, 159, 231, 0.22);
+  background:
+    radial-gradient(circle at 10% 13%, rgba(139,91,190,0.2), transparent 25rem),
+    radial-gradient(circle at 88% 82%, rgba(255,128,111,0.13), transparent 28rem),
+    linear-gradient(145deg, rgba(39,19,68,0.55), rgba(71,9,37,0.3));
+}
+#poem-three {
+  --chapter-accent: #f6c66f;
+  --chapter-soft: rgba(246,198,111,0.12);
+  background:
+    radial-gradient(circle at 83% 8%, rgba(246,198,111,0.14), transparent 25rem),
+    radial-gradient(circle at 9% 83%, rgba(115,75,161,0.18), transparent 29rem),
+    linear-gradient(145deg, rgba(36,17,64,0.61), rgba(78,8,38,0.39));
+}
+#poem-five {
+  --chapter-accent: #ff9a7c;
+  --chapter-soft: rgba(255,128,111,0.18);
+}
+
+/* A ruby-and-candle vow for the future-wife poem */
+#poem-pride {
+  --chapter-accent: #ffd27e;
+  --chapter-soft: rgba(255, 197, 106, 0.16);
+  --petal-color: rgba(255, 218, 145, 0.28);
+  border-color: rgba(246,198,111,0.23);
+  background:
+    url("ornament-garden.svg") 5% 50% / min(35vw, 390px) auto no-repeat,
+    radial-gradient(circle at 84% 12%, rgba(255,207,119,0.2), transparent 24rem),
+    radial-gradient(circle at 8% 82%, rgba(230,45,98,0.27), transparent 31rem),
+    linear-gradient(140deg, rgba(105,10,43,0.86), rgba(53,8,33,0.78) 55%, rgba(29,10,35,0.86));
+  box-shadow: inset 0 0 90px rgba(255,102,128,0.05), 0 42px 105px rgba(1,0,8,0.22);
+}
+#poem-pride .poem-heading span { color: rgba(255,211,126,0.46); }
+#poem-pride .poem-heading h2 { color: #fff2d5; }
+#poem-pride .poem-heading p { color: #ffd4c8; }
+#poem-pride .poem-sheet {
+  border-color: rgba(172,93,59,0.24);
+  background:
+    linear-gradient(rgba(126,58,48,0.04) 1px, transparent 1px) 0 52px / 100% 52px,
+    radial-gradient(circle at 88% 5%, rgba(247,183,101,0.2), transparent 16rem),
+    linear-gradient(125deg, #fffaf0, #ffe8dc 56%, #fff2df);
+  box-shadow: 0 2px rgba(255,255,255,0.75) inset, -13px 15px 0 rgba(246,198,111,0.13), 0 42px 110px rgba(24,0,12,0.58);
+}
+#poem-pride .poem-sheet::before { background: linear-gradient(transparent, rgba(176,94,48,0.32), transparent); }
+#poem-pride .poem-sheet::after { color: rgba(176,94,48,0.22); content: "♛"; }
+
+/* Violet night, starlight and gold for her strength */
+#poem-strength {
+  --chapter-accent: #e3bdff;
+  --chapter-soft: rgba(146,95,199,0.2);
+  --petal-color: rgba(231,198,255,0.27);
+  border-color: rgba(206,170,239,0.2);
+  background:
+    url("ornament-garden.svg") 96% 54% / min(37vw, 410px) auto no-repeat,
+    radial-gradient(circle at 82% 10%, rgba(190,139,231,0.23), transparent 25rem),
+    radial-gradient(circle at 9% 84%, rgba(246,198,111,0.15), transparent 28rem),
+    linear-gradient(145deg, rgba(34,16,68,0.93), rgba(55,19,72,0.87) 50%, rgba(69,9,42,0.82));
+  box-shadow: inset 0 0 100px rgba(167,111,215,0.05), 0 42px 105px rgba(1,0,8,0.24);
+}
+#poem-strength .poem-heading span { color: rgba(222,186,252,0.4); }
+#poem-strength .poem-heading h2 { color: #f8eaff; }
+#poem-strength .poem-heading p { color: #e7ccef; }
+#poem-strength .poem-sheet {
+  border-color: rgba(87,56,120,0.2);
+  background:
+    linear-gradient(rgba(69,49,101,0.04) 1px, transparent 1px) 0 52px / 100% 52px,
+    radial-gradient(circle at 86% 5%, rgba(176,139,210,0.17), transparent 16rem),
+    radial-gradient(circle at 10% 92%, rgba(246,198,111,0.1), transparent 14rem),
+    linear-gradient(125deg, #fffafd, #f3eaf5 58%, #fff7ef);
+  box-shadow: 0 2px rgba(255,255,255,0.75) inset, 13px 15px 0 rgba(119,82,155,0.14), 0 42px 110px rgba(1,0,12,0.6);
+}
+#poem-strength .poem-sheet::before { background: linear-gradient(transparent, rgba(105,70,142,0.29), transparent); }
+#poem-strength .poem-sheet::after { color: rgba(88,55,120,0.2); content: "✦"; }
+#poem-strength .poem-lines { color: #30203e; }
+#poem-strength .poem-sign { color: #674677; border-top-color: rgba(95,63,128,0.13); }
+
+#poem-from-azouz {
+  --chapter-accent: #f6c66f;
+  --chapter-soft: rgba(246,198,111,0.14);
+  --petal-color: rgba(255,219,146,0.26);
+  border-color: rgba(246,198,111,0.2);
+  background:
+    url("ornament-garden.svg") center 95% / min(50vw, 560px) auto no-repeat,
+    radial-gradient(circle at 84% 5%, rgba(246,198,111,0.2), transparent 25rem),
+    radial-gradient(circle at 8% 78%, rgba(230,45,98,0.28), transparent 31rem),
+    radial-gradient(circle at 72% 70%, rgba(135,81,181,0.16), transparent 26rem),
+    linear-gradient(145deg, rgba(103,8,42,0.82), rgba(42,15,65,0.78) 58%, rgba(13,2,9,0.95));
+}
+#poem-from-azouz .poem-heading span {
+  border-color: rgba(246,198,111,0.56);
+  background: radial-gradient(circle, rgba(246,198,111,0.16), rgba(104,10,43,0.38));
+  box-shadow: 0 0 0 9px rgba(255,255,255,0.018), 0 0 44px rgba(246,198,111,0.15);
+}
+#poem-from-azouz .poem-sheet { border-color: rgba(143,60,70,0.2); border-radius: 8px 38px 8px 38px; }
+
+.poem-interlude { position: relative; padding-block: 34px; }
+.poem-interlude::before,
+.poem-interlude::after {
+  position: absolute;
+  top: 50%;
+  width: 29%;
+  height: 1px;
+  content: "";
+  background: linear-gradient(90deg, transparent, rgba(246,198,111,0.42));
+}
+.poem-interlude::before { right: 0; }
+.poem-interlude::after { left: 0; transform: rotate(180deg); }
+.poem-interlude span { color: #ff7897; filter: drop-shadow(0 0 18px rgba(230,45,98,0.3)); }
+.poem-interlude p { color: #f5e3e0; text-shadow: 0 12px 38px rgba(0,0,0,0.32); }
+
+.acrostic { gap: 14px; }
+.acrostic p {
+  border-color: rgba(246,198,111,0.13);
+  border-radius: 9px 24px 9px 24px;
+  background:
+    radial-gradient(circle at 96% 20%, rgba(230,45,98,0.1), transparent 12rem),
+    linear-gradient(145deg, rgba(255,255,255,0.052), rgba(255,255,255,0.018));
+  box-shadow: 0 14px 38px rgba(2,0,8,0.16);
+  transition: transform 250ms var(--ease), border-color 250ms ease, background 250ms ease;
+}
+.acrostic p:nth-child(even) { background: radial-gradient(circle at 96% 20%, rgba(126,82,174,0.12), transparent 12rem), linear-gradient(145deg, rgba(255,255,255,0.052), rgba(255,255,255,0.018)); }
+.acrostic p:hover { border-color: rgba(246,198,111,0.34); transform: translateX(-6px); }
+.acrostic b { background: linear-gradient(145deg, #a91446, #d9345e 52%, #5e285f); box-shadow: 0 10px 28px rgba(181,22,77,0.3), inset 0 1px rgba(255,255,255,0.16); }
+.acrostic span { color: #ead3d4; }
+
+/* The wish garden: every card is a different bloom */
+.wishes-stage {
+  --petal-color: rgba(255, 213, 134, 0.24);
+  position: relative;
+  isolation: isolate;
+}
+.wishes-stage::before {
+  border-color: rgba(246,198,111,0.09);
+  background:
+    linear-gradient(90deg, rgba(5,1,8,0.48), transparent 14%, transparent 86%, rgba(5,1,8,0.5)),
+    radial-gradient(circle at 12% 16%, rgba(255,128,111,0.19), transparent 29rem),
+    radial-gradient(circle at 86% 73%, rgba(130,83,178,0.19), transparent 31rem),
+    radial-gradient(circle at 54% 7%, rgba(246,198,111,0.11), transparent 20rem),
+    linear-gradient(150deg, rgba(90,8,39,0.54), rgba(38,16,60,0.52) 58%, rgba(17,3,13,0.48));
+}
+.wishes-stage::after {
+  top: 4rem;
+  content: "✦  ❀  ♡  ❦  ♡  ❀  ✦";
+  color: var(--petal-color);
+}
+.wishes-toolbar {
+  top: 88px;
+  padding: 18px 22px;
+  border-color: rgba(246,198,111,0.22);
+  border-radius: 10px 24px 10px 24px;
+  background:
+    linear-gradient(120deg, rgba(127,15,52,0.2), rgba(53,25,75,0.2)),
+    rgba(13,3,12,0.9);
+  box-shadow: 0 20px 55px rgba(1,0,8,0.38), inset 0 1px rgba(255,255,255,0.04);
+  backdrop-filter: blur(22px) saturate(145%);
+}
+.wish-counter strong { color: var(--gold-light); text-shadow: 0 0 22px rgba(246,198,111,0.25); }
+.wish-status { color: #c6a5ad; }
+.wishes-grid { gap: 18px; }
+.wish-card {
+  --wish-accent: #f65d80;
+  --wish-rgb: 246, 93, 128;
+  min-height: 248px;
+  padding: 27px;
+  border-color: rgba(var(--wish-rgb), 0.23);
+  border-radius: 10px 27px 10px 27px;
+  background:
+    radial-gradient(circle at 100% 0, rgba(var(--wish-rgb), 0.22), transparent 13rem),
+    radial-gradient(circle at 0 100%, rgba(246,198,111,0.055), transparent 11rem),
+    linear-gradient(145deg, rgba(255,255,255,0.055), rgba(255,255,255,0.017));
+  box-shadow: 0 18px 48px rgba(1,0,8,0.2), inset 0 1px rgba(255,255,255,0.035);
+}
+.wish-card:nth-child(6n + 2) { --wish-accent: #a978d2; --wish-rgb: 169, 120, 210; }
+.wish-card:nth-child(6n + 3) { --wish-accent: #ff907a; --wish-rgb: 255, 144, 122; }
+.wish-card:nth-child(6n + 4) { --wish-accent: #f4c568; --wish-rgb: 244, 197, 104; }
+.wish-card:nth-child(6n + 5) { --wish-accent: #de4670; --wish-rgb: 222, 70, 112; }
+.wish-card:nth-child(6n + 6) { --wish-accent: #7d77c7; --wish-rgb: 125, 119, 199; }
+.wish-card::before {
+  position: absolute;
+  top: 0;
+  right: 22px;
+  width: 62px;
+  height: 2px;
+  border-radius: 99px;
+  background: var(--wish-accent);
+  box-shadow: 0 0 18px rgba(var(--wish-rgb), 0.65);
+  content: "";
+  transition: width 360ms var(--ease);
+}
+.wish-card::after {
+  position: absolute;
+  top: 18px;
+  left: 20px;
+  color: rgba(var(--wish-rgb), 0.19);
+  content: "✦";
+  font-size: 1.2rem;
+  transition: color 250ms ease, transform 350ms var(--ease);
+}
+.wish-card:hover,
+.wish-card:focus-visible {
+  border-color: rgba(var(--wish-rgb), 0.55);
+  background:
+    radial-gradient(circle at 100% 0, rgba(var(--wish-rgb), 0.29), transparent 13rem),
+    radial-gradient(circle at 0 100%, rgba(246,198,111,0.08), transparent 11rem),
+    linear-gradient(145deg, rgba(255,255,255,0.072), rgba(255,255,255,0.021));
+  box-shadow: 0 28px 65px rgba(1,0,8,0.38), 0 0 34px rgba(var(--wish-rgb), 0.06);
+  transform: translateY(-7px);
+}
+.wish-card:hover::before,
+.wish-card:focus-visible::before { width: calc(100% - 44px); }
+.wish-card:hover::after,
+.wish-card:focus-visible::after { color: rgba(var(--wish-rgb), 0.62); transform: rotate(90deg) scale(1.12); }
+.wish-card__number { color: rgba(var(--wish-rgb), 0.58); text-shadow: 0 0 24px rgba(var(--wish-rgb), 0.15); }
+.wish-card__kind { border-color: rgba(var(--wish-rgb), 0.4); color: color-mix(in srgb, var(--wish-accent) 74%, white); background: rgba(var(--wish-rgb), 0.06); }
+.wish-card h2 { color: #fff6ef; font-family: var(--font-title); font-size: 1.3rem; line-height: 1.55; }
+.wish-card p { color: #dbc2c7; }
+.wish-card__heart { color: rgba(var(--wish-rgb), 0.23); filter: drop-shadow(0 0 10px rgba(var(--wish-rgb), 0.2)); }
+.wish-card.is-kept {
+  border-color: rgba(246,198,111,0.6);
+  background:
+    radial-gradient(circle at 100% 0, rgba(246,198,111,0.23), transparent 13rem),
+    radial-gradient(circle at 0 100%, rgba(var(--wish-rgb),0.15), transparent 11rem),
+    linear-gradient(145deg, rgba(126,18,55,0.24), rgba(56,26,80,0.2));
+  box-shadow: 0 24px 60px rgba(1,0,8,0.38), inset 0 0 28px rgba(246,198,111,0.035);
+}
+.wish-card.is-kept::before { width: calc(100% - 44px); background: linear-gradient(90deg, var(--wish-accent), var(--gold)); }
+.wish-card.is-kept .wish-card__heart { color: var(--gold-light); }
+
+/* Final moonlit letter */
+.closing-letter {
+  position: relative;
+  padding: clamp(44px, 7vw, 84px);
+  overflow: hidden;
+  border-color: rgba(246,198,111,0.3);
+  border-radius: 12px 42px 12px 42px;
+  background-image:
+    linear-gradient(90deg, rgba(7,1,9,0.44), transparent 18%, transparent 82%, rgba(7,1,9,0.44)),
+    url("ornament-garden.svg"),
+    radial-gradient(circle at 12% 13%, rgba(246,198,111,0.16), transparent 20rem),
+    radial-gradient(circle at 89% 83%, rgba(136,84,183,0.2), transparent 22rem),
+    linear-gradient(145deg, rgba(115,11,47,0.58), rgba(48,20,70,0.55));
+  background-position: center, center, center, center, center;
+  background-repeat: no-repeat;
+  background-size: auto, min(72%, 650px) auto, auto, auto, auto;
+  box-shadow: 0 38px 105px rgba(1,0,8,0.48), inset 0 0 60px rgba(255,255,255,0.02);
+}
+.closing-letter::before {
+  inset: 16px;
+  border-color: rgba(246,198,111,0.16);
+  border-radius: 7px 31px 7px 31px;
+  color: rgba(255, 214, 140, 0.15);
+  content: "♡        ❀        ✦        ❀        ♡";
+  font-size: clamp(1.2rem, 2.2vw, 2rem);
+  letter-spacing: 0.2em;
+}
+.closing-letter::after {
+  position: absolute;
+  right: 28%;
+  bottom: 24px;
+  left: 28%;
+  height: 1px;
+  content: "";
+  background: linear-gradient(90deg, transparent, rgba(246,198,111,0.72), transparent);
+}
+.closing-letter__mark {
+  width: 84px;
+  height: 84px;
+  border-color: rgba(246,198,111,0.48);
+  background: radial-gradient(circle at 35% 28%, rgba(255,255,255,0.13), transparent 30%), linear-gradient(145deg, #a21444, #5d245f);
+  box-shadow: 0 0 0 8px rgba(255,255,255,0.018), 0 0 38px rgba(230,45,98,0.2);
+  color: #ffe5a7;
+}
+.closing-letter h2 { color: #fff8ee; font-family: var(--font-title); line-height: 1.44; text-shadow: 0 14px 42px rgba(0,0,0,0.4); }
+.closing-letter p { color: #e8d0d2; line-height: 2; }
+.closing-letter cite { color: var(--gold-light); }
+
+.page-footer { border-top-color: rgba(246,198,111,0.13); }
+.page-footer a {
+  border-color: rgba(246,198,111,0.16);
+  background: rgba(255,255,255,0.018);
+}
+.page-footer a:hover { border-color: rgba(246,198,111,0.44); background: rgba(181,22,77,0.1); }
+.back-to-top {
+  border-color: rgba(246,198,111,0.38);
+  background: radial-gradient(circle at 35% 25%, rgba(255,255,255,0.11), transparent 30%), linear-gradient(145deg, rgba(139,16,58,0.96), rgba(48,20,68,0.96));
+  box-shadow: 0 14px 40px rgba(1,0,8,0.45), 0 0 0 5px rgba(246,198,111,0.035);
+  color: var(--gold-light);
+}
+
+@media (hover: hover) {
+  .book-cover__heart { animation: cover-heart-glow 4.8s ease-in-out infinite; }
+  @keyframes cover-heart-glow {
+    50% { box-shadow: 0 0 0 11px rgba(255,255,255,0.022), 0 0 48px rgba(246,198,111,0.25); transform: scale(1.035); }
+  }
+}
+
+@media (max-width: 900px) {
+  .companion-nav { min-height: 68px; }
+  .book-hero {
+    min-height: auto;
+    width: min(760px, calc(100% - 36px));
+    gap: 58px;
+    padding-block: 76px 105px;
+  }
+  .hero-copy { width: min(690px, 100%); margin-inline: auto; }
+  .book-cover { width: min(390px, 86%); }
+  .contents { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .poem-chapter { width: min(760px, calc(100% - 36px)); }
+  .wishes-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  #poem-pride,
+  #poem-strength,
+  #poem-from-azouz { background-size: 45% auto, auto, auto, auto; }
+}
+
+@media (max-width: 620px) {
+  body { background-attachment: scroll; }
+  .companion-nav { min-height: 62px; padding-inline: 10px; }
+  .companion-brand { gap: 7px; font-size: 0.86rem; }
+  .companion-brand span { width: 34px; height: 34px; font-size: 0.95rem; }
+  .companion-links { gap: 2px; }
+  .companion-links a { min-height: 38px; padding-inline: 8px; font-size: 0.69rem; }
+  .book-hero { width: min(100% - 24px, 560px); padding-block: 52px 88px; }
+  .hero-copy { padding: 28px 20px 31px; border-radius: 8px 26px 8px 26px; }
+  .hero-copy::before { top: 12px; right: 12px; width: 38px; height: 38px; }
+  .book-hero h1 { font-size: clamp(3.15rem, 16vw, 5rem); line-height: 1.38; }
+  .hero-lede { font-size: 0.97rem; }
+  .book-cover { width: min(340px, 88%); padding: 27px; transform: none; }
+  .book-cover:hover { transform: translateY(-4px); }
+  .book-cover__heart { width: 78px; height: 78px; font-size: 3.25rem; }
+  .book-cover h2 { font-size: clamp(2rem, 10vw, 2.8rem); }
+  .dedication-strip { padding-inline: 24px; }
+  .dedication-strip blockquote { font-size: clamp(1.45rem, 7vw, 2rem); }
+  .page-section,
+  .poem-chapter,
+  .wishes-stage { width: min(100% - 24px, 560px); }
+  .contents,
+  .wishes-grid { grid-template-columns: 1fr; }
+  .contents a { min-height: 140px; }
+  .poem-chapter { padding-inline: 16px; border-radius: 22px; }
+  .poem-heading { margin-bottom: 36px; }
+  .poem-heading span { font-size: clamp(4.5rem, 24vw, 7rem); }
+  .poem-heading h2 { font-size: clamp(2.3rem, 12vw, 3.65rem); line-height: 1.48; }
+  .poem-sheet {
+    padding: 42px 27px;
+    border-radius: 6px 25px 6px 25px;
+    box-shadow: 0 2px rgba(255,255,255,0.7) inset, 7px 10px 0 rgba(92,18,45,0.1), 0 28px 72px rgba(1,0,8,0.43);
+  }
+  .poem-sheet::before { right: 13px; }
+  .poem-sheet::after { top: 14px; left: 17px; font-size: 2.25rem; }
+  .poem-lines { font-size: clamp(1.16rem, 5.25vw, 1.45rem); line-height: 2.16; }
+  .poem-sign { font-size: 1.05rem; }
+  #poem-pride,
+  #poem-strength,
+  #poem-from-azouz { background-image: radial-gradient(circle at 84% 8%, var(--chapter-soft), transparent 20rem), linear-gradient(145deg, rgba(77,10,44,0.88), rgba(36,16,59,0.9)); background-size: auto; }
+  .poem-interlude::before,
+  .poem-interlude::after { width: 18%; }
+  .acrostic p { grid-template-columns: 50px 1fr; gap: 13px; }
+  .acrostic p:hover { transform: translateY(-3px); }
+  .wishes-toolbar { padding: 17px; border-radius: 8px 21px 8px 21px; }
+  .wish-card { min-height: 225px; padding: 24px; }
+  .closing-letter { width: min(100% - 24px, 560px); padding: 46px 23px; border-radius: 9px 29px 9px 29px; }
+  .closing-letter::before { inset: 10px; border-radius: 5px 21px 5px 21px; content: "♡    ✦    ♡"; }
+}
+
+@media (max-width: 390px) {
+  .companion-brand { font-size: 0; }
+  .companion-brand span { font-size: 0.95rem; }
+  .companion-links a { padding-inline: 7px; }
+  .book-hero h1 { font-size: clamp(2.85rem, 17vw, 4rem); }
+  .eyebrow { padding-inline: 10px; font-size: 0.69rem; }
+  .poem-sheet { padding-inline: 23px; }
+  .poem-lines { font-size: 1.13rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body::after,
+  .book-hero h1,
+  .section-intro h2,
+  .poem-heading h2,
+  .book-hero::after,
+  .page-section::after,
+  .poem-chapter::after,
+  .wishes-stage::after,
+  .book-cover__heart { animation: none !important; }
+  .book-cover,
+  .book-cover:hover,
+  .contents a:hover,
+  .wish-card:hover,
+  .wish-card:focus-visible,
+  .acrostic p:hover { transform: none; }
+  .companion-button::before { display: none; }
+}

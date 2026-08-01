@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-label="">
+  <defs>
+    <linearGradient id="vine" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ff7797"/>
+      <stop offset="0.48" stop-color="#ffd58b"/>
+      <stop offset="1" stop-color="#c79aff"/>
+    </linearGradient>
+    <radialGradient id="rose" cx="38%" cy="32%" r="70%">
+      <stop offset="0" stop-color="#ffe7ec"/>
+      <stop offset="0.34" stop-color="#ff8da8"/>
+      <stop offset="0.72" stop-color="#d92963"/>
+      <stop offset="1" stop-color="#79143d"/>
+    </radialGradient>
+    <filter id="glow" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <g id="rosette">
+      <path d="M0-33C12-37 23-25 20-14C33-17 43-6 37 6C49 12 47 27 35 31C34 45 19 50 10 40C1 52-15 49-19 36C-32 41-43 30-39 18C-51 11-47-5-35-10C-37-24-23-34-11-28C-8-33-4-35 0-33Z" fill="url(#rose)"/>
+      <path d="M-18-7C-5-22 20-14 18 5C17 19-1 27-12 18C-20 12-20 1-12-4C-5-10 7-6 8 2C9 8 2 13-4 11" fill="none" stroke="#ffe4c2" stroke-width="3" stroke-linecap="round"/>
+      <circle r="5" fill="#ffd88f"/>
+    </g>
+    <g id="spark">
+      <path d="M0-18C2-5 5-2 18 0C5 2 2 5 0 18C-2 5-5 2-18 0C-5-2-2-5 0-18Z" fill="#ffe6a9"/>
+      <circle r="3" fill="#fff9dc"/>
+    </g>
+  </defs>
+
+  <g opacity="0.78" filter="url(#glow)">
+    <g fill="none" stroke="url(#vine)" stroke-width="3" stroke-linecap="round">
+      <path d="M22 356C105 322 85 221 170 196C252 172 246 89 353 47"/>
+      <path d="M28 425C119 394 139 302 215 286C291 270 318 183 385 147"/>
+      <path d="M1578 356C1495 322 1515 221 1430 196C1348 172 1354 89 1247 47"/>
+      <path d="M1572 425C1481 394 1461 302 1385 286C1309 270 1282 183 1215 147"/>
+      <path d="M31 605C126 625 140 728 236 741C318 752 337 819 426 851"/>
+      <path d="M1569 605C1474 625 1460 728 1364 741C1282 752 1263 819 1174 851"/>
+    </g>
+
+    <g fill="url(#vine)" opacity="0.72">
+      <path d="M111 279C89 253 95 229 123 222C139 244 134 265 111 279Z"/>
+      <path d="M166 203C148 174 158 151 187 149C199 173 191 193 166 203Z"/>
+      <path d="M217 283C235 255 259 253 273 278C256 299 235 300 217 283Z"/>
+      <path d="M300 177C319 149 343 148 357 173C340 195 318 196 300 177Z"/>
+      <path d="M1489 279C1511 253 1505 229 1477 222C1461 244 1466 265 1489 279Z"/>
+      <path d="M1434 203C1452 174 1442 151 1413 149C1401 173 1409 193 1434 203Z"/>
+      <path d="M1383 283C1365 255 1341 253 1327 278C1344 299 1365 300 1383 283Z"/>
+      <path d="M1300 177C1281 149 1257 148 1243 173C1260 195 1282 196 1300 177Z"/>
+      <path d="M139 665C113 644 91 653 91 681C116 691 135 682 139 665Z"/>
+      <path d="M245 746C220 724 197 732 195 760C219 772 239 764 245 746Z"/>
+      <path d="M1461 665C1487 644 1509 653 1509 681C1484 691 1465 682 1461 665Z"/>
+      <path d="M1355 746C1380 724 1403 732 1405 760C1381 772 1361 764 1355 746Z"/>
+    </g>
+
+    <use href="#rosette" transform="translate(83 352) scale(1.05)"/>
+    <use href="#rosette" transform="translate(283 172) scale(.72)"/>
+    <use href="#rosette" transform="translate(1517 352) scale(1.05)"/>
+    <use href="#rosette" transform="translate(1317 172) scale(.72)"/>
+    <use href="#rosette" transform="translate(176 681) scale(.78)"/>
+    <use href="#rosette" transform="translate(1424 681) scale(.78)"/>
+
+    <path d="M800 66C775 30 715 40 715 91C715 137 770 165 800 191C830 165 885 137 885 91C885 40 825 30 800 66Z" fill="none" stroke="url(#vine)" stroke-width="4"/>
+    <path d="M800 83C785 61 750 67 750 96C750 122 782 139 800 154C818 139 850 122 850 96C850 67 815 61 800 83Z" fill="url(#rose)" opacity="0.62"/>
+
+    <use href="#spark" transform="translate(615 112) scale(.8)"/>
+    <use href="#spark" transform="translate(985 112) scale(.8)"/>
+    <use href="#spark" transform="translate(515 244) scale(.5)"/>
+    <use href="#spark" transform="translate(1085 244) scale(.5)"/>
+    <use href="#spark" transform="translate(356 654) scale(.62)"/>
+    <use href="#spark" transform="translate(1244 654) scale(.62)"/>
+  </g>
+</svg>

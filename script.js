@@ -5,6 +5,16 @@ document.documentElement.classList.add("gift-ready", "reveal-ready");
 const $ = (selector, scope = document) => scope.querySelector(selector);
 const $$ = (selector, scope = document) => [...scope.querySelectorAll(selector)];
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+const compactViewport = window.matchMedia("(max-width: 720px)").matches;
+const leanVisualBudget = navigator.connection?.saveData === true || (
+  compactViewport && (
+    (Number.isFinite(navigator.hardwareConcurrency) && navigator.hardwareConcurrency <= 4) ||
+    (Number.isFinite(navigator.deviceMemory) && navigator.deviceMemory <= 4)
+  )
+);
+const visualCount = (desktop, compact, lean) => (
+  leanVisualBudget ? lean : compactViewport ? compact : desktop
+);
 
 const safeStorage = {
   get(key, fallback = null) {
@@ -173,8 +183,8 @@ function createAmbientStars() {
 
   container.setAttribute("aria-hidden", "true");
   const fragment = document.createDocumentFragment();
-  const isCompact = window.matchMedia("(max-width: 720px)").matches;
-  const starCount = isCompact ? 54 : 86;
+  const isCompact = compactViewport;
+  const starCount = visualCount(86, 36, 24);
   const starColors = ["#fff7df", "#ffd99a", "#ffb7c7", "#f3c7ff", "#ffffff"];
   const sparkleSymbols = ["\u2726", "\u2727", "\u22c6"];
 
@@ -227,8 +237,7 @@ function createFallingLove() {
 
   container.setAttribute("aria-hidden", "true");
   const fragment = document.createDocumentFragment();
-  const isCompact = window.matchMedia("(max-width: 720px)").matches;
-  const pieceCount = isCompact ? 30 : 44;
+  const pieceCount = visualCount(44, 18, 12);
   const types = ["heart", "petal", "star", "heart", "rose", "petal", "heart", "star"];
   const hearts = ["\u2665", "\u2661", "\u2764"];
   const flowers = ["\u273f", "\u2740", "\u2698", "\ud83c\udf39"];
@@ -278,8 +287,7 @@ function createFallingLove() {
 function createSectionLoveRain() {
   if (reducedMotion) return;
   const sections = $$("main > section, main > aside");
-  const isCompact = window.matchMedia("(max-width: 720px)").matches;
-  const pieceCount = isCompact ? 5 : 8;
+  const pieceCount = visualCount(8, 3, 2);
   const motifs = [
     { symbol: "\u2661", type: "heart" },
     { symbol: "\u2665", type: "heart" },
@@ -307,6 +315,7 @@ function createSectionLoveRain() {
       piece.className = `section-love-rain__piece section-love-rain__piece--${motif.type} section-love-rain__piece--depth-${depth}`;
       piece.textContent = motif.symbol;
       piece.style.setProperty("--section-love-x", `${4 + (seed * 37) % 92}%`);
+      piece.style.setProperty("--section-love-start", `${-8 + (sectionIndex * 17 + index * 43) % 108}%`);
       piece.style.setProperty("--section-love-size", `${14 + depth * 4 + (seed % 9)}px`);
       piece.style.setProperty("--section-love-delay", `${-(seed % 27)}s`);
       piece.style.setProperty("--section-love-duration", `${17 + (2 - depth) * 4 + (seed % 11)}s`);
@@ -478,6 +487,188 @@ function setupScrollExperience() {
   }
 }
 
+const cinematicSceneMap = new Map([
+  ["welcome", {
+    accent: "#ff426f",
+    secondary: "#701c4f",
+    gold: "#ffd28f",
+    glow: "rgba(255, 66, 111, 0.34)"
+  }],
+  ["story", {
+    accent: "#e94a67",
+    secondary: "#91265d",
+    gold: "#f6c579",
+    glow: "rgba(233, 74, 103, 0.3)"
+  }],
+  ["gallery", {
+    accent: "#ff6b91",
+    secondary: "#9c3f83",
+    gold: "#ffe0a1",
+    glow: "rgba(255, 107, 145, 0.32)"
+  }],
+  ["night", {
+    accent: "#8a62e8",
+    secondary: "#192a5b",
+    gold: "#ffd373",
+    glow: "rgba(132, 93, 232, 0.34)"
+  }],
+  ["dictionary", {
+    accent: "#c65291",
+    secondary: "#55255f",
+    gold: "#f8cf85",
+    glow: "rgba(198, 82, 145, 0.3)"
+  }],
+  ["reasons", {
+    accent: "#ef416c",
+    secondary: "#841f4f",
+    gold: "#ffc56e",
+    glow: "rgba(239, 65, 108, 0.34)"
+  }],
+  ["poetry", {
+    accent: "#bb447f",
+    secondary: "#392050",
+    gold: "#dfb66d",
+    glow: "rgba(187, 68, 127, 0.3)"
+  }],
+  ["wishes", {
+    accent: "#ff775f",
+    secondary: "#963161",
+    gold: "#ffd28c",
+    glow: "rgba(255, 119, 95, 0.31)"
+  }],
+  ["letter", {
+    accent: "#da345f",
+    secondary: "#64183e",
+    gold: "#f4c278",
+    glow: "rgba(218, 52, 95, 0.34)"
+  }],
+  ["comfort", {
+    accent: "#c65b83",
+    secondary: "#40376a",
+    gold: "#ebc889",
+    glow: "rgba(198, 91, 131, 0.3)"
+  }],
+  ["tomorrow", {
+    accent: "#f16c75",
+    secondary: "#724678",
+    gold: "#ffd68b",
+    glow: "rgba(241, 108, 117, 0.31)"
+  }],
+  ["timecapsule", {
+    accent: "#a84678",
+    secondary: "#493361",
+    gold: "#eabd70",
+    glow: "rgba(168, 70, 120, 0.3)"
+  }],
+  ["finale", {
+    accent: "#f53867",
+    secondary: "#821b4d",
+    gold: "#ffd17c",
+    glow: "rgba(245, 56, 103, 0.38)"
+  }]
+]);
+
+function setupCinematicSceneTransitions() {
+  const root = document.documentElement;
+  const body = document.body;
+  const scenes = [...cinematicSceneMap.keys()]
+    .map(scene => document.getElementById(scene))
+    .filter(Boolean);
+  if (!body || !scenes.length) return;
+
+  scenes.forEach(section => {
+    section.dataset.scene = section.id;
+    section.classList.add("cinematic-scene");
+  });
+
+  root.classList.add("scene-transition-ready");
+  body.classList.add("scene-transition-ready");
+
+  if (window.CSS?.registerProperty) {
+    [
+      ["--scene-accent", "#ff426f"],
+      ["--scene-secondary", "#701c4f"],
+      ["--scene-gold", "#ffd28f"],
+      ["--scene-glow", "rgba(255, 66, 111, 0.34)"]
+    ].forEach(([name, initialValue]) => {
+      try {
+        window.CSS.registerProperty({ name, syntax: "<color>", inherits: true, initialValue });
+      } catch {
+        // A property may already be registered by the stylesheet or another script.
+      }
+    });
+  }
+
+  if (!reducedMotion) {
+    const transition = ["--scene-accent", "--scene-secondary", "--scene-gold", "--scene-glow"]
+      .map(property => `${property} 1050ms cubic-bezier(0.22, 1, 0.36, 1)`)
+      .join(", ");
+    root.style.transition = transition;
+  }
+
+  let activeScene = "";
+  let frame = 0;
+
+  const applyScene = scene => {
+    if (!cinematicSceneMap.has(scene) || scene === activeScene) return;
+    const palette = cinematicSceneMap.get(scene);
+    const previousScene = activeScene;
+    activeScene = scene;
+
+    root.style.setProperty("--scene-accent", palette.accent);
+    root.style.setProperty("--scene-secondary", palette.secondary);
+    root.style.setProperty("--scene-gold", palette.gold);
+    root.style.setProperty("--scene-glow", palette.glow);
+    root.dataset.activeScene = scene;
+    body.dataset.activeScene = scene;
+
+    if (previousScene) body.classList.remove(`scene-is-${previousScene}`);
+    body.classList.add(`scene-is-${scene}`);
+  };
+
+  const pickSceneAtViewportFocus = () => {
+    frame = 0;
+    const viewportHeight = Math.max(window.innerHeight, 1);
+    const focusLine = viewportHeight * 0.44;
+    let bestScene = scenes[0].id;
+    let bestScore = Number.NEGATIVE_INFINITY;
+
+    scenes.forEach(section => {
+      const rect = section.getBoundingClientRect();
+      const overlap = Math.max(0, Math.min(rect.bottom, viewportHeight) - Math.max(rect.top, 0));
+      const visibleRatio = overlap / Math.max(1, Math.min(rect.height, viewportHeight));
+      const containsFocus = rect.top <= focusLine && rect.bottom >= focusLine;
+      const centerDistance = Math.abs((rect.top + rect.bottom) / 2 - focusLine) / viewportHeight;
+      const score = visibleRatio * 2.4 + (containsFocus ? 2 : 0) - centerDistance;
+
+      if (score > bestScore) {
+        bestScore = score;
+        bestScene = section.id;
+      }
+    });
+
+    applyScene(bestScene);
+  };
+
+  const scheduleScenePick = () => {
+    if (!frame) frame = window.requestAnimationFrame(pickSceneAtViewportFocus);
+  };
+
+  if ("IntersectionObserver" in window) {
+    const sceneObserver = new IntersectionObserver(scheduleScenePick, {
+      threshold: [0, 0.08, 0.2, 0.4, 0.65],
+      rootMargin: "-12% 0px -12%"
+    });
+    scenes.forEach(section => sceneObserver.observe(section));
+    window.addEventListener("resize", scheduleScenePick, { passive: true });
+  } else {
+    window.addEventListener("scroll", scheduleScenePick, { passive: true });
+    window.addEventListener("resize", scheduleScenePick, { passive: true });
+  }
+
+  pickSceneAtViewportFocus();
+}
+
 function setupNightJourney() {
   const slider = $("#nightSlider");
   const experience = $("#nightExperience");
@@ -497,7 +688,8 @@ function setupNightJourney() {
   const stageButtons = $$("[data-night-value]", experience);
 
   wave.replaceChildren();
-  for (let index = 0; index < 44; index += 1) {
+  const waveBarCount = visualCount(44, 30, 22);
+  for (let index = 0; index < waveBarCount; index += 1) {
     const bar = document.createElement("i");
     bar.style.setProperty("--wave-height", `${12 + Math.random() * 55}px`);
     bar.style.setProperty("--wave-speed", `${0.7 + Math.random() * 1.2}s`);
@@ -507,7 +699,8 @@ function setupNightJourney() {
 
   if (stars) {
     stars.replaceChildren();
-    for (let index = 0; index < 72; index += 1) {
+    const nightStarCount = visualCount(72, 40, 28);
+    for (let index = 0; index < nightStarCount; index += 1) {
       const star = document.createElement("i");
       star.style.setProperty("--star-x", `${(index * 37 + 7) % 98}%`);
       star.style.setProperty("--star-y", `${(index * 53 + 11) % 76}%`);
@@ -1138,6 +1331,7 @@ document.addEventListener("DOMContentLoaded", () => {
   createSectionLoveRain();
   setupEntryGate();
   setupScrollExperience();
+  setupCinematicSceneTransitions();
   setupNightJourney();
   setupPhotoGallery();
   setupLoveDictionary();
