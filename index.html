@@ -1,0 +1,777 @@
+<!doctype html>
+<html lang="ar" dir="rtl" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#100206">
+  <meta name="color-scheme" content="dark">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="referrer" content="no-referrer">
+  <meta name="description" content="رحلة عيد ميلاد خاصة من عزوزكِ إلى ديانتي، صُنعت بمحبة لتحتفل بحكاية بدأت من جواكر وصارت أجمل من الصدفة.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ar_AR">
+  <meta property="og:title" content="إلى ديانتي — عيد ميلاد سعيد">
+  <meta property="og:description" content="هذه ليست صفحة فقط؛ هذه حكايتكِ كما يراها قلبي في هدية.">
+  <title>إلى ديانتي — هدية عيد ميلادكِ الـ27</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&family=Marhey:wght@400;500;600;700&family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script>document.documentElement.classList.replace('no-js', 'js');</script>
+</head>
+<body>
+  <a class="skip-link" href="#mainContent">تخطي إلى محتوى الهدية</a>
+
+  <div class="ambient" aria-hidden="true">
+    <div class="ambient__glow ambient__glow--one"></div>
+    <div class="ambient__glow ambient__glow--two"></div>
+    <div class="ambient__stars" id="ambientStars"></div>
+    <div class="ambient__love-fall" id="loveFall"></div>
+  </div>
+  <div class="heart-bursts" id="heartBursts" aria-hidden="true"></div>
+
+  <dialog class="entry-gate" id="entryGate" aria-labelledby="entryTitle">
+    <div class="entry-gate__bokeh" aria-hidden="true"></div>
+    <div class="entry-card">
+      <div class="entry-card__seal" aria-hidden="true"><span>27</span></div>
+      <p class="eyebrow">رسالة خاصة جدًا</p>
+      <h1 id="entryTitle">إلى دندونتي وديانتي،<br>التي غيّرت معنى الصدفة</h1>
+      <p class="entry-card__intro">قبل أن تفتحي الهدية… اختاري النداء الذي تحبّين أن يرافق أهم محطات هذه الرحلة.</p>
+      <div class="name-choice" role="group" aria-label="اختيار اسم الدلع">
+        <button type="button" data-name-choice="دندونتي">دندونتي <span>♡</span></button>
+        <button type="button" data-name-choice="ديانتي">ديانتي <span>✦</span></button>
+      </div>
+      <button class="button button--primary entry-open" id="openGift" type="button" disabled>
+        افتحي هديتكِ
+        <span aria-hidden="true">←</span>
+      </button>
+      <small>12 فصلًا وصفحتان إضافيتان · خذي لها وقتكِ ولا تستعجلي النهاية</small>
+    </div>
+  </dialog>
+
+  <header class="topbar" id="topbar">
+    <div class="topbar__progress" id="scrollProgress" aria-hidden="true"></div>
+    <a class="brand" href="#welcome" aria-label="العودة إلى بداية الهدية">
+      <span class="brand__mark" aria-hidden="true">♡</span>
+      <span>إلى <span data-beloved-name>دندونتي</span></span>
+    </a>
+    <nav class="chapter-nav" aria-label="فصول الهدية">
+      <a href="#story">الحكاية</a>
+      <a href="#night">ليلي معكِ</a>
+      <a href="#dictionary">قاموسي لكِ</a>
+      <a href="#reasons">27 سببًا</a>
+      <a href="#poetry">الديوان</a>
+      <a href="#wishes">27 أمنية</a>
+      <a href="#letter">الرسالة</a>
+      <a href="#comfort">لكِ دائمًا</a>
+      <a href="#tomorrow">بُكرة</a>
+      <a href="#timecapsule">الكبسولة</a>
+      <a href="#finale">الأمنية</a>
+    </nav>
+    <button class="sound-toggle" id="soundToggle" type="button" aria-pressed="false" aria-label="تشغيل موسيقى عيد الميلاد">
+      <span aria-hidden="true">♪</span>
+      <span class="sound-toggle__label">موسيقى عيد الميلاد</span>
+    </button>
+  </header>
+
+  <main id="mainContent" tabindex="-1">
+    <section class="hero chapter" id="welcome" data-chapter="البداية">
+      <div class="hero__copy" data-reveal>
+        <p class="eyebrow"><span aria-hidden="true">✦</span> هدية من عزوزكِ إلى <span data-beloved-name>دندونتي</span></p>
+        <h1><span>كل عام وأنتِ</span><em>الحكاية الحلوة</em><span>التي اختارها قلبي.</span></h1>
+        <p class="hero__lede">يا <span data-beloved-name>ديانتي</span>، هذه ليست صفحة عيد ميلاد عادية. هذه اثنا عشر فصلًا وصفحتان إضافيتان خبّأت فيها صدفتكِ الجميلة، وسهري معكِ، وضحكتكِ، وقاموسي لكِ، وأمنياتي، وكل الكلام الذي لا أعرف كيف أقوله مرةً واحدة.</p>
+        <div class="hero__actions">
+          <a class="button button--primary" href="#story">ابدئي الحكاية <span aria-hidden="true">↓</span></a>
+          <button class="button button--ghost" id="heartBurst" type="button">قلب كبير لكِ <span aria-hidden="true">♡</span></button>
+        </div>
+        <div class="hero__facts" aria-label="ملخص حكايتي معكِ">
+          <div><strong>3</strong><span>أشهر غيّرت<br>تفاصيل أيامي</span></div>
+          <div><strong>∞</strong><span>حكايات من الليل<br>حتى الصباح</span></div>
+          <div><strong>1</strong><span>صدفة أريدها<br>أن تبقى</span></div>
+        </div>
+      </div>
+
+      <div class="hero__visual" data-reveal>
+        <div class="portrait-halo" aria-hidden="true"></div>
+        <figure class="portrait-card">
+          <img src="images/diana-and-azouz-night.jpg" width="1402" height="1122" alt="دندونتي وعزوزكِ في صورة ليلية دافئة" decoding="async" fetchpriority="high">
+          <figcaption>
+            <span>الصورة التي تقول إن بعض الأمنيات تصل فعلًا</span>
+            <b>عزوزكِ × <span data-beloved-name>دندونتي</span></b>
+          </figcaption>
+        </figure>
+        <div class="hero__age" aria-hidden="true"><span>27</span><small>سنة من الجمال</small></div>
+      </div>
+
+      <a class="scroll-invitation" href="#story" aria-label="مرري إلى الفصل الأول">
+        <span>مرّري بهدوء… كل فصل مخبّأ لكِ</span>
+        <i aria-hidden="true"></i>
+      </a>
+    </section>
+
+    <section class="section birthday-overture" id="celebration" aria-labelledby="celebrationTitle">
+      <div class="birthday-overture__ornaments" aria-hidden="true"><span>♡</span><span>27</span><span>✦</span></div>
+      <div class="birthday-overture__copy" data-reveal>
+        <p class="eyebrow">هذه المرّة مختلفة · هذا اليوم لكِ</p>
+        <h2 id="celebrationTitle"><span>احتفالٌ يليق</span><em>بقلب دندونتي</em></h2>
+        <p>أعرف أن أعيادًا كثيرة مرّت من دون احتفالٍ يحتضن قلبكِ كما تستحقين. لذلك لم أرد لهذا الميلاد أن يكون تاريخًا عابرًا؛ أردتُه ليلةً كاملة من الموسيقى والورد والشموع والكلمات التي تقول لكِ بوضوح: وجودكِ يستحق أن يُحتفل به.</p>
+        <button class="button button--primary birthday-overture__button" id="startParty" type="button">ابدئي احتفالكِ الحقيقي <span aria-hidden="true">♪ ✦</span></button>
+      </div>
+      <div class="birthday-overture__gifts" data-reveal>
+        <article><span aria-hidden="true">♫</span><b>لحن ميلادكِ</b><small>يعزفه الموقع لكِ</small></article>
+        <article><span aria-hidden="true">🌹</span><b>ورد لا يذبل</b><small>يتساقط في كل صفحة</small></article>
+        <article><span aria-hidden="true">♥</span><b>27 قلبًا</b><small>سبب لكل سنة جميلة</small></article>
+      </div>
+    </section>
+
+    <section class="section chapter story-section" id="story" data-chapter="حكايتي معكِ">
+      <div class="section-heading" data-reveal>
+        <p class="eyebrow">الفصل الأول · صدفة جواكر</p>
+        <h2>بدأت بلعبة،<br>وصارت جزءًا من الحياة</h2>
+        <p>لا أعرف إن كانت صدفة فعلًا، أم أنكِ وجدتِ طريقكِ إليّ في الوقت الذي كنتُ أحتاج فيه إلى شخص يشبهكِ من دون موعد.</p>
+      </div>
+
+      <div class="timeline" aria-label="خط حكايتي معكِ">
+        <article class="timeline-card" data-reveal>
+          <span class="timeline-card__number">01</span>
+          <div class="timeline-card__icon" aria-hidden="true">♠</div>
+          <div><p class="timeline-card__time">المشهد الأول</p><h3>أول لعبة، وأول فضول</h3><p>دخلتُ جواكر لألعب، لكن حديثي معكِ سرق الوقت من اللعبة. سؤال تبعه سؤال، وضحكتكِ فتحت بابًا لم أرغب في إغلاقه بعدها.</p></div>
+        </article>
+        <article class="timeline-card timeline-card--left" data-reveal>
+          <span class="timeline-card__number">02</span>
+          <div class="timeline-card__icon" aria-hidden="true">♬</div>
+          <div><p class="timeline-card__time">بعدها بقليل</p><h3>الصوت الذي صار مكانًا آمنًا</h3><p>من رسائل مكتوبة إلى صوتيات طويلة، ومن «كيف كان يومك؟» إلى حكايات لم تقوليها لأحد. صار صوتكِ آخر شيء أحب أن أسمعه قبل أن يطلع الفجر.</p></div>
+        </article>
+        <article class="timeline-card" data-reveal>
+          <span class="timeline-card__number">03</span>
+          <div class="timeline-card__icon" aria-hidden="true">☾</div>
+          <div><p class="timeline-card__time">حين كان يغلبكِ النوم</p><h3>أنام فقط حين تكونين هنا</h3><p>كنتِ تنامين أحيانًا في منتصف سهري معكِ على جواكر، فأبقى مستيقظًا أنتظر أن تصحي من جديد. لم يكن السهر جميلًا من دونكِ، ولم أكن أحب النوم إلا حين أعرف أنكِ موجودة معي.</p></div>
+        </article>
+        <article class="timeline-card timeline-card--left" data-reveal>
+          <span class="timeline-card__number">04</span>
+          <div class="timeline-card__icon" aria-hidden="true">☀</div>
+          <div><p class="timeline-card__time">حين تصحين</p><h3>يرجع الليل حلوًا بصوتكِ</h3><p>وحين كنتِ تصحين وتعودين، أعود إلى السهر معكِ كأن الليل بدأ للتو. كنتُ أفضّل انتظاركِ على نومٍ لا يكون صوتكِ قريبًا منه.</p></div>
+        </article>
+        <article class="timeline-card" data-reveal>
+          <span class="timeline-card__number">05</span>
+          <div class="timeline-card__icon" aria-hidden="true">◇</div>
+          <div><p class="timeline-card__time">كل يوم</p><h3>صراحة لا تخاف من الحقيقة</h3><p>أحب أنني معكِ لا أحتاج إلى قناع. أفرح بصدق، وأحزن بصدق، وأقول ما في قلبي حتى حين يكون الكلام صعبًا. هذا النوع من الأمان نادر… وأنتِ نادرة.</p></div>
+        </article>
+        <article class="timeline-card timeline-card--left" data-reveal>
+          <span class="timeline-card__number">06</span>
+          <div class="timeline-card__icon" aria-hidden="true">♡</div>
+          <div><p class="timeline-card__time">والآن</p><h3>أكثر من ثلاثة أشهر</h3><p>ثلاثة أشهر لا تُقاس بعدد الأيام، بل بعدد المرات التي ابتسمتُ فيها لأن اسمكِ ظهر على هاتفي، وبعدد اللحظات التي تمنيتُ فيها لو كانت المسافة أقصر.</p></div>
+        </article>
+      </div>
+
+      <blockquote class="story-quote" data-reveal>
+        <span aria-hidden="true">“</span>
+        ربما كانت جواكر تعرف منذ البداية<br>أن أجمل ورقة سأربحها لم تكن في اللعبة.
+        <cite>— عزوزكِ، إلى دندونتي</cite>
+      </blockquote>
+    </section>
+
+    <section class="section gallery-section" id="gallery" aria-labelledby="galleryTitle">
+      <div class="section-heading" data-reveal>
+        <p class="eyebrow">ألبوم صغير · صورتكِ في كل غدٍ جميل</p>
+        <h2 id="galleryTitle">أربع لقطات،<br>وكل لقطة أمنية</h2>
+        <p>من الصورة التي أحبها الآن إلى مشاهد أتمنى أن أعيشها معكِ يومًا: غروب قريب، وبحيرة هادئة، وليلة مطر تحت مظلة واحدة. اضغطي على أي صورة لتكبريها.</p>
+      </div>
+
+      <div class="gallery-grid" data-reveal>
+        <button class="gallery-card gallery-card--wide" type="button" data-gallery-src="images/diana-and-azouz-night.jpg" data-gallery-alt="دندونتي وعزوزكِ في صورة ليلية دافئة" data-gallery-caption="الصورة التي بدأت منها كل هذه الصفحات">
+          <img src="images/diana-and-azouz-night.jpg" width="1402" height="1122" alt="دندونتي وعزوزكِ في صورة ليلية دافئة" loading="lazy" decoding="async">
+          <span><small>اللقطة الأولى</small><b>حين صار للانتظار صورة</b><i>كبّريها ↗</i></span>
+        </button>
+        <button class="gallery-card" type="button" data-gallery-src="images/diana-and-azouz-sunset-beach.jpg" data-gallery-alt="ديانتي وعزوزكِ أمام البحر وقت الغروب" data-gallery-caption="غروبٌ أتمنى أن أقف أمامه إلى جواركِ">
+          <img src="images/diana-and-azouz-sunset-beach.jpg" width="1122" height="1402" alt="ديانتي وعزوزكِ أمام البحر وقت الغروب" loading="lazy" decoding="async">
+          <span><small>اللقطة الثانية</small><b>غروب أتمنى أن أراه معكِ</b><i>كبّريها ↗</i></span>
+        </button>
+        <button class="gallery-card" type="button" data-gallery-src="images/diana-and-azouz-lakeside-sunset.jpg" data-gallery-alt="دندونتي وعزوزكِ عند بحيرة هادئة وقت الغروب" data-gallery-caption="هدوءٌ يشبه شعوري حين أسمع صوتكِ">
+          <img src="images/diana-and-azouz-lakeside-sunset.jpg" width="1122" height="1402" alt="دندونتي وعزوزكِ عند بحيرة هادئة وقت الغروب" loading="lazy" decoding="async">
+          <span><small>اللقطة الثالثة</small><b>هدوء يشبه وجودكِ</b><i>كبّريها ↗</i></span>
+        </button>
+        <button class="gallery-card" type="button" data-gallery-src="images/diana-and-azouz-rainy-night.jpg" data-gallery-alt="ديانتي وعزوزكِ تحت مظلة في ليلة ممطرة" data-gallery-caption="ليلة مطر، ومظلة واحدة، ومسافة لم تعد موجودة">
+          <img src="images/diana-and-azouz-rainy-night.jpg" width="1122" height="1402" alt="ديانتي وعزوزكِ تحت مظلة في ليلة ممطرة" loading="lazy" decoding="async">
+          <span><small>اللقطة الرابعة</small><b>ليلة مطر قريبة منكِ</b><i>كبّريها ↗</i></span>
+        </button>
+      </div>
+      <p class="gallery-note" data-reveal><span aria-hidden="true">♡</span> هذه ليست صورًا فقط؛ إنها طريقة قلبي في تخيّل الأشياء التي أريد أن أعيشها معكِ.</p>
+    </section>
+
+    <section class="section chapter night-section" id="night" data-chapter="ليلٌ معكِ">
+      <div class="section-heading section-heading--light" data-reveal>
+        <p class="eyebrow">الفصل الثاني · ليلة لا أريدها أن تنتهي</p>
+        <h2 class="stacked-title"><span>اسحبي الليل معي</span><em>حتى يطلع الصباح</em></h2>
+        <p>هذه ساعتكِ معي… مرّري المؤشر من أول السهر، إلى اللحظة التي تنامين فيها وأبقى أنتظركِ، ثم إلى عودتكِ مع أول الضوء.</p>
+      </div>
+
+      <div class="night-experience" id="nightExperience" data-reveal>
+        <div class="night-journey__meta">
+          <span class="night-stage-label"><i aria-hidden="true"></i><b id="nightStageLabel">أول الليل</b></span>
+          <div class="night-progress" id="nightProgress" role="progressbar" aria-label="التقدّم من الليل إلى الصباح" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+            <span id="nightProgressFill"></span>
+          </div>
+          <output id="nightProgressValue" for="nightSlider">٠٪</output>
+        </div>
+
+        <div class="night-sky" id="nightSky" aria-hidden="true">
+          <div class="night-sky__aurora"></div>
+          <div class="night-sky__stars" id="nightStars"></div>
+          <div class="night-sky__shooting-star"></div>
+          <div class="night-sky__sunrise-rays"></div>
+          <div class="night-sky__clouds"><i></i><i></i><i></i></div>
+          <div class="night-sky__moon"></div>
+          <div class="night-sky__sun"></div>
+          <div class="night-sky__birds"><i></i><i></i><i></i></div>
+          <div class="night-sky__horizon"><i></i><i></i><i></i></div>
+          <div class="night-sky__wave" id="voiceWave"></div>
+        </div>
+
+        <div class="night-copy" aria-live="polite">
+          <div class="night-copy__time"><small>الوقت الآن</small><time id="nightTime" datetime="23:00">11:00 مساءً</time></div>
+          <div class="night-copy__words">
+            <h3 id="nightPhrase">«بلّشت أحكي معكِ… ولسّه الليل بأوله»</h3>
+            <p id="nightDetail">سؤال بسيط منكِ يفتح لي حكاية كاملة، وصوتكِ يجعل آخر يومي أخفّ.</p>
+          </div>
+        </div>
+
+        <div class="night-controls">
+          <div class="night-stages" role="group" aria-label="اختاري محطة من الليل">
+            <button type="button" data-night-value="0" aria-pressed="true"><span>11:00</span>أول الحكي</button>
+            <button type="button" data-night-value="18" aria-pressed="false"><span>12:30</span>منتصف الليل</button>
+            <button type="button" data-night-value="36" aria-pressed="false"><span>2:00</span>ضحكتكِ</button>
+            <button type="button" data-night-value="55" aria-pressed="false"><span>3:30</span>وقت البوح</button>
+            <button type="button" data-night-value="72" aria-pressed="false"><span>4:30</span>حين تنامين</button>
+            <button type="button" data-night-value="86" aria-pressed="false"><span>5:30</span>حين تصحين</button>
+            <button type="button" data-night-value="100" aria-pressed="false"><span>6:15</span>طلوع الشمس</button>
+          </div>
+          <label class="night-slider">
+            <span>من أول المساء</span>
+            <input id="nightSlider" type="range" min="0" max="100" value="0" aria-label="اسحبي الوقت معي من الليل إلى الصباح">
+            <span>حتى طلوع الشمس</span>
+          </label>
+        </div>
+      </div>
+
+      <article class="night-memory" data-reveal>
+        <div class="night-memory__clock" aria-hidden="true"><span>☾</span><small>ما بين نومكِ وصحوتكِ</small></div>
+        <div class="night-memory__copy">
+          <p class="eyebrow">سرّ صغير من سهر جواكر</p>
+          <h3>كنتِ تنامين…<br>وأنا أبقى أنتظر أن تصحي</h3>
+          <p>لم أكن أنتظر انتهاء الليل؛ كنتُ أنتظر رجوع صوتكِ. حين يغلبكِ النوم، أبقى مستيقظًا لأن السهر من دونكِ لا يشبه السهر، وحين تصحين أبدأ معكِ ليلةً جديدة ولو كان الصباح قد اقترب.</p>
+          <blockquote>«لا أحب النوم إلا حين تكونين موجودة معي؛ كأن وجودكِ هو الطريقة التي يطمئن بها ليلي.»</blockquote>
+        </div>
+      </article>
+
+      <div class="voice-card" data-reveal>
+        <div class="voice-card__visual" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        <div>
+          <p class="eyebrow">الصوت الذي سبق أشياء كثيرة</p>
+          <h3>صوتكِ لا أسمعه فقط… أسكن إليه.</h3>
+          <button class="text-button" id="voiceMeaning" type="button" aria-expanded="false" aria-controls="voiceQuote">افتحي السطر الذي يشبه قلبي <span aria-hidden="true">←</span></button>
+          <blockquote id="voiceQuote" hidden>«والأُذنُ تعشقُ قبلَ العينِ أحيانًا» <cite>— بشّار بن بُرد</cite></blockquote>
+        </div>
+      </div>
+    </section>
+
+    <section class="section chapter dictionary-section" id="dictionary" data-chapter="قاموسي لكِ">
+      <div class="section-heading" data-reveal>
+        <p class="eyebrow">الفصل الثالث · قاموس لا يفهمه غيركِ</p>
+        <h2>كلمات صغيرة،<br>ومعانٍ أكبر من الكلام</h2>
+        <p>لكل حكاية قاموسها الخاص. اضغطي على كل كلمة لتعرفي معناها كما يقرأها قلبي، لا كما تشرحها القواميس.</p>
+      </div>
+
+      <div class="dictionary-quote" data-reveal>
+        <span aria-hidden="true">♡</span>
+        <p>عندي لكِ كلمات تبدو عادية للناس، لكنها حين تمرّ بصوتكِ تصبح ذكرى، وطمأنينة، وموعدًا صغيرًا مع الفرح.</p>
+      </div>
+
+      <div class="dictionary-grid" id="dictionaryGrid" data-reveal>
+        <button class="dictionary-card" type="button" aria-expanded="false">
+          <span class="dictionary-card__number">01</span><b>دندونتي</b><small>اضغطي للمعنى</small>
+          <span class="dictionary-card__meaning" hidden>اسم الدلع الذي يصغّر الدنيا كلها، فلا يبقى فيها إلا أنتِ وقلبٌ يحب أن يدلّلكِ.</span>
+        </button>
+        <button class="dictionary-card" type="button" aria-expanded="false">
+          <span class="dictionary-card__number">02</span><b>ديانتي</b><small>اضغطي للمعنى</small>
+          <span class="dictionary-card__meaning" hidden>اسمكِ حين يقترب من كلمة «دنيتي»؛ لأن الحروف نفسها عرفت مكانكِ قبل أن أشرحه.</span>
+        </button>
+        <button class="dictionary-card" type="button" aria-expanded="false">
+          <span class="dictionary-card__number">03</span><b>جواكر</b><small>اضغطي للمعنى</small>
+          <span class="dictionary-card__meaning" hidden>اللعبة التي دخلتُها لأربح نقاطًا، فخرجتُ منها بأجمل إنسانة يمكن أن تربحها صدفة.</span>
+        </button>
+        <button class="dictionary-card" type="button" aria-expanded="false">
+          <span class="dictionary-card__number">04</span><b>صوتيتات الليل</b><small>اضغطي للمعنى</small>
+          <span class="dictionary-card__meaning" hidden>الطريق المختصر من تعب اليوم إلى راحة القلب، حين يكون صوتكِ في آخره.</span>
+        </button>
+        <button class="dictionary-card" type="button" aria-expanded="false">
+          <span class="dictionary-card__number">05</span><b>«نحكي شوي؟»</b><small>اضغطي للمعنى</small>
+          <span class="dictionary-card__meaning" hidden>جملة لا تعني «شوي» أبدًا؛ تعني ليلة كاملة، وضحكًا كثيرًا، وموضوعًا يفتح عشرة مواضيع.</span>
+        </button>
+        <button class="dictionary-card" type="button" aria-expanded="false">
+          <span class="dictionary-card__number">06</span><b>طلع الضو</b><small>اضغطي للمعنى</small>
+          <span class="dictionary-card__meaning" hidden>الدليل اليومي على أن حديثي معكِ انتصر على الوقت، وأن الليل كان أقصر من كل ما أردتُ قوله لكِ.</span>
+        </button>
+        <button class="dictionary-card" type="button" aria-expanded="false">
+          <span class="dictionary-card__number">07</span><b>تصبحي على خير</b><small>اضغطي للمعنى</small>
+          <span class="dictionary-card__meaning" hidden>وعدٌ صغير بأن أتمنى لكِ نومًا آمنًا، وصباحًا ألطف، وقلبًا لا يثقله شيء.</span>
+        </button>
+        <button class="dictionary-card" type="button" aria-expanded="false">
+          <span class="dictionary-card__number">08</span><b>اشتقتلك</b><small>اضغطي للمعنى</small>
+          <span class="dictionary-card__meaning" hidden>ثمانية أحرف تحمل المسافة كلها، وتقول إن وجودكِ ليس تفصيلًا عابرًا في يومي.</span>
+        </button>
+      </div>
+      <p class="dictionary-status" id="dictionaryStatus" aria-live="polite">ثماني كلمات تنتظر أن تفتحي معانيها</p>
+    </section>
+
+    <section class="section chapter reasons-section" id="reasons" data-chapter="27 سببًا">
+      <div class="section-heading" data-reveal>
+        <p class="eyebrow">الفصل الرابع · سبعة وعشرون قلبًا</p>
+        <h2 class="reasons-title"><span>27 سببًا أحبكِ لأجلها…</span><span>ولا تكفي</span></h2>
+        <p>كل بطاقة مغلقة تحمل سببًا حقيقيًا. افتحيها بترتيبكِ، أو دعي قلبي يختار لكِ سببًا عشوائيًا.</p>
+      </div>
+
+      <div class="reasons-toolbar" data-reveal>
+        <div class="reason-progress">
+          <div><strong id="reasonCount">0</strong><span>من 27</span></div>
+          <div class="reason-progress__track" aria-hidden="true"><i id="reasonProgressBar"></i></div>
+          <p id="reasonStatus" aria-live="polite">لم تُفتح أي بطاقة بعد</p>
+        </div>
+        <div class="reasons-toolbar__actions">
+          <button class="button button--small button--accent" id="randomReason" type="button">اختاري لي سببًا ✦</button>
+          <button class="button button--small button--ghost" id="openAllReasons" type="button">افتحيها كلها</button>
+        </div>
+      </div>
+
+      <div class="reason-groups" id="reasonsGrid"></div>
+
+      <div class="hidden-gift" id="hiddenGift" hidden>
+        <span aria-hidden="true">✦</span>
+        <p class="eyebrow">المفاجأة التي بعد 27</p>
+        <h3>والسبب الثامن والعشرون؟</h3>
+        <p>لأنكِ أنتِ. بلا شرح طويل، وبلا محاولة لتجميل الجملة. أنتِ كما أنتِ… وهذا وحده سبب يجعل الحب أكبر من كل القوائم.</p>
+      </div>
+    </section>
+
+    <section class="section chapter poetry-section" id="poetry" data-chapter="الديوان">
+      <div class="section-heading section-heading--light" data-reveal>
+        <p class="eyebrow">الفصل الخامس · ديوان دندونتي</p>
+        <h2 class="stacked-title"><span>حين يعجز الكلام،</span><em>يحاول الشعر</em></h2>
+        <p>ديوان أطول قليلًا من شوقي، وأقصر بكثير مما تستحقين: خمس قصائد، وست شذرات، واسمكِ مكتوب كأنه بيت شعر.</p>
+      </div>
+
+      <div class="poem-feature" data-reveal>
+        <div class="poem-feature__number">01</div>
+        <div>
+          <p class="eyebrow">إلى دندونتي</p>
+          <h3>قصيدة «آخر الليل»</h3>
+          <p class="poem-lines">
+            يا آخرَ الصوتِ في ليلٍ يطولْ<br>
+            يا أولَ الضوءِ حين القلبُ يميلْ<br>
+            ما كنتُ أعرفُ أنَّ الاسمَ نافذةٌ<br>
+            حتى أطلَّتْ «ديانتي»… فاخضرَّ المستحيلْ<br><br>
+            نلعبُ الورقَ، لكنّي ربحتُكِ أنتِ<br>
+            فصار حظّي بعد عينيكِ جميلْ<br>
+            إن باعدتني عنكِ البلادُ اليومَ يا عمري<br>
+            فالشوقُ أقربُ، والميعادُ لا بدّ آتٍ.
+          </p>
+          <cite>— من عزوزكِ، لأن القصائد لا تعرف كيف تقول اسمكِ بهدوء</cite>
+        </div>
+      </div>
+
+      <div class="poem-cards">
+        <article data-reveal><span>02</span><p class="eyebrow">في عينيكِ</p><h3>هدوءٌ يشبه البيت</h3><p>في عينيكِ مكانٌ لا تضيع فيه الطرق، وطمأنينةٌ لو مرّت على تعب أيامي لأقنعته أن يرحل.</p></article>
+        <article data-reveal><span>03</span><p class="eyebrow">للمسافة</p><h3>أصغر من شوقي</h3><p>المسافة بيني وبينكِ عددٌ على خريطة؛ أمّا أنتِ ففي تفاصيل يومي أقرب من كل شيء أستطيع لمسه.</p></article>
+        <article data-reveal><span>04</span><p class="eyebrow">في ميلادكِ</p><h3>سنة تشبهكِ</h3><p>أتمنى لكِ عامًا رقيقًا على قلبكِ، واسعًا لأحلامكِ، كثير الضحك… وعادلًا مع كل الخير الذي فيكِ.</p></article>
+        <article data-reveal><span>05</span><p class="eyebrow">صوتكِ</p><h3>آخر أغاني الليل</h3><p>إذا نامت المدينة، بقي صوتكِ مستيقظًا في قلبي؛ يربّت على تعبي ويقول له: انتهى اليوم، أنت الآن بخير.</p></article>
+        <article data-reveal><span>06</span><p class="eyebrow">دندونتي</p><h3>دلعٌ بحجم وطن</h3><p>أناديكِ دندونتي، فيلين الحرف على لساني، ويصير للاسم حضنٌ صغير لا تستطيع المسافة أن تغلقه.</p></article>
+        <article data-reveal><span>07</span><p class="eyebrow">موعدي معكِ</p><h3>للقاء الذي سيأتي</h3><p>سأترك للمقعد المقابل مكانه، وللقهوة دفأها، ولعينيّ دهشتهما الأولى حين تصبحين أمامي لا خلف شاشة.</p></article>
+      </div>
+
+      <div class="poem-feature poem-feature--love" data-reveal>
+        <div class="poem-feature__number">08</div>
+        <div>
+          <p class="eyebrow">قصيدة ثانية · كما أنتِ</p>
+          <h3>أحبكِ من غير شروطٍ على الضوء</h3>
+          <p class="poem-lines">
+            أحبكِ حين تضحكين حتى ينسى الحزنُ اسمَه،<br>
+            وحين يصير الصمتُ أثقلَ من الكلام.<br>
+            أحبكِ قويةً، وأحبكِ حين تتعبين،<br>
+            فلا الحبُّ امتحانٌ، ولا القلبُ مقام.<br><br>
+            أحبُّ فيكِ الحقيقةَ حين تأتي بلا زينة،<br>
+            وصدقكِ حين يفتح في قلبي ألفَ باب.<br>
+            وأحبُّ أني كلما قلتُ «ديانتي» مرةً،<br>
+            أجاب القلبُ: هذه دنيتي، وهذا أجملُ الأسباب.<br><br>
+            فإن طال الطريقُ، فموعدي معكِ لا يضيع،<br>
+            وإن نام الكلامُ، فالشوقُ في قلبي لا ينام.<br>
+            يا دندونتي، يكفيني من العمرِ كلّه<br>
+            أن أراكِ بخير… وأن يبقى لكِ في قلبي هذا السلام.
+          </p>
+          <cite>— عزوزكِ، في الصفحة التي لم تكفها رسالة واحدة</cite>
+        </div>
+      </div>
+
+      <article class="authored-poem" id="poemFromAzouz" aria-labelledby="authoredPoemTitle" data-reveal>
+        <header class="authored-poem__header">
+          <div class="authored-poem__seal" aria-hidden="true"><span>♡</span><small>من عزوزكِ</small></div>
+          <div>
+            <p class="eyebrow">القصيدة التي سبقت هذه الهدية</p>
+            <h3 id="authoredPoemTitle">كتبتُها لكِ<br>كي تعرفي مشاعري أكثر</h3>
+            <p>هذه ليست أبياتًا اخترتها من مكان آخر؛ هذه كلمات كتبتها لكِ يوم احتجتُ أن يعرف الشعر كل ما لم أعرف كيف أقوله بصوتي.</p>
+          </div>
+        </header>
+
+        <div class="authored-poem__paper">
+          <p>
+            كانها بدرٌ ينيرُ ظلامَ الليالي<br>
+            حبُّ ديانتي لا يوصفُ بكلماتِ أشعاري<br>
+            صورةُ وجهها لا تغادرُ بناتَ أفكاري<br>
+            جمالٌ وحسنٌ وأدبٌ ووقارِ
+          </p>
+          <p>
+            عيني المها فيها مجسدةٌ أجملُ الآياتِ<br>
+            تكتملُ الحياةُ معكِ يا أجملَ البناتِ<br>
+            يا حبيبةَ القلبِ والفكرِ والبالِ<br>
+            أصلّي إلى اللهِ الواحدِ القهّارِ<br>
+            أن يجعلَ منكِ زوجةً لي بكلِّ إصراري
+          </p>
+          <p>
+            من دفءِ قلبِكِ أعيشُ ليلي ونهاري<br>
+            وبقربِكِ يهدأُ قلبي وتطمئنُّ أسراري<br>
+            وما عادَ حبُّكِ حبًّا كما يعرفُهُ الناسُ<br>
+            بل صارَ هيامًا يسري في دمي، ويملأُ أعمقَ أفكاري
+          </p>
+          <p>
+            أشتاقُ إليكِ وإن كنتِ بقربي<br>
+            وأفتقدُكِ قبلَ أن تغادري داري<br>
+            وأحبُّ الطريقَ الذي مرَّت عليه خطاكِ<br>
+            وكأنَّ الأرضَ تزينتْ لأنَّها حملتْ آثارَكِ يا قمري الساري
+          </p>
+          <p>
+            وأنا أعلمُ ما أخفتهُ الأيامُ في قلبِكِ من انكسارِ<br>
+            وأعرفُ كم تحملتِ بصمتٍ من وجعٍ ومرارِ<br>
+            وما نظرتُ إليكِ يومًا بعينِ الشفقةِ أبدًا<br>
+            بل بعينِ الفخرِ، لأنكِ وقفتِ رغمَ كلِّ الأعصارِ
+          </p>
+          <p>
+            أتمنى لو أستطيعُ أن آخذَ عنكِ بعضَ تعبِ السنينِ<br>
+            وأحملَ عن قلبِكِ ما أثقلهُ من الأحمالِ والأقدارِ<br>
+            ولو كانَ بيدي لأبعدتُ عنكِ كلَّ دمعةٍ<br>
+            ولزرعتُ مكانَها ألفَ ابتسامةٍ وفرحٍ وازدهارِ
+          </p>
+          <p>
+            أعلمُ أنَّ الطريقَ بيننا ليس سهلًا<br>
+            وأنَّ الوصولَ إليكِ يحتاجُ صبرًا وإصرارِ<br>
+            لكنني مؤمنٌ أنَّ ما كتبهُ اللهُ لنا سيأتينا<br>
+            ولو اجتمعتْ الدنيا كلُّها لتصنعَ ألفَ جدارِ
+          </p>
+          <p>
+            أنتِ تشبهينني حتى كأنَّ روحينا خُلقتا من روحٍ واحدةٍ<br>
+            نفهمُ الصمتَ قبلَ الكلامِ، ونقرأُ ما تخفيهِ الأنظارِ<br>
+            ولذلكَ أخافُ عليكِ أكثرَ من خوفي على نفسي<br>
+            وأدعو اللهَ أن يحفظَ قلبَكِ من كلِّ وجعٍ وضرارِ
+          </p>
+          <p>
+            إن ضاقتْ بكِ الدنيا فقلبي بيتُكِ<br>
+            وإن أتعبتكِ الحياةُ فكتفي لكِ خيرُ جوارِ<br>
+            وسأبقى على وعدي ما دامَ في صدري نفسٌ<br>
+            لا يغيّرني بُعدٌ، ولا تكسرني الأيامُ، ولا تُضعفني الأعذارِ
+          </p>
+          <p>
+            يا ديانتي… يا دندونتي… يا أجملَ نعمةٍ رزقني اللهُ بها<br>
+            أنتِ دعائي في سجودي، وأمنيتي في كلِّ الأسحارِ<br>
+            وأسألُ اللهَ أن يجمعني بكِ زوجةً<br>
+            فنعيشُ العمرَ معًا، بقلبٍ واحدٍ، وحبٍّ لا يعرفُ الانكسارِ.
+          </p>
+        </div>
+
+        <footer class="authored-poem__footer">
+          <p><span aria-hidden="true">✦</span> قصيدة أصلية كتبها عزوزكِ لدندونته</p>
+          <a class="text-button" href="poems.html#poem-from-azouz">اقرئيها داخل الديوان الكامل <span aria-hidden="true">←</span></a>
+        </footer>
+      </article>
+
+      <section class="future-vow-poems" aria-labelledby="futureVowTitle" data-reveal>
+        <header class="future-vow-poems__header">
+          <p class="eyebrow">أنتِ حبيبتي اليوم · وزوجتي التي أراها في غدي</p>
+          <h3 id="futureVowTitle">وحين لا يكفي الكلام،<br><em>يحاول الشعر من جديد</em></h3>
+          <p>لا أفتخر فقط بأنني أحبكِ؛ أفخر بأنكِ أنتِ حبيبتي، وبأن قلبي حين فكّر في العمر والبيت والمستقبل لم يرَ إلى جانبه سواكِ.</p>
+        </header>
+
+        <div class="future-vow-poems__grid">
+          <article class="vow-poem-card vow-poem-card--gold">
+            <span class="vow-poem-card__mark" aria-hidden="true">01</span>
+            <p class="eyebrow">حبيبتي وفخري وزوجة عمري</p>
+            <h4>اختيارُ العمر</h4>
+            <p class="vow-poem-card__lines">
+              يا ديانتي، ما عدتُ أهوى مثلما يهوى البشرْ<br>
+              أنا فيكِ ذبتُ، وصرتِ لي روحًا وعمرْ<br><br>
+              أفخرُ بأنّكِ حبيبتي بينَ الورى<br>
+              وكأنّ قلبي حينَ اختاركِ قد انتصرْ<br>
+              وأراكِ زوجةَ خاطري ومستقبلي<br>
+              وبكِ سيُزهرُ بيتُنا مهما عَسُرْ<br><br>
+              دندونتي، ما أنتِ حبًّا عابرًا<br>
+              أنتِ اختيارُ العمرِ، بل أحلى العمرْ<br>
+              وسأحمدُ الرحمنَ يومَ زفافنا<br>
+              أنّ الدعاءَ الذي دعوتُ بهِ حضرْ<br><br>
+              فأنتِ حبيبتي، وفخري، وزوجتي<br>
+              وحكايةُ العمرِ التي لا تختصرْ
+            </p>
+          </article>
+
+          <article class="vow-poem-card vow-poem-card--rose">
+            <span class="vow-poem-card__mark" aria-hidden="true">02</span>
+            <p class="eyebrow">إلى قوتكِ التي أحبها وأفخر بها</p>
+            <h4>موطنٌ وقدر</h4>
+            <p class="vow-poem-card__lines">
+              يا ديانتي، ما عاد حبُّكِ خفقةً عابرةً<br>
+              بل صار في أعماق روحي موطنًا وقدرَا<br>
+              أحببتُكِ حتى لم يَعُدْ ليَ في الهوى<br>
+              قلبٌ يخصّني؛ فقد وهبتُكِ العُمرَا<br><br>
+              أراكِ أقوى من عواصفِ دهرِكِ<br>
+              تمضين رغمَ الجرحِ شامخةً كالفجرَا<br>
+              وأحببتُ فيكِ قوّةً ممزوجةً<br>
+              بحنان قلبٍ يجعلُ القسوةَ زهرَا<br><br>
+              أنا لا أحبُّكِ مثلما قالوا الهوى<br>
+              أنا فيكِ قد جاوزتُ عشقًا وافتخارَا<br>
+              فإذا سألوني: كيف صار الحبُّ عشقًا؟<br>
+              قلتُ: التقيتُ بدندونتي، فاختصرتْ ليَ العُمرَا
+            </p>
+          </article>
+        </div>
+
+        <a class="button button--ghost future-vow-poems__link" href="poems.html#poem-pride">اقرئي القصيدتين كاملتين في ديوانكِ <span aria-hidden="true">←</span></a>
+      </section>
+
+      <div class="name-poem" data-reveal>
+        <div class="name-poem__title"><p class="eyebrow">اسمكِ قصيدة من خمسة أحرف</p><h3>د ي ا ن ا</h3></div>
+        <div class="name-poem__lines">
+          <p><b>د</b><span>دفءٌ يصلني ولو كان بيني وبينكِ ألف طريق.</span></p>
+          <p><b>ي</b><span>يقينٌ صغير بأن أجمل الصدف لا تأتي مرتين.</span></p>
+          <p><b>ا</b><span>أمانٌ وجدته في صوتكِ حين يهدأ كل شيء.</span></p>
+          <p><b>ن</b><span>نبضٌ جديد أضاف إلى أيامي معنى لم أعرفه.</span></p>
+          <p><b>ا</b><span>أنتِ… وأحيانًا تكفي كلمة واحدة لتختصر ديوانًا.</span></p>
+        </div>
+      </div>
+
+      <div class="classic-lines" data-reveal>
+        <p class="eyebrow">قالها الشعراء قبلي</p>
+        <div class="classic-lines__grid">
+          <figure><blockquote>«بأُنسِ الحبيبِ يطيبُ السَّمرُ<br>وتلتذُّ عينايَ طولَ السهر»</blockquote><figcaption>العباس بن الأحنف · <a href="https://www.aldiwan.net/poem26323.html" target="_blank" rel="noreferrer">مصدر بيت العباس</a></figcaption></figure>
+          <figure><blockquote>«إنّي ذكرتُكِ بالزهراءِ مشتاقًا»</blockquote><figcaption>ابن زيدون · <a href="https://poetry.dct.gov.ae/poems/7497-%D8%A5%D9%86%D9%8A-%D8%B0%D9%83%D8%B1%D8%AA%D9%83-%D8%A8%D8%A7%D8%B2%D9%87%D8%B1%D8%A7%D8%A1-%D9%85%D8%B4%D8%AA%D8%A7%D9%82%D8%A7" target="_blank" rel="noreferrer">مصدر بيت ابن زيدون</a></figcaption></figure>
+          <figure><blockquote>«وددتُ، على حبِّ الحياة، لو أنّها<br>يُزادُ لها في عمرها من حياتيا»</blockquote><figcaption>جميل بثينة · <a href="https://24.ae/article/163793/" target="_blank" rel="noreferrer">مصدر بيت جميل</a></figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section chapter birthday-wishes-section" id="wishes" data-chapter="27 أمنية">
+      <div class="section-heading" data-reveal>
+        <p class="eyebrow">الفصل السادس · سبعة وعشرون دعاءً صغيرًا</p>
+        <h2>27 أمنية لعامكِ<br>السابع والعشرين</h2>
+        <p>الأسباب تخبركِ لماذا أحبكِ، أمّا هذه الأمنيات فتخبر السنة الجديدة كيف أريدها أن تعاملكِ: بلطفٍ كثير، وعدلٍ أكثر.</p>
+      </div>
+
+      <div class="wishes-toolbar" data-reveal>
+        <div><span aria-hidden="true">♥</span><p><b>باقة كاملة لكِ</b><small>كل وردة تحمل أمنية مختلفة</small></p></div>
+        <button class="button button--primary button--small" id="randomBirthdayWish" type="button">اختاري أمنية اليوم</button>
+      </div>
+      <p class="birthday-wish-status" id="birthdayWishStatus" aria-live="polite">مرّري بينها ببطء، أو دعي قلبًا عشوائيًا يختار أمنيتكِ الآن.</p>
+      <div class="birthday-wishes-grid" id="birthdayWishesGrid"></div>
+
+      <blockquote class="wish-dedication" data-reveal>
+        <span aria-hidden="true">27</span>
+        <p>لا أتمنى لكِ الخير من بعيد؛ أتمنى أن أعيشه معكِ. أريد أن أكون قلبكِ القريب حين تثقل الأيام، وأول من يفرح بانتصاركِ، والرجل الذي يبني معكِ عامًا بعد عام حياةً تليق بحبيبته وزوجته التي اختارها.</p>
+        <cite>— من حبيبكِ الذي يختاركِ للعمر كلّه</cite>
+      </blockquote>
+    </section>
+
+    <section class="section chapter letter-section" id="letter" data-chapter="الرسالة">
+      <div class="section-heading" data-reveal>
+        <p class="eyebrow">الفصل السابع · الكلام الذي أخبئه</p>
+        <h2>رسالة من روحي<br>إلى روحكِ</h2>
+        <p>لا تُقرأ هذه الرسالة بسرعة. افتحيها حين تكونين مستعدة، وخذي كل سطر على مهله.</p>
+      </div>
+
+      <div class="letter-envelope" id="letterEnvelope" data-reveal>
+        <div class="letter-envelope__back" aria-hidden="true"></div>
+        <div class="letter-envelope__flap" aria-hidden="true"></div>
+        <div class="letter-envelope__front" aria-hidden="true"><span>إلى<br><b>ديانتي</b></span></div>
+        <button class="letter-seal" id="openLetter" type="button" aria-expanded="false" aria-controls="letterPaper"><span>♡</span><small>افتحي الرسالة</small></button>
+      </div>
+
+      <article class="letter-paper" id="letterPaper" hidden>
+        <div class="letter-paper__header"><span>إلى دندونتي وديانتي</span><time>في ميلادكِ السابع والعشرين</time></div>
+        <p>دندونتي، يا حبيبتي واختيار قلبي،</p>
+        <p>كلما حاولتُ أن أكتب لكِ، أشعر أن الكلام أصغر من مكانكِ في داخلي. لذلك لم أصنع هذه الهدية لأقول لكِ كلمات ميلاد جميلة وتنتهي؛ صنعتُها لأنكِ لستِ يومًا عابرًا في حياتي، ولأنني أريدكِ أن تري في كل تفصيل منها حقيقة واحدة: أنا أحبكِ، وأختاركِ حبيبتي اليوم، وأراكِ زوجتي وشريكة عمري في الغد الذي أسعى إليه.</p>
+        <p>منذ عرفتكِ، لم تعودي مجرد صوتٍ أنتظره في نهاية اليوم؛ صرتِ أجمل ما أنتظره في اليوم كلّه. معكِ أضحك من قلبي، وأحكي ما لا أقوله لأحد، وأجد نفسي على طبيعتي بلا خوف ولا تكلّف. وحتى في ليالي جواكر، حين يغلبكِ النوم، أبقى أنتظر صحوتكِ كي يعود السهر بصوتكِ؛ فحتى النوم لا أحبه إلا حين تكونين موجودة وقريبة مني.</p>
+        <p>أحب صراحتكِ؛ الصراحة التي لا تجرح، بل تجعل المسافة بين قلبين أقصر. أحب اهتمامكِ بالتفاصيل التي قد تمرّ على غيركِ عادية، وأحب طيبة قلبكِ وقوتكِ حتى في الأيام التي لا ترين فيها نفسكِ قوية. وإذا نسيتِ يومًا كم أنتِ مميزة، عودي إلى هنا وتذكّري أن عزوزكِ يراكِ بعين الحب والفخر، ويشكر الله لأن الحياة عرّفته إلى المرأة التي يريد أن يكمل عمره معها.</p>
+        <p>لا أنظر إلى المسافة بيني وبينكِ كأنها نهاية الحكاية؛ أراها طريقًا أعبره إليكِ. أنتظر اليوم الذي لا أودّعكِ فيه عند نهاية اتصال، واليوم الذي أشرب فيه قهوتي أمامكِ، وأسمع ضحكتكِ في بيتنا، وأعيش معكِ التفاصيل العادية التي ستكون عندي أجمل من كل الأحلام، فقط لأنها مع زوجتي التي أحب.</p>
+        <p>في عامكِ السابع والعشرين، لا أتمنى لكِ الخير كما يتمناه شخص عابر. أنا حبيبكِ؛ يهمّني ما يفرح قلبكِ وما يثقله، ويؤلمني تعبكِ، ويفرحني نجاحكِ كأنه نجاحي. أتمنى أن أكون إلى جواركِ في فرحكِ وتعبكِ، وأن أصون قلبكِ، وأن أصنع معكِ حياةً تشعرين فيها بالأمان والحب كل يوم، لا في عيد ميلادكِ وحده.</p>
+        <p>لا أعدكِ بحياة لا تعرف الصعوبة، ولا أكتب وعدًا جميلًا أكبر من قدرتي؛ أعدكِ أن أكون صادقًا معكِ، وأن أسمعكِ، وأحترم قلبكِ وصراحتكِ، وأتمسك بكِ كلما صار الطريق أثقل. سأعمل كي يأتي اليوم الذي أمسك فيه يدكِ أمام العالم وأقول بفخر: هذه ديانتي، حبيبتي، وزوجتي التي اختارها قلبي.</p>
+        <p>كل عام وأنتِ دندونتي التي أحبها وأدلّلها، وديانتي التي أرى معها مستقبلي وبيتي وكل العمر. وكل عام وأنا أكثر يقينًا أن أجمل ما أريده من الأيام هو أن تجمعني بكِ على خير، فأبقى لكِ ويبقى قلبكِ لي.</p>
+        <p class="letter-paper__sign">حبيبكِ اليوم، وشريك عمركِ الذي يتمناكِ زوجةً،<br><strong>عزوزكِ ♡</strong></p>
+      </article>
+    </section>
+
+    <section class="section chapter comfort-section" id="comfort" data-chapter="لكِ دائمًا">
+      <div class="section-heading" data-reveal>
+        <p class="eyebrow">الفصل الثامن · افتحي عندما…</p>
+        <h2>ثماني رسائل<br>لثماني لحظات</h2>
+        <p>هذه الأظرف تبقى هنا لكِ. اختاري الظرف الذي يشبه ما يحتاجه قلبكِ الآن.</p>
+      </div>
+      <div class="comfort-grid" id="comfortGrid" data-reveal></div>
+    </section>
+
+    <section class="section chapter tomorrow-section" id="tomorrow" data-chapter="بُكرة">
+      <div class="section-heading section-heading--light" data-reveal>
+        <p class="eyebrow">الفصل التاسع · حين تقصر المسافة</p>
+        <h2>أشياء صغيرة<br>أريد أن أعيشها معكِ</h2>
+        <p>ليست وعودًا كبيرة تُقال بسهولة؛ هي أمنيات بسيطة أتمنى أن تمنحني الأيام فرصة حقيقية لأعيشها إلى جواركِ.</p>
+      </div>
+
+      <div class="future-tickets">
+        <article data-reveal><span>01</span><div aria-hidden="true">☕</div><h3>قهوة بلا شاشة</h3><p>أجلس أمامكِ، وأنسى هاتفي لأن الحكاية هذه المرة أقرب.</p></article>
+        <article data-reveal><span>02</span><div aria-hidden="true">♠</div><h3>شريكة عمري</h3><p>أجلس إلى جواركِ لا لأربح لعبة، بل لأعيش مع حبيبتي التفاصيل التي ستملأ بيتنا يومًا: ضحكتكِ، وصراحتكِ، وطمأنينة أنني اخترتُ زوجتي من قلبي.</p></article>
+        <article data-reveal><span>03</span><div aria-hidden="true">☾</div><h3>مشوار آخر الليل</h3><p>طريق طويل، أغنية هادئة، وحديث لا يخاف أن يأخذ كل وقته.</p></article>
+        <article data-reveal><span>04</span><div aria-hidden="true">▣</div><h3>صورة جديدة</h3><p>أضيف معكِ للحكاية صورة ثانية وثالثة، وكل واحدة تقول إن الانتظار كان يستحق.</p></article>
+        <article data-reveal><span>05</span><div aria-hidden="true">✦</div><h3>عيد قريب</h3><p>شموع حقيقية هذه المرة، وأنا أقرب إليكِ من زر على شاشة.</p></article>
+        <article data-reveal><span>06</span><div aria-hidden="true">⌂</div><h3>مكان يشبه الأمان</h3><p>مكان هادئ يكفيني معكِ، فيه ضحكتكِ، وصباح لا أضطر فيه إلى إنهاء المكالمة.</p></article>
+      </div>
+
+      <div class="dream-builder" data-reveal>
+        <div class="dream-builder__intro"><p class="eyebrow">رتّبي موعدكِ الصغير معي</p><h3>اختاري ثلاث تفاصيل، وسأحفظ شكل اليوم الذي تحبينه</h3></div>
+        <div class="dream-options">
+          <fieldset data-dream-group="place"><legend>أين أبدأ معكِ؟</legend><button type="button" data-value="بقهوة هادئة">قهوة هادئة</button><button type="button" data-value="بمشوار طويل">مشوار طويل</button><button type="button" data-value="بلعبة جواكر">لعبة جواكر</button></fieldset>
+          <fieldset data-dream-group="mood"><legend>ما الذي يملأ الوقت؟</legend><button type="button" data-value="وضحك كثير">ضحك كثير</button><button type="button" data-value="وحكي من القلب">حكي من القلب</button><button type="button" data-value="وصمت مريح">صمت مريح</button></fieldset>
+          <fieldset data-dream-group="ending"><legend>بماذا أختمه معكِ؟</legend><button type="button" data-value="وصورة جديدة تجمعني بكِ">صورة جديدة</button><button type="button" data-value="وفجر أشاهده معكِ">أول الفجر</button><button type="button" data-value="ووعد بموعد أقرب">موعد أقرب</button></fieldset>
+        </div>
+        <p class="dream-result" id="dreamResult" aria-live="polite">اختاري تفصيلًا من كل سطر، يا <span data-beloved-name>ديانتي</span>.</p>
+      </div>
+    </section>
+
+    <section class="section chapter time-capsule-section" id="timecapsule" data-chapter="الكبسولة">
+      <div class="section-heading" data-reveal>
+        <p class="eyebrow">الفصل العاشر · رسالة إلى ديانتي في المستقبل</p>
+        <h2>كبسولة لعامكِ<br>السابع والعشرين</h2>
+        <p>هذه الصفحة ليست للحاضر وحده؛ هي موعد صغير بيني وبينكِ في المستقبل، تعودين إليه لنرى كم اقتربنا من اليوم الذي تصبح فيه أحلامنا بيتًا واحدًا وحياةً تجمعني بكِ.</p>
+      </div>
+
+      <div class="year-promises">
+        <article data-reveal><span>01</span><div aria-hidden="true">☀</div><h3>في أيامكِ المضيئة</h3><p>سأفرح لفرحكِ من غير مقارنة، وأصفق لكل خطوة تنجحين فيها، مهما بدت صغيرة للآخرين.</p></article>
+        <article data-reveal><span>02</span><div aria-hidden="true">☁</div><h3>في أيامكِ الثقيلة</h3><p>لن أطلب منكِ أن تتظاهري بالقوة. سأسمعكِ، وأترك لكِ المساحة، وأذكّركِ أن التعب لا ينقص من قيمتكِ.</p></article>
+        <article data-reveal><span>03</span><div aria-hidden="true">↺</div><h3>حين تختلفين معي</h3><p>سأحاول أن أفهم قبل أن أرد، وأن أحفظ احترامي لكِ، لأن القرب الحقيقي لا يعني أن توافقي رأيي في كل شيء.</p></article>
+        <article data-reveal><span>04</span><div aria-hidden="true">♡</div><h3>بين كل ذلك</h3><p>سأبقى أختار التفاصيل الصغيرة: سؤالًا صادقًا، ووقتًا للحكي، وضحكةً تعيد لليوم خفته.</p></article>
+      </div>
+
+      <div class="time-capsule" id="timeCapsuleBox" data-reveal>
+        <div class="time-capsule__closed" id="capsuleClosed">
+          <span class="time-capsule__ribbon" aria-hidden="true">♡</span>
+          <p class="eyebrow">إلى ديانتي حين تعودين إلى هنا</p>
+          <h3>رسالة لا يفتحها<br>إلا قلبكِ</h3>
+          <p>لا تحتاجين إلى الانتظار عامًا كاملًا. افتحيها كلما أردتِ أن تتذكري كيف أراكِ في مستقبلي، وما الذي أرجو أن نبنيه معًا بعد هذا الميلاد.</p>
+          <button class="button button--primary" id="openCapsule" type="button" aria-expanded="false" aria-controls="capsuleLetter">افتحي كبسولة العام ♥</button>
+        </div>
+
+        <article class="capsule-letter" id="capsuleLetter" tabindex="-1" hidden>
+          <p class="eyebrow">التاريخ: يومٌ ما في عامكِ السابع والعشرين</p>
+          <h3>يا ديانتي التي تقرئين هذه الرسالة الآن،</h3>
+          <p>لا أعرف كم مضى على عيد ميلادكِ حين عدتِ إلى هنا، لكن أول ما أريد معرفته ليس كم تغيّرت الأيام، بل كم اقتربتُ منكِ، وكم خطوةً قطعناها نحو مستقبلنا. أتمنى أن تكون المسافة أقصر، وأن تكون أحاديث البيت والزواج التي حلمتُ بها معكِ قد أصبحت خططًا واضحة نمشي إليها يدًا بيد.</p>
+          <p>وأتمنى قبل كل شيء أنكِ ما زلتِ دندونتي كما أحبها: صريحةً لا تخفي ما في قلبها، قويةً من غير أن تضطر إلى إخفاء تعبها، وطيبةً من غير أن تسمح لأحد أن يقلّل من قيمتها. أحب صراحتكِ لأنها تقرّبني منكِ، وأفخر بقوتكِ لا لأنني أريدكِ أن تتحملي كل شيء وحدكِ، بل لأنني أعرف كم نهضتِ رغم ما مرّ بكِ.</p>
+          <p>أما أنا، فأتمنى أن تكون أفعالي منذ يوم الميلاد قد سبقت كلامي: أن أكون قد سمعتكِ حين احتجتِ إلى الحديث، واحتويت صمتكِ حين عجزت الكلمات، وحفظت ثقتكِ، وأثبتُّ لكِ أنني لا أحبكِ كحكاية مؤقتة، بل أختاركِ للمستقبل كلّه. أريدكِ أن تنظري إليّ فتجدي حبيبكِ والرجل الذي يسعى بصدق ليكون زوجًا يليق بقلبكِ.</p>
+          <p>ربما نكون حين تقرئينها قد صنعنا ذكرى جديدة، أو جلسنا أخيرًا من دون شاشة بيننا، أو بدأنا نرتّب أول تفاصيل بيتنا: نافذة يدخل منها الصباح، وقهوة تجمعني بكِ، وضحكة منكِ تجعل المكان وطنًا. وإن كان الطريق ما يزال طويلًا، فأنا لا أريد طريقًا آخر؛ أريده معكِ، بخطوات صادقة وثابتة حتى يجمعنا الله على خير.</p>
+          <p>تذكّري دائمًا أنكِ لا تحتاجين إلى الكمال كي أحبكِ. أحب دندونتي بصراحتها وضحكتها، بقوتها وتعبها، بأيامها الخفيفة والثقيلة. وحين تعودين إلى هذه الرسالة مرةً أخرى، أتمنى أن تقرئيها في بيتنا، وأن أكون قريبًا بما يكفي لأقول لكِ بنفسي: ما زلتُ أختاركِ، وما زلتُ فخورًا بأنكِ حبيبتي وزوجتي ومستقبلي.</p>
+          <p class="capsule-letter__sign">إلى ديانتي، حبيبتي وشريكة العمر التي أريدها،<br><strong>عزوزكِ ♡</strong></p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section chapter finale" id="finale" data-chapter="الأمنية">
+      <div class="section-heading" data-reveal>
+        <p class="eyebrow">الفصل الحادي عشر · 27 ضوءًا لكِ</p>
+        <h2>بقيت أمنية واحدة،<br>وهي لكِ وحدكِ</h2>
+        <p>كل ضوء هنا سنة من عمركِ الجميل. أطفئيها واحدةً واحدة، أو أرسلي لها نفخة رقمية كبيرة.</p>
+      </div>
+
+      <div class="birthday-stage" data-reveal>
+        <div class="candles" id="candles" aria-label="سبعة وعشرون ضوءًا لعيد الميلاد"></div>
+        <div class="cake" aria-hidden="true">
+          <div class="cake__top"><span>♡</span><b>27</b><span>♡</span></div>
+          <div class="cake__middle"><span data-beloved-name>ديانتي</span></div>
+          <div class="cake__base"></div>
+        </div>
+        <p class="candle-status" id="candleStatus" aria-live="polite">27 ضوءًا ينتظر أمنيتكِ</p>
+        <button class="button button--accent" id="blowAllCandles" type="button">نفخة رقمية لكل الشموع <span aria-hidden="true">≈</span></button>
+      </div>
+
+      <div class="wish-vault" data-reveal>
+        <div class="wish-vault__icon" aria-hidden="true">✦</div>
+        <div class="wish-vault__copy"><p class="eyebrow">أمنيتكِ السرية</p><h3>اكتبيها هنا… لن تُرسل إلى أي مكان</h3><p>تبقى داخل هذه الزيارة على جهازكِ فقط، ثم أختمها لكِ داخل نجمة.</p></div>
+        <label for="birthdayWish">أمنيتي في عامي السابع والعشرين</label>
+        <textarea id="birthdayWish" maxlength="180" rows="3" placeholder="أتمنى أن…"></textarea>
+        <div class="wish-vault__footer"><span id="wishCount">0 / 180</span><button class="button button--primary" id="sealWish" type="button" disabled>اختمي الأمنية ✦</button></div>
+        <div class="sealed-wish" id="sealedWish" role="status" aria-live="polite" tabindex="-1" hidden><span aria-hidden="true">✦</span><p>أصبحت أمنيتكِ في عهدة النجمة… وأنا أتمنى من قلبي أن تجد طريقها إليكِ.</p></div>
+      </div>
+
+      <div class="final-message" id="finalMessage" data-reveal>
+        <div class="final-message__ring" aria-hidden="true"><span>27</span></div>
+        <p class="eyebrow">نهاية الرحلة، وبداية سنة جديدة</p>
+        <h2>عيد ميلاد سعيد<br>يا <span data-beloved-name>ديانتي</span></h2>
+        <p>أتمنى أن تأتيكِ هذه السنة بكل ما يليق بقلبكِ، وأن أكون أنا حاضرًا في تفاصيلها: أفرح معكِ، وأسندكِ، وأقترب خطوةً أخرى من اليوم الذي تصبحين فيه زوجتي ويصبح حبّكِ بيتي.</p>
+        <button class="button button--primary" id="replayCelebration" type="button">احتفلي مرة ثانية <span aria-hidden="true">✦</span></button>
+        <p class="signature">صنعتها بكل الحب لكِ — عزوزكِ ♡</p>
+      </div>
+    </section>
+
+    <aside class="gift-library" aria-labelledby="giftLibraryTitle">
+      <div class="gift-library__intro" data-reveal>
+        <p class="eyebrow">ملحقان بعد نهاية الرحلة</p>
+        <h2 id="giftLibraryTitle">لأن صفحةً واحدة<br>لم تكفِ الكلام عنكِ</h2>
+        <p>حين تنتهين من الفصول، يبقى لكِ أيضًا ديوان كامل وباقة أمنيات مستقلة، لتعودي إلى أيٍّ منهما كلما اشتقتِ إلى كلمة جميلة.</p>
+      </div>
+      <div class="gift-library__grid">
+        <a class="gift-page-card" href="poems.html" data-reveal>
+          <span class="gift-page-card__number">01</span>
+          <div aria-hidden="true">❦</div>
+          <small>صفحة مستقلة · تسع محطات شعرية</small>
+          <h3>ديوان دندونتي</h3>
+          <p>تسع محطات عن جواكر، وصوت آخر الليل، وقوتكِ، وفخري بأنكِ حبيبتي وزوجة العمر التي أراها في مستقبلي.</p>
+          <b>افتحي الديوان الكامل <span aria-hidden="true">←</span></b>
+        </a>
+        <a class="gift-page-card gift-page-card--wishes" href="wishes.html" data-reveal>
+          <span class="gift-page-card__number">02</span>
+          <div aria-hidden="true">27</div>
+          <small>صفحة مستقلة · باقة تفاعلية</small>
+          <h3>سبع وعشرون أمنية</h3>
+          <p>أمنية لكل شمعة، يمكنكِ الاحتفاظ بما يلامس قلبكِ منها وترك الصفحة تختار لكِ أمنية اليوم.</p>
+          <b>افتحي باقة الأمنيات <span aria-hidden="true">←</span></b>
+        </a>
+      </div>
+    </aside>
+  </main>
+
+  <footer class="footer">
+    <p><span aria-hidden="true">♡</span> هذه الهدية لا تجمع بيانات ولا ترسل أمنيتكِ إلى أي خادم.</p>
+    <nav aria-label="روابط ختامية"><a href="poems.html">الديوان الكامل</a><a href="wishes.html">27 أمنية</a><a href="#welcome">أول الحكاية ↑</a></nav>
+  </footer>
+
+  <dialog class="message-modal" id="messageModal" aria-labelledby="modalTitle">
+    <button class="message-modal__close" id="closeModal" type="button" aria-label="إغلاق الرسالة">×</button>
+    <div class="message-modal__icon" id="modalIcon" aria-hidden="true">♡</div>
+    <p class="eyebrow" id="modalLabel">افتحي عندما</p>
+    <h2 id="modalTitle">تشتاقين</h2>
+    <p id="modalText"></p>
+    <small>من عزوزكِ، في اللحظة التي احتجتِه فيها.</small>
+  </dialog>
+
+  <dialog class="photo-modal" id="photoModal" aria-labelledby="photoModalTitle">
+    <button class="photo-modal__close" id="closePhotoModal" type="button" aria-label="إغلاق الصورة">×</button>
+    <div class="photo-modal__frame"><img id="photoModalImage" src="" alt=""></div>
+    <div class="photo-modal__copy"><p class="eyebrow">لقطة من ألبوم الغد</p><h2 id="photoModalTitle">صورة أحبها</h2><small>اضغطي خارج الصورة أو على علامة الإغلاق للعودة.</small></div>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <noscript><div class="noscript">تحتاج هذه الهدية إلى JavaScript كي تفتح القلوب والرسائل. فعّليه ثم أعيدي تحميل الصفحة.</div></noscript>
+  <script src="script.js"></script>
+</body>
+</html>

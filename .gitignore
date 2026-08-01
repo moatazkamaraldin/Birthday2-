@@ -1,0 +1,9 @@
+# Keep the high-resolution private source photo local.
+# The optimized web copy is images/diana-and-azouz-night.jpg.
+images/2A0C5028-628F-4225-868E-06B2F4CEF117.png
+
+# Keep the large generated PNG sources local; the site uses optimized JPG copies.
+images/ChatGPT Image *.png
+
+.DS_Store
+Thumbs.db
