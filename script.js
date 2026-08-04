@@ -537,6 +537,12 @@ const cinematicSceneMap = new Map([
     gold: "#ffe08a",
     glow: "rgba(255, 111, 145, 0.31)"
   }],
+  ["milestones", {
+    accent: "#ef315c",
+    secondary: "#ff8fa9",
+    gold: "#ffd17a",
+    glow: "rgba(239, 49, 92, 0.36)"
+  }],
   ["gallery", {
     accent: "#ff8a5b",
     secondary: "#55cfe0",
@@ -881,6 +887,23 @@ function setupPhotoGallery() {
   dialog.addEventListener("click", event => {
     if (event.target === dialog) close();
   });
+}
+
+function setupRelationshipBoard() {
+  const board = $("#milestones");
+  const button = $("#lightOurFuture");
+  const status = $("#relationshipBoardStatus");
+  if (!board || !button || !status) return;
+
+  button.addEventListener("click", () => {
+    board.classList.add("is-lit");
+    button.disabled = true;
+    button.innerHTML = 'أضاءت حكايتنا… والباقي دعاء <span aria-hidden="true">♥</span>';
+    status.textContent = "من أول صدفة إلى بيتنا… سأختاركِ في كل محطة.";
+    createHeartBurst(button, 24);
+    createConfetti(46);
+    showToast("أضاءت محطات حكايتنا الخمس… والقادم أجمل بإذن الله ♡");
+  }, { once: true });
 }
 
 function setupBirthdayWishes() {
@@ -1406,6 +1429,7 @@ document.addEventListener("DOMContentLoaded", () => {
   setupCinematicSceneTransitions();
   setupNightJourney();
   setupPhotoGallery();
+  setupRelationshipBoard();
   setupLoveDictionary();
   setupReasons();
   setupBirthdayWishes();

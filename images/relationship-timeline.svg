@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1200" width="900" height="1200" role="img" lang="ar" xml:lang="ar" aria-labelledby="title" aria-describedby="description">
+  <title id="title">بداية حكايتنا ومستقبلنا مع بعض</title>
+  <desc id="description">لوحة مؤطرة بالورد والقلوب، توثق أول تعارف في 9 يونيو 2026، وأول حديث على إنستغرام في 24 يوليو 2026، وأول اعتراف صريح بالحب في 25 يوليو 2026، ثم أمنية زواجنا في 9 ديسمبر 2027 وبيتنا في 9 ديسمبر 2028 بإذن الله.</desc>
+
+  <defs>
+    <linearGradient id="frame" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fff"/>
+      <stop offset="0.34" stop-color="#e9e2df"/>
+      <stop offset="0.58" stop-color="#fffdfb"/>
+      <stop offset="1" stop-color="#d7cecb"/>
+    </linearGradient>
+    <linearGradient id="paper" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fffaf4"/>
+      <stop offset="0.52" stop-color="#f4ebe4"/>
+      <stop offset="1" stop-color="#fff8ef"/>
+    </linearGradient>
+    <linearGradient id="rose" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ff315e"/>
+      <stop offset="0.52" stop-color="#bf123e"/>
+      <stop offset="1" stop-color="#6d0a29"/>
+    </linearGradient>
+    <radialGradient id="paperGlow" cx="50%" cy="35%" r="75%">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.64"/>
+      <stop offset="1" stop-color="#ecdcd3" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#160208" flood-opacity="0.48"/>
+    </filter>
+    <filter id="softShadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="5" stdDeviation="5" flood-color="#6e0927" flood-opacity="0.28"/>
+    </filter>
+    <pattern id="grain" width="34" height="34" patternUnits="userSpaceOnUse">
+      <circle cx="5" cy="7" r="0.7" fill="#6c4d43" opacity="0.08"/>
+      <circle cx="23" cy="18" r="0.55" fill="#6c4d43" opacity="0.07"/>
+      <path d="M2 29h8M27 4h4" stroke="#8b6b60" stroke-width="0.7" opacity="0.06"/>
+    </pattern>
+    <path id="heart" d="M0 10C-3 6-11 1-11-6c0-8 10-11 14-4 4-7 14-4 14 4 0 7-8 12-17 20Z"/>
+    <style>
+      .arabic { font-family: Tahoma, Arial, sans-serif; direction: rtl; unicode-bidi: plaintext; }
+      .title { fill: #2d2020; font-size: 36px; font-weight: 700; }
+      .label { fill: #332323; font-size: 25px; font-weight: 700; }
+      .label-small { fill: #4e3736; font-size: 19px; font-weight: 600; }
+      .date { fill: #8f1437; font-family: Tahoma, Arial, sans-serif; font-size: 21px; font-weight: 700; direction: ltr; }
+      .ink { fill: none; stroke: #2f2524; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+      .silhouette { fill: #302625; }
+    </style>
+  </defs>
+
+  <rect width="900" height="1200" fill="#2e0a16"/>
+  <circle cx="84" cy="1120" r="220" fill="#ff315e" opacity="0.06"/>
+  <circle cx="836" cy="98" r="210" fill="#ffd37c" opacity="0.055"/>
+
+  <g filter="url(#shadow)">
+    <rect x="28" y="18" width="844" height="1164" rx="24" fill="url(#frame)"/>
+    <path d="M28 18h844l-34 38H62Z" fill="#fff" opacity="0.88"/>
+    <path d="M28 1182h844l-34-38H62Z" fill="#bfb3b0" opacity="0.55"/>
+    <path d="M28 18v1164l34-38V56Z" fill="#ebe3e0"/>
+    <path d="M872 18v1164l-34-38V56Z" fill="#cfc4c1"/>
+    <rect x="62" y="56" width="776" height="1088" rx="10" fill="#efe7e2" stroke="#bfb3af" stroke-width="3"/>
+    <rect x="82" y="76" width="736" height="1048" rx="4" fill="url(#paper)" stroke="#d6c8c1" stroke-width="2"/>
+    <rect x="82" y="76" width="736" height="1048" rx="4" fill="url(#paperGlow)"/>
+    <rect x="82" y="76" width="736" height="1048" rx="4" fill="url(#grain)"/>
+  </g>
+
+  <!-- Rose petals inspired by the upper-left corner of the supplied keepsake. -->
+  <g transform="translate(0 -12) scale(.65)" filter="url(#softShadow)">
+    <ellipse cx="111" cy="112" rx="43" ry="28" fill="url(#rose)" transform="rotate(-24 111 112)"/>
+    <ellipse cx="147" cy="95" rx="35" ry="49" fill="#9d0d34" transform="rotate(38 147 95)"/>
+    <ellipse cx="188" cy="111" rx="47" ry="30" fill="url(#rose)" transform="rotate(14 188 111)"/>
+    <ellipse cx="112" cy="159" rx="31" ry="48" fill="#bd123f" transform="rotate(-18 112 159)"/>
+    <ellipse cx="158" cy="151" rx="40" ry="29" fill="#e11b4b" transform="rotate(54 158 151)"/>
+    <ellipse cx="98" cy="211" rx="25" ry="39" fill="#7a092c" transform="rotate(-32 98 211)"/>
+    <path d="M88 235c42-55 78-94 133-125" fill="none" stroke="#5c1730" stroke-width="4" opacity="0.45"/>
+  </g>
+
+  <text class="arabic title" x="450" y="145" text-anchor="middle">بداية حكايتنا… ومستقبلنا مع بعض</text>
+  <g transform="translate(450 190)" filter="url(#softShadow)">
+    <circle cx="-43" cy="0" r="19" fill="none" stroke="#9d776a" stroke-width="6"/>
+    <circle cx="-25" cy="-13" r="19" fill="none" stroke="#d7a84c" stroke-width="6"/>
+    <path d="M-55-16l8-12 8 12" fill="#6ab9dd" stroke="#377eaa" stroke-width="2"/>
+    <path d="M15-10l5 10-5 10-5-10Z" fill="#ffd271"/>
+    <path d="M40-7l4 7-4 7-4-7Z" fill="#ffb548"/>
+    <g transform="translate(77 -4) scale(1.7)"><use href="#heart" fill="url(#rose)"/></g>
+  </g>
+
+  <!-- Dotted path connecting every dated milestone. -->
+  <path d="M590 264V338H326V414V494H604V574V657H316V744V828H590V914" fill="none" stroke="#4b3a38" stroke-width="4" stroke-linecap="round" stroke-dasharray="10 11" opacity="0.88"/>
+
+  <!-- 1: First meeting -->
+  <g transform="translate(590 264) scale(1.45)" filter="url(#softShadow)"><use href="#heart" fill="url(#rose)"/></g>
+  <g>
+    <text class="arabic label-small" x="405" y="252" text-anchor="middle">أول يوم تعارف</text>
+    <text class="date" x="405" y="282" text-anchor="middle">09 / 06 / 2026</text>
+  </g>
+  <g transform="translate(685 225)" aria-hidden="true">
+    <circle class="silhouette" cx="-30" cy="16" r="11"/>
+    <circle class="silhouette" cx="42" cy="16" r="11"/>
+    <path class="ink" d="M-30 30v47m72-47v47M-30 42l25 16m47-16L17 58M-50 80h112M6 50v45m-23-34h46"/>
+    <path class="ink" d="M-42 84v24m96-24v24M-55 108h24m72 0h24" stroke-width="5"/>
+    <g transform="translate(7 -9) scale(.7)"><use href="#heart" fill="#d51646"/></g>
+  </g>
+
+  <!-- 2: Instagram conversation -->
+  <g transform="translate(326 414) scale(1.45)" filter="url(#softShadow)"><use href="#heart" fill="url(#rose)"/></g>
+  <g>
+    <text class="arabic label-small" x="535" y="400" text-anchor="middle">أول حديث لنا على إنستغرام</text>
+    <text class="date" x="535" y="430" text-anchor="middle">24 / 07 / 2026</text>
+  </g>
+  <g transform="translate(177 370)" aria-hidden="true">
+    <rect x="-34" y="-12" width="68" height="104" rx="14" fill="none" stroke="#322625" stroke-width="7"/>
+    <circle cx="0" cy="77" r="4" fill="#322625"/>
+    <path d="M-19 18h38M-19 34h27" stroke="#322625" stroke-width="6" stroke-linecap="round"/>
+    <path d="M-10 55c-9-7-18 2-10 12l10 10 10-10c8-10-1-19-10-12Z" fill="#d51646"/>
+    <path d="M22 0h34v26H42l-9 10V26H22Z" fill="#332625"/>
+  </g>
+
+  <!-- 3: Love spoken clearly -->
+  <g transform="translate(604 574) scale(1.45)" filter="url(#softShadow)"><use href="#heart" fill="url(#rose)"/></g>
+  <g>
+    <text class="arabic label-small" x="403" y="549" text-anchor="middle">أول اعتراف صريح بالحب</text>
+    <text class="date" x="403" y="580" text-anchor="middle">25 / 07 / 2026</text>
+  </g>
+  <g transform="translate(712 525)" aria-hidden="true">
+    <circle class="silhouette" cx="-24" cy="14" r="12"/>
+    <circle class="silhouette" cx="27" cy="11" r="12"/>
+    <path class="silhouette" d="M-42 86c2-38 4-55 18-60 12 4 18 21 18 60Zm48 0c1-39 7-58 21-63 15 9 18 28 18 63Z"/>
+    <path d="M-11 40c11 8 20 8 29-2" fill="none" stroke="#302625" stroke-width="8" stroke-linecap="round"/>
+    <g transform="translate(3 -21) scale(.82)"><use href="#heart" fill="#d51646"/></g>
+    <g transform="translate(47 -4) scale(.4)"><use href="#heart" fill="#e52a56"/></g>
+  </g>
+
+  <!-- 4: Wedding wish -->
+  <g transform="translate(316 744) scale(1.45)" filter="url(#softShadow)"><use href="#heart" fill="url(#rose)"/></g>
+  <g>
+    <text class="arabic label-small" x="532" y="730" text-anchor="middle">زواجنا بإذن الله</text>
+    <text class="date" x="532" y="760" text-anchor="middle">09 / 12 / 2027</text>
+  </g>
+  <g transform="translate(177 704)" aria-hidden="true">
+    <circle cx="-15" cy="35" r="34" fill="none" stroke="#342625" stroke-width="8"/>
+    <circle cx="25" cy="35" r="34" fill="none" stroke="#342625" stroke-width="8"/>
+    <path d="M-25 0l10-18L-5 0m-10-18h-10l-9 12 9 9h20l9-9-9-12Z" fill="#ef315c" stroke="#9b1237" stroke-width="3"/>
+    <g transform="translate(62 0) scale(.5)"><use href="#heart" fill="#d51646"/></g>
+  </g>
+
+  <!-- 5: Our home -->
+  <g transform="translate(590 914) scale(1.45)" filter="url(#softShadow)"><use href="#heart" fill="url(#rose)"/></g>
+  <g>
+    <text class="arabic label-small" x="392" y="884" text-anchor="middle">في بيتنا بإذن الله</text>
+    <text class="arabic label-small" x="392" y="913" text-anchor="middle">بعد عامٍ من زواجنا</text>
+    <text class="date" x="392" y="945" text-anchor="middle">09 / 12 / 2028</text>
+  </g>
+  <g transform="translate(704 850)" aria-hidden="true">
+    <path d="M-65 45 0-12l65 57v76H19V75h-38v46h-46Z" fill="#322625"/>
+    <path d="M-79 45 0-27l79 72" fill="none" stroke="#322625" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M0 45c-12-14-32-1-23 16L0 85l23-24C32 44 12 31 0 45Z" fill="#fff7ef"/>
+  </g>
+
+  <path d="M154 1015H746" stroke="#aa887d" stroke-width="2" stroke-dasharray="2 9" opacity="0.5"/>
+  <g transform="translate(141 1070) scale(1.02)" filter="url(#softShadow)"><use href="#heart" fill="url(#rose)"/></g>
+  <text class="arabic label" x="470" y="1082" text-anchor="middle">اللهم اجعل أيامنا القادمة أجمل من كل ما تمنيناه</text>
+  <g transform="translate(759 1070) scale(.72)"><use href="#heart" fill="#e52a56"/></g>
+</svg>

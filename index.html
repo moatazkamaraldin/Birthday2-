@@ -19,6 +19,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&family=Marhey:wght@400;500;600;700&family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="love-spectrum.css">
+  <link rel="stylesheet" href="relationship-board.css">
   <link rel="stylesheet" href="mobile.css">
   <script>document.documentElement.classList.replace('no-js', 'js');</script>
 </head>
@@ -88,7 +89,7 @@
           <button class="button button--ghost" id="heartBurst" type="button">قلب كبير لكِ <span aria-hidden="true">♡</span></button>
         </div>
         <div class="hero__facts" aria-label="ملخص حكايتي معكِ">
-          <div><strong>3</strong><span>أشهر غيّرت<br>تفاصيل أيامي</span></div>
+          <div><strong>1</strong><span>يومٌ واحد بدأ<br>كل هذه الحكاية</span></div>
           <div><strong>∞</strong><span>حكايات من الليل<br>حتى الصباح</span></div>
           <div><strong>1</strong><span>صدفة أريدها<br>أن تبقى</span></div>
         </div>
@@ -163,7 +164,7 @@
         <article class="timeline-card timeline-card--left" data-reveal>
           <span class="timeline-card__number">06</span>
           <div class="timeline-card__icon" aria-hidden="true">♡</div>
-          <div><p class="timeline-card__time">والآن</p><h3>أكثر من ثلاثة أشهر</h3><p>ثلاثة أشهر لا تُقاس بعدد الأيام، بل بعدد المرات التي ابتسمتُ فيها لأن اسمكِ ظهر على هاتفي، وبعدد اللحظات التي تمنيتُ فيها لو كانت المسافة أقصر.</p></div>
+          <div><p class="timeline-card__time">والآن</p><h3>كل يوم يكبر المعنى</h3><p>لا تُقاس الحكاية بعدد الأيام، بل بعدد المرات التي ابتسمتُ فيها لأن اسمكِ ظهر على هاتفي، وبعدد اللحظات التي تمنيتُ فيها لو كانت المسافة أقصر.</p></div>
         </article>
       </div>
 
@@ -172,6 +173,87 @@
         ربما كانت جواكر تعرف منذ البداية<br>أن أجمل ورقة سأربحها لم تكن في اللعبة.
         <cite>— عزوزكِ، إلى دندونتي</cite>
       </blockquote>
+    </section>
+
+    <section class="section relationship-board" id="milestones" aria-labelledby="milestonesTitle">
+      <div class="section-heading relationship-board__heading" data-reveal>
+        <p class="eyebrow">لوحة تحفظ تواريخنا · من أول صدفة إلى أجمل دعاء</p>
+        <h2 id="milestonesTitle">بداية حكايتنا…<br>ومستقبلنا مع بعض</h2>
+        <p>الحكاية السابقة تروي ما شعرنا به؛ وهذه اللوحة تحفظ الأيام التي غيّرت شكل الحكاية، والأيام التي نمشي نحوها بقلبٍ واحد.</p>
+      </div>
+
+      <div class="relationship-board__layout">
+        <figure class="relationship-board__art" data-reveal>
+          <button
+            class="relationship-board__image-button"
+            type="button"
+            data-gallery-src="images/relationship-timeline.svg"
+            data-gallery-alt="لوحة محطات علاقتنا: أول تعارف في 9 يونيو 2026، وأول حديث على إنستغرام في 24 يوليو 2026، وأول اعتراف صريح بالحب في 25 يوليو 2026، وأمنية زواجنا في 9 ديسمبر 2027، ثم بيتنا في 9 ديسمبر 2028 بإذن الله"
+            data-gallery-caption="بداية حكايتنا… ومستقبلنا مع بعض"
+            aria-label="تكبير لوحة محطات علاقتنا"
+            aria-haspopup="dialog"
+            aria-controls="photoModal"
+          >
+            <span class="relationship-board__frame">
+              <img
+                src="images/relationship-timeline.svg"
+                width="900"
+                height="1200"
+                loading="lazy"
+                decoding="async"
+                alt=""
+              >
+              <span class="relationship-board__glint" aria-hidden="true"></span>
+            </span>
+            <span class="relationship-board__zoom"><span aria-hidden="true">↗</span> اضغطي لتشاهدي اللوحة كاملة</span>
+          </button>
+          <span class="relationship-board__floating-heart relationship-board__floating-heart--one" aria-hidden="true">♥</span>
+          <span class="relationship-board__floating-heart relationship-board__floating-heart--two" aria-hidden="true">♡</span>
+          <span class="relationship-board__floating-heart relationship-board__floating-heart--three" aria-hidden="true">♥</span>
+          <figcaption>حوّلتُ محطاتنا إلى لوحة رقمية تبقى واضحة وجميلة في كل شاشة.</figcaption>
+        </figure>
+
+        <div class="relationship-board__details" data-reveal>
+          <div class="relationship-board__details-intro">
+            <span aria-hidden="true">♥</span>
+            <p><small>خمسة قلوب على الطريق</small><strong>ثلاث ذكريات عشناها… ووعدان ندعو لهما</strong></p>
+          </div>
+
+          <ol class="relationship-milestones" aria-label="المحطات المهمة في حكايتنا">
+            <li data-phase="memory" style="--milestone-delay: 100ms">
+              <time datetime="2026-06-09" aria-label="9 يونيو 2026">09 / 06 / 2026</time>
+              <div><span class="relationship-milestones__kind">ذكرى بدأت كل شيء</span><strong>أول يوم تعارف</strong><p>اليوم الذي بدأت فيه الصدفة تأخذ اسمًا، وأخذ قلبي ينتبه لكِ.</p></div>
+            </li>
+            <li data-phase="memory" style="--milestone-delay: 220ms">
+              <time datetime="2026-07-24" aria-label="24 يوليو 2026">24 / 07 / 2026</time>
+              <div><span class="relationship-milestones__kind">خطوة أقرب</span><strong>أول حديث لنا على إنستغرام</strong><p>رسالة صغيرة فتحت بابًا لحكاية لم أعد أريد لها نهاية.</p></div>
+            </li>
+            <li data-phase="memory" style="--milestone-delay: 340ms">
+              <time datetime="2026-07-25" aria-label="25 يوليو 2026">25 / 07 / 2026</time>
+              <div><span class="relationship-milestones__kind">صار القلب كلامًا</span><strong>أول اعتراف صريح بالحب</strong><p>يوم صار ما في القلب واضحًا، وصار للحكاية معنى أجمل.</p></div>
+            </li>
+            <li data-phase="future" style="--milestone-delay: 460ms">
+              <time datetime="2027-12-09" aria-label="9 ديسمبر 2027">09 / 12 / 2027</time>
+              <div><span class="relationship-milestones__kind">وعد للمستقبل</span><strong>زواجنا بإذن الله</strong><p>موعد نحمله بالدعاء، ونمشي نحوه معًا خطوةً بعد خطوة.</p></div>
+            </li>
+            <li data-phase="future" style="--milestone-delay: 580ms">
+              <time datetime="2028-12-09" aria-label="9 ديسمبر 2028">09 / 12 / 2028</time>
+              <div><span class="relationship-milestones__kind">الحلم الذي ينتظرنا</span><strong>في بيتنا بإذن الله</strong><p>بعد عامٍ من زواجنا، تبدأ تفاصيل حياتنا الصغيرة في بيتٍ يجمعنا.</p></div>
+            </li>
+          </ol>
+
+          <button class="button relationship-board__celebrate" id="lightOurFuture" type="button">
+            أنيري مستقبلنا <span aria-hidden="true">♡ ✦</span>
+          </button>
+          <p class="relationship-board__status" id="relationshipBoardStatus" aria-live="polite">المستقبل يبدأ بدعاء… ويكبر بحبّنا كل يوم.</p>
+        </div>
+      </div>
+
+      <footer class="relationship-board__prayer" data-reveal>
+        <span aria-hidden="true">♥</span>
+        <p>اللهم اجعل أيامنا القادمة أجمل من كل ما تمنيناه</p>
+        <span aria-hidden="true">♥</span>
+      </footer>
     </section>
 
     <section class="section gallery-section" id="gallery" aria-labelledby="galleryTitle">
@@ -769,7 +851,7 @@
   <dialog class="photo-modal" id="photoModal" aria-labelledby="photoModalTitle">
     <button class="photo-modal__close" id="closePhotoModal" type="button" aria-label="إغلاق الصورة">×</button>
     <div class="photo-modal__frame"><img id="photoModalImage" src="" alt=""></div>
-    <div class="photo-modal__copy"><p class="eyebrow">لقطة من ألبوم الغد</p><h2 id="photoModalTitle">صورة أحبها</h2><small>اضغطي خارج الصورة أو على علامة الإغلاق للعودة.</small></div>
+    <div class="photo-modal__copy"><p class="eyebrow">عرض مكبّر · ذكرى تستحق التأمل</p><h2 id="photoModalTitle">صورة أحبها</h2><small>اضغطي خارج الصورة أو على علامة الإغلاق للعودة.</small></div>
   </dialog>
 
   <div class="toast" id="toast" role="status" aria-live="polite"></div>

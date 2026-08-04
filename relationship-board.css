@@ -1,0 +1,664 @@
+/*
+   RELATIONSHIP KEEPSAKE
+   A lightweight, isolated treatment for the dated poster. Animations run once
+   when the section is revealed and are disabled when reduced motion is set.
+*/
+
+.relationship-board {
+  --chapter-accent: #ef315c;
+  --chapter-secondary: #ff8fa9;
+  --chapter-gold: #ffd17a;
+  position: relative;
+  width: min(1220px, calc(100% - 40px));
+  margin: clamp(30px, 5vw, 70px) auto;
+  padding: clamp(76px, 9vw, 126px) clamp(22px, 5vw, 68px);
+  overflow: hidden;
+  border: 1px solid rgba(255, 95, 134, 0.32);
+  border-radius: 42px 112px 42px 112px;
+  background:
+    radial-gradient(circle at 86% 12%, rgba(255, 48, 89, 0.25), transparent 23rem),
+    radial-gradient(circle at 10% 86%, rgba(255, 143, 169, 0.17), transparent 25rem),
+    linear-gradient(148deg, rgba(60, 8, 25, 0.96), rgba(17, 3, 12, 0.98) 48%, rgba(42, 5, 19, 0.96));
+  box-shadow: 0 34px 100px rgba(0, 0, 0, 0.35), inset 0 1px rgba(255, 255, 255, 0.06);
+  isolation: isolate;
+}
+
+.relationship-board::before,
+.relationship-board::after {
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+  content: "";
+}
+
+.relationship-board::before {
+  inset: 18px;
+  border: 1px solid rgba(255, 188, 204, 0.13);
+  border-radius: 30px 96px 30px 96px;
+}
+
+.relationship-board::after {
+  width: 280px;
+  aspect-ratio: 1;
+  top: -148px;
+  left: -98px;
+  border: 44px solid rgba(255, 79, 116, 0.06);
+  border-radius: 50%;
+  box-shadow: 0 0 0 34px rgba(255, 211, 122, 0.025);
+}
+
+.relationship-board__heading {
+  margin-bottom: clamp(38px, 6vw, 70px);
+}
+
+.relationship-board__heading h2 {
+  background: linear-gradient(102deg, #fff7f8 4%, #ffc0cf 42%, #ffd88d 72%, #fff7f8);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  font-size: clamp(2.7rem, 5.6vw, 5.15rem);
+  line-height: 1.18;
+  text-wrap: balance;
+}
+
+.relationship-board__layout {
+  position: relative;
+  z-index: 1;
+  width: min(1080px, 100%);
+  display: grid;
+  grid-template-columns: minmax(300px, 0.9fr) minmax(390px, 1.1fr);
+  align-items: center;
+  gap: clamp(34px, 6vw, 74px);
+  margin: 0 auto;
+}
+
+.relationship-board__art {
+  position: relative;
+  width: min(100%, 470px);
+  margin: 0 auto;
+  text-align: center;
+}
+
+.relationship-board__image-button {
+  width: 100%;
+  display: block;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  cursor: zoom-in;
+}
+
+.relationship-board__frame {
+  position: relative;
+  display: block;
+  padding: clamp(9px, 1.7vw, 16px);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.82);
+  border-radius: 17px;
+  background: linear-gradient(135deg, #ffffff, #e9e1df 45%, #fffdfb 72%, #d8cecc);
+  box-shadow:
+    0 4px 0 rgba(255, 255, 255, 0.8) inset,
+    0 -5px 12px rgba(89, 47, 52, 0.18) inset,
+    0 30px 70px rgba(0, 0, 0, 0.45),
+    0 0 58px rgba(239, 49, 92, 0.14);
+  transform: perspective(900px) rotateY(-2.4deg) rotateX(0.7deg);
+  transition: transform 520ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 520ms ease;
+}
+
+.relationship-board__frame img {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  border-radius: 8px;
+  background: #f6eee9;
+  object-fit: cover;
+}
+
+.relationship-board__image-button:focus-visible .relationship-board__frame {
+  box-shadow:
+    0 4px 0 rgba(255, 255, 255, 0.82) inset,
+    0 -5px 12px rgba(89, 47, 52, 0.18) inset,
+    0 37px 85px rgba(0, 0, 0, 0.48),
+    0 0 74px rgba(255, 71, 112, 0.28);
+  transform: perspective(900px) rotateY(0) rotateX(0) translateY(-7px) scale(1.012);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .relationship-board__image-button:hover .relationship-board__frame {
+    box-shadow:
+      0 4px 0 rgba(255, 255, 255, 0.82) inset,
+      0 -5px 12px rgba(89, 47, 52, 0.18) inset,
+      0 37px 85px rgba(0, 0, 0, 0.48),
+      0 0 74px rgba(255, 71, 112, 0.28);
+    transform: perspective(900px) rotateY(0) rotateX(0) translateY(-7px) scale(1.012);
+  }
+}
+
+.relationship-board__image-button:focus-visible {
+  border-radius: 18px;
+  outline-offset: 9px;
+}
+
+.relationship-board__glint {
+  position: absolute;
+  inset: -15% auto -15% -42%;
+  width: 26%;
+  pointer-events: none;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.7), transparent);
+  opacity: 0;
+  transform: skewX(-18deg);
+}
+
+.relationship-board__art.is-visible .relationship-board__glint {
+  animation: relationship-glint 1.3s 520ms cubic-bezier(0.22, 1, 0.36, 1) 1 both;
+}
+
+@keyframes relationship-glint {
+  0% { left: -42%; opacity: 0; }
+  18% { opacity: 0.62; }
+  100% { left: 120%; opacity: 0; }
+}
+
+.relationship-board__zoom {
+  min-height: 46px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 17px;
+  padding: 9px 16px;
+  border: 1px solid rgba(255, 145, 172, 0.28);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.045);
+  color: #ffd7e1;
+  font-size: 0.84rem;
+  font-weight: 800;
+}
+
+.relationship-board__zoom > span {
+  color: var(--chapter-gold);
+  font-size: 1rem;
+}
+
+.relationship-board__art figcaption {
+  max-width: 35ch;
+  margin: 13px auto 0;
+  color: rgba(255, 225, 232, 0.7);
+  font-size: 0.82rem;
+  line-height: 1.65;
+}
+
+.relationship-board__floating-heart {
+  position: absolute;
+  z-index: 3;
+  pointer-events: none;
+  color: #ff4c75;
+  opacity: 0;
+  filter: drop-shadow(0 8px 16px rgba(255, 48, 89, 0.35));
+}
+
+.relationship-board__floating-heart--one {
+  top: 12%;
+  right: -20px;
+  font-size: 2rem;
+  transform: translate3d(12px, 18px, 0) rotate(12deg);
+}
+
+.relationship-board__floating-heart--two {
+  top: 55%;
+  left: -27px;
+  color: #ffb2c4;
+  font-size: 2.8rem;
+  transform: translate3d(-12px, 18px, 0) rotate(-10deg);
+}
+
+.relationship-board__floating-heart--three {
+  right: 1%;
+  bottom: 16%;
+  color: #ffd17a;
+  font-size: 1.25rem;
+  transform: translate3d(8px, 14px, 0) rotate(8deg);
+}
+
+.relationship-board__art.is-visible .relationship-board__floating-heart {
+  animation: relationship-heart-arrive 820ms var(--heart-delay, 760ms) cubic-bezier(0.22, 1, 0.36, 1) 1 forwards;
+}
+
+.relationship-board__floating-heart--two { --heart-delay: 900ms; }
+.relationship-board__floating-heart--three { --heart-delay: 1040ms; }
+
+@keyframes relationship-heart-arrive {
+  72% { opacity: 1; }
+  100% { opacity: 0.92; transform: translate3d(0, 0, 0) rotate(0); }
+}
+
+.relationship-board__details {
+  position: relative;
+  padding: clamp(22px, 4vw, 38px);
+  border: 1px solid rgba(255, 132, 161, 0.25);
+  border-radius: 28px 68px 28px 68px;
+  background:
+    radial-gradient(circle at 92% 5%, rgba(255, 48, 89, 0.14), transparent 13rem),
+    linear-gradient(145deg, rgba(38, 7, 19, 0.88), rgba(13, 3, 10, 0.92));
+  box-shadow: 0 24px 68px rgba(0, 0, 0, 0.28), inset 0 1px rgba(255, 255, 255, 0.045);
+}
+
+.relationship-board__details-intro {
+  display: grid;
+  grid-template-columns: 50px 1fr;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 28px;
+  padding-bottom: 22px;
+  border-bottom: 1px solid rgba(255, 156, 180, 0.17);
+}
+
+.relationship-board__details-intro > span {
+  width: 50px;
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(255, 139, 166, 0.35);
+  border-radius: 50%;
+  background: linear-gradient(145deg, #d91548, #7f0b2d);
+  box-shadow: 0 12px 30px rgba(217, 21, 72, 0.28);
+  color: #fff;
+  font-size: 1.25rem;
+}
+
+.relationship-board__details-intro p {
+  display: grid;
+  gap: 2px;
+  margin: 0;
+}
+
+.relationship-board__details-intro small {
+  color: #ff9fb7;
+  font-size: 0.72rem;
+  font-weight: 800;
+}
+
+.relationship-board__details-intro strong {
+  color: #fff7f8;
+  font-family: var(--font-display);
+  font-size: clamp(1.15rem, 2vw, 1.45rem);
+  line-height: 1.4;
+}
+
+.relationship-milestones {
+  position: relative;
+  display: grid;
+  gap: 9px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.relationship-milestones::before {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  bottom: 20px;
+  width: 2px;
+  border-radius: 999px;
+  background: linear-gradient(#ff315f, #ff89a4 56%, #ffd17a);
+  box-shadow: 0 0 18px rgba(255, 71, 112, 0.35);
+  content: "";
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 1.1s 220ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.relationship-board__details.is-visible .relationship-milestones::before {
+  transform: scaleY(1);
+}
+
+.relationship-milestones li {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(105px, 0.38fr) minmax(0, 1fr);
+  gap: clamp(12px, 2vw, 20px);
+  padding: 13px 57px 13px 12px;
+  border-radius: 18px;
+  opacity: 0;
+  transform: translateX(-17px);
+  transition:
+    opacity 580ms var(--milestone-delay) ease,
+    transform 680ms var(--milestone-delay) cubic-bezier(0.22, 1, 0.36, 1),
+    background 260ms ease;
+}
+
+.relationship-board__details.is-visible .relationship-milestones li {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.relationship-milestones li:hover {
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.relationship-milestones li::before {
+  position: absolute;
+  z-index: 1;
+  top: 23px;
+  right: 7px;
+  width: 28px;
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  border: 2px solid #40101f;
+  border-radius: 50%;
+  background: #e51d50;
+  box-shadow: 0 0 0 5px rgba(229, 29, 80, 0.12), 0 7px 17px rgba(0, 0, 0, 0.28);
+  color: #fff;
+  content: "♥";
+  font-size: 0.7rem;
+  line-height: 1;
+}
+
+.relationship-milestones li[data-phase="future"]::before {
+  border-color: #5b3515;
+  background: linear-gradient(145deg, #ff446d, #e6a83d);
+  box-shadow: 0 0 0 5px rgba(255, 209, 122, 0.12), 0 7px 17px rgba(0, 0, 0, 0.28);
+}
+
+.relationship-milestones time {
+  align-self: start;
+  justify-self: start;
+  min-width: 104px;
+  display: inline-flex;
+  justify-content: center;
+  padding: 6px 9px;
+  border: 1px solid rgba(255, 132, 161, 0.24);
+  border-radius: 999px;
+  background: rgba(255, 76, 117, 0.08);
+  color: #ffd5df;
+  direction: ltr;
+  font-family: "Tajawal", sans-serif;
+  font-size: 0.76rem;
+  font-variant-numeric: tabular-nums;
+  font-weight: 900;
+  letter-spacing: 0.02em;
+  line-height: 1.35;
+}
+
+.relationship-milestones li[data-phase="future"] time {
+  border-color: rgba(255, 209, 122, 0.28);
+  background: rgba(255, 209, 122, 0.075);
+  color: #ffe3a8;
+}
+
+.relationship-milestones li > div {
+  min-width: 0;
+  display: grid;
+  gap: 3px;
+}
+
+.relationship-milestones__kind {
+  color: #ff8eaa;
+  font-size: 0.68rem;
+  font-weight: 800;
+}
+
+.relationship-milestones li[data-phase="future"] .relationship-milestones__kind {
+  color: #ffd17a;
+}
+
+.relationship-milestones strong {
+  color: #fff7f8;
+  font-family: var(--font-display);
+  font-size: 1.08rem;
+  line-height: 1.45;
+}
+
+.relationship-milestones p {
+  margin: 0;
+  color: rgba(240, 209, 217, 0.76);
+  font-size: 0.81rem;
+  line-height: 1.65;
+}
+
+.relationship-board__celebrate {
+  width: 100%;
+  margin-top: 24px;
+  border-color: rgba(255, 210, 220, 0.32);
+  background: linear-gradient(110deg, #a80937, #ee2859 48%, #ff7d9c);
+  box-shadow: 0 16px 38px rgba(202, 15, 62, 0.3);
+  color: #fff;
+}
+
+.relationship-board__celebrate:hover {
+  box-shadow: 0 20px 48px rgba(238, 40, 89, 0.38), 0 0 32px rgba(255, 125, 156, 0.18);
+}
+
+.relationship-board__celebrate:disabled {
+  background: linear-gradient(110deg, #8f1236, #d52a55 52%, #b74764);
+  box-shadow: 0 12px 32px rgba(202, 15, 62, 0.22);
+  color: #fff;
+  cursor: default;
+  opacity: 1;
+}
+
+.relationship-board__status {
+  min-height: 1.7em;
+  margin: 11px 0 0;
+  color: rgba(255, 219, 228, 0.68);
+  font-size: 0.76rem;
+  text-align: center;
+}
+
+.relationship-board.is-lit .relationship-board__frame {
+  box-shadow:
+    0 4px 0 rgba(255, 255, 255, 0.84) inset,
+    0 30px 82px rgba(0, 0, 0, 0.46),
+    0 0 32px rgba(255, 48, 89, 0.38),
+    0 0 92px rgba(255, 143, 169, 0.22);
+}
+
+.relationship-board.is-lit .relationship-milestones li::before {
+  animation: relationship-heartbeat 620ms cubic-bezier(0.22, 1, 0.36, 1) 2;
+}
+
+.relationship-board.is-lit .relationship-milestones li:nth-child(2)::before { animation-delay: 90ms; }
+.relationship-board.is-lit .relationship-milestones li:nth-child(3)::before { animation-delay: 180ms; }
+.relationship-board.is-lit .relationship-milestones li:nth-child(4)::before { animation-delay: 270ms; }
+.relationship-board.is-lit .relationship-milestones li:nth-child(5)::before { animation-delay: 360ms; }
+
+@keyframes relationship-heartbeat {
+  45% { transform: scale(1.28); box-shadow: 0 0 0 9px rgba(255, 90, 127, 0.13), 0 0 24px rgba(255, 71, 112, 0.48); }
+}
+
+.relationship-board__prayer {
+  position: relative;
+  width: min(790px, 100%);
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 18px;
+  margin: clamp(44px, 7vw, 78px) auto 0;
+  padding: 20px clamp(18px, 4vw, 34px);
+  border: 1px solid rgba(255, 159, 183, 0.24);
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(255, 48, 89, 0.06), rgba(255, 255, 255, 0.055), rgba(255, 209, 122, 0.06));
+  box-shadow: 0 14px 45px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.relationship-board__prayer p {
+  margin: 0;
+  color: #fff3f5;
+  font-family: var(--font-display);
+  font-size: clamp(1.08rem, 2.3vw, 1.55rem);
+  line-height: 1.6;
+}
+
+.relationship-board__prayer > span {
+  color: #ff436d;
+  filter: drop-shadow(0 5px 10px rgba(255, 48, 89, 0.4));
+}
+
+@media (max-width: 940px) {
+  .relationship-board {
+    width: calc(100% - 24px - var(--safe-left, 0px) - var(--safe-right, 0px));
+    padding-inline: clamp(18px, 4vw, 42px);
+    border-radius: 36px 72px 36px 72px;
+  }
+
+  .relationship-board__layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .relationship-board__art {
+    width: min(100%, 410px);
+  }
+
+  .relationship-board__frame {
+    transform: none;
+  }
+
+  .relationship-board__image-button:focus-visible .relationship-board__frame {
+    transform: translateY(-4px);
+  }
+}
+
+@media (max-width: 560px) {
+  .relationship-board {
+    width: calc(100% - 12px - var(--safe-left, 0px) - var(--safe-right, 0px));
+    margin-block: 20px;
+    padding: 62px 12px 54px;
+    border-radius: 28px 48px 28px 48px;
+  }
+
+  .relationship-board::before {
+    inset: 8px;
+    border-radius: 22px 42px 22px 42px;
+  }
+
+  .relationship-board__heading {
+    padding-inline: 6px;
+    margin-bottom: 34px;
+  }
+
+  .relationship-board__heading h2 {
+    font-size: clamp(2.22rem, 11.5vw, 3.25rem);
+    line-height: 1.25;
+  }
+
+  .relationship-board__heading > p:last-child {
+    font-size: 0.92rem;
+    line-height: 1.72;
+  }
+
+  .relationship-board__layout {
+    gap: 30px;
+  }
+
+  .relationship-board__art {
+    width: min(86vw, 330px);
+  }
+
+  .relationship-board__frame {
+    padding: 8px;
+    border-radius: 12px;
+  }
+
+  .relationship-board__frame img {
+    border-radius: 5px;
+  }
+
+  .relationship-board__zoom {
+    width: 100%;
+    margin-top: 12px;
+    font-size: 0.78rem;
+  }
+
+  .relationship-board__floating-heart--one { right: -8px; }
+  .relationship-board__floating-heart--two { left: -8px; }
+
+  .relationship-board__details {
+    padding: 20px 12px 18px;
+    border-radius: 24px 42px 24px 42px;
+  }
+
+  .relationship-board__details-intro {
+    grid-template-columns: 44px 1fr;
+    gap: 11px;
+    margin-bottom: 20px;
+    padding-inline: 6px;
+  }
+
+  .relationship-board__details-intro > span {
+    width: 44px;
+  }
+
+  .relationship-board__details-intro strong {
+    font-size: 1.03rem;
+  }
+
+  .relationship-milestones::before {
+    right: 17px;
+  }
+
+  .relationship-milestones li {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 7px;
+    padding: 12px 52px 14px 7px;
+  }
+
+  .relationship-milestones li::before {
+    top: 17px;
+    right: 4px;
+  }
+
+  .relationship-milestones time {
+    justify-self: start;
+  }
+
+  .relationship-milestones strong {
+    font-size: 1.02rem;
+  }
+
+  .relationship-milestones p {
+    font-size: 0.78rem;
+  }
+
+  .relationship-board__celebrate {
+    min-height: 48px;
+  }
+
+  .relationship-board__prayer {
+    grid-template-columns: 1fr;
+    gap: 4px;
+    margin-top: 40px;
+    padding: 17px 18px;
+    border-radius: 24px 42px 24px 42px;
+  }
+
+  .relationship-board__prayer > span:last-child {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .relationship-board *,
+  .relationship-board *::before,
+  .relationship-board *::after {
+    scroll-behavior: auto !important;
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .relationship-board__glint {
+    display: none;
+  }
+
+  .relationship-board__floating-heart,
+  .relationship-milestones li {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .relationship-milestones::before {
+    transform: scaleY(1) !important;
+  }
+}
