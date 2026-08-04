@@ -5,20 +5,21 @@
 */
 
 .relationship-board {
-  --chapter-accent: #ef315c;
-  --chapter-secondary: #ff8fa9;
-  --chapter-gold: #ffd17a;
+  --chapter-accent: var(--love-anchor, #ef315c);
+  --chapter-secondary: var(--love-bloom, #ff8fa9);
+  --chapter-gold: var(--champagne, #f2c879);
   position: relative;
   width: min(1220px, calc(100% - 40px));
   margin: clamp(30px, 5vw, 70px) auto;
   padding: clamp(76px, 9vw, 126px) clamp(22px, 5vw, 68px);
   overflow: hidden;
-  border: 1px solid rgba(255, 95, 134, 0.32);
+  border: 1px solid rgba(242, 200, 121, 0.32);
   border-radius: 42px 112px 42px 112px;
   background:
-    radial-gradient(circle at 86% 12%, rgba(255, 48, 89, 0.25), transparent 23rem),
-    radial-gradient(circle at 10% 86%, rgba(255, 143, 169, 0.17), transparent 25rem),
-    linear-gradient(148deg, rgba(60, 8, 25, 0.96), rgba(17, 3, 12, 0.98) 48%, rgba(42, 5, 19, 0.96));
+    radial-gradient(circle at 86% 12%, rgba(255, 49, 94, 0.27), transparent 23rem),
+    radial-gradient(circle at 10% 86%, rgba(255, 130, 162, 0.15), transparent 25rem),
+    radial-gradient(circle at 50% 2%, rgba(242, 200, 121, 0.08), transparent 20rem),
+    linear-gradient(148deg, rgba(58, 8, 26, 0.97), rgba(15, 2, 10, 0.99) 48%, rgba(40, 5, 18, 0.98));
   box-shadow: 0 34px 100px rgba(0, 0, 0, 0.35), inset 0 1px rgba(255, 255, 255, 0.06);
   isolation: isolate;
 }
@@ -146,7 +147,7 @@
   pointer-events: none;
   background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.7), transparent);
   opacity: 0;
-  transform: skewX(-18deg);
+  transform: translate3d(0, 0, 0) skewX(-18deg);
 }
 
 .relationship-board__art.is-visible .relationship-board__glint {
@@ -154,9 +155,9 @@
 }
 
 @keyframes relationship-glint {
-  0% { left: -42%; opacity: 0; }
+  0% { opacity: 0; transform: translate3d(0, 0, 0) skewX(-18deg); }
   18% { opacity: 0.62; }
-  100% { left: 120%; opacity: 0; }
+  100% { opacity: 0; transform: translate3d(650%, 0, 0) skewX(-18deg); }
 }
 
 .relationship-board__zoom {
@@ -333,10 +334,6 @@
   transform: translateX(0);
 }
 
-.relationship-milestones li:hover {
-  background: rgba(255, 255, 255, 0.035);
-}
-
 .relationship-milestones li::before {
   position: absolute;
   z-index: 1;
@@ -422,13 +419,15 @@
   width: 100%;
   margin-top: 24px;
   border-color: rgba(255, 210, 220, 0.32);
-  background: linear-gradient(110deg, #a80937, #ee2859 48%, #ff7d9c);
+  background: linear-gradient(110deg, #8f0a34, #c9154c 48%, #d52a58);
   box-shadow: 0 16px 38px rgba(202, 15, 62, 0.3);
   color: #fff;
 }
 
-.relationship-board__celebrate:hover {
-  box-shadow: 0 20px 48px rgba(238, 40, 89, 0.38), 0 0 32px rgba(255, 125, 156, 0.18);
+@media (hover: hover) and (pointer: fine) {
+  .relationship-board__celebrate:hover {
+    box-shadow: 0 20px 48px rgba(238, 40, 89, 0.38), 0 0 32px rgba(255, 125, 156, 0.18);
+  }
 }
 
 .relationship-board__celebrate:disabled {
@@ -465,7 +464,7 @@
 .relationship-board.is-lit .relationship-milestones li:nth-child(5)::before { animation-delay: 360ms; }
 
 @keyframes relationship-heartbeat {
-  45% { transform: scale(1.28); box-shadow: 0 0 0 9px rgba(255, 90, 127, 0.13), 0 0 24px rgba(255, 71, 112, 0.48); }
+  45% { opacity: 0.82; transform: scale(1.28); }
 }
 
 .relationship-board__prayer {
@@ -562,6 +561,10 @@
     border-radius: 12px;
   }
 
+  .relationship-board__image-button:focus-visible {
+    outline-offset: 3px;
+  }
+
   .relationship-board__frame img {
     border-radius: 5px;
   }
@@ -639,6 +642,45 @@
   }
 }
 
+@media (pointer: coarse) {
+  .relationship-board__frame,
+  .relationship-board__image-button:focus-visible .relationship-board__frame {
+    transform: none;
+    transition: none;
+  }
+
+  .relationship-board__glint {
+    display: none;
+  }
+
+  .relationship-board__floating-heart,
+  .relationship-board__prayer > span {
+    filter: none;
+  }
+
+  .relationship-board,
+  .relationship-board__frame,
+  .relationship-board__image-button:focus-visible .relationship-board__frame,
+  .relationship-board__details {
+    box-shadow: 0 20px 48px rgba(0, 0, 0, 0.3);
+  }
+
+  .relationship-board.is-lit .relationship-board__frame {
+    box-shadow:
+      0 20px 48px rgba(0, 0, 0, 0.3),
+      0 0 0 2px rgba(255, 49, 94, 0.34),
+      0 0 34px rgba(255, 49, 94, 0.2);
+  }
+
+  .relationship-board.is-lit .relationship-milestones li::before {
+    animation: relationship-coarse-pop 520ms cubic-bezier(0.22, 1, 0.36, 1) 1;
+  }
+}
+
+@keyframes relationship-coarse-pop {
+  50% { opacity: 0.82; transform: scale(1.18); }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .relationship-board *,
   .relationship-board *::before,
@@ -660,5 +702,10 @@
 
   .relationship-milestones::before {
     transform: scaleY(1) !important;
+  }
+
+  .relationship-board__frame,
+  .relationship-board__image-button:focus-visible .relationship-board__frame {
+    transform: none !important;
   }
 }

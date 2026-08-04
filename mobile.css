@@ -235,7 +235,7 @@ textarea {
       calc(12px + var(--safe-right))
       8px
       calc(12px + var(--safe-left));
-    background: rgba(5, 10, 25, 0.97) !important;
+    background: rgba(14, 2, 8, 0.97) !important;
   }
 
   .topbar__progress { bottom: 0; }
@@ -530,7 +530,7 @@ textarea {
       calc(10px + var(--safe-right))
       8px
       calc(10px + var(--safe-left));
-    background: rgba(5, 10, 25, 0.97) !important;
+    background: rgba(14, 2, 8, 0.97) !important;
   }
 
   .companion-brand span {
