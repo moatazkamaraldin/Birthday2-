@@ -948,3 +948,152 @@ textarea {
     }
   }
 }
+
+/* Maison d'Amour: compact editorial finish for iPhone and Android. */
+@media (max-width: 900px) {
+  body[data-page="home"] #welcome.hero {
+    border-radius: 36px 14px 48px 14px;
+    box-shadow: 0 30px 76px rgba(43,12,24,0.24), inset 0 1px rgba(255,255,255,0.62);
+  }
+
+  body[data-page="home"] #welcome.hero::after {
+    inset: 9px;
+    opacity: 0.34;
+  }
+
+  body[data-page="home"] main > .section.chapter,
+  body[data-page="home"] main > .gallery-section,
+  body[data-page="home"] .gift-library {
+    box-shadow: 0 25px 64px rgba(31,5,17,0.18), inset 0 1px rgba(255,255,255,0.07);
+  }
+
+  body[data-page="home"] :is(#story, #gallery, #dictionary, #wishes, #comfort, #tomorrow),
+  body[data-page="home"] .gift-library {
+    outline-offset: -9px;
+  }
+
+  body[data-page="home"] .section-heading::before {
+    top: -2.2rem;
+  }
+
+  #gallery .gallery-card {
+    border-width: 6px;
+    border-radius: 12px 30px 12px 30px;
+  }
+
+  #gallery .gallery-card:nth-child(even) {
+    border-radius: 30px 12px 30px 12px;
+  }
+
+  .relationship-board {
+    box-shadow: 0 27px 68px rgba(51,15,27,0.18), inset 0 1px rgba(255,255,255,0.72);
+  }
+}
+
+@media (max-width: 720px) {
+  body[data-page="home"] #welcome.hero {
+    background:
+      radial-gradient(circle at 88% 13%, rgba(226,29,79,0.14), transparent 17rem) padding-box,
+      radial-gradient(circle at 12% 90%, rgba(226,186,115,0.13), transparent 18rem) padding-box,
+      linear-gradient(138deg, #fffaf6 0%, #fae9e9 56%, #f3d2d8 100%) padding-box,
+      linear-gradient(126deg, #7f0d31, var(--love-anchor) 34%, var(--champagne) 68%, #a884ad) border-box;
+  }
+
+  body[data-page="home"] #welcome .portrait-card {
+    border-radius: 25px 25px 8px 25px;
+    box-shadow: 0 20px 48px rgba(61,17,32,0.22), 7px 8px 0 rgba(127,13,49,0.06);
+  }
+
+  body[data-page="home"] #welcome .portrait-card::before,
+  body[data-page="home"] #welcome .portrait-card img {
+    border-radius: 18px 18px 5px 18px;
+  }
+
+  .birthday-overture {
+    border-radius: 18px 42px 18px 42px;
+    box-shadow: 0 26px 64px rgba(38,4,18,0.32), inset 0 1px rgba(255,255,255,0.08);
+  }
+
+  .birthday-overture__gifts article {
+    border-radius: 14px 28px 14px 28px;
+  }
+
+  body[data-page="home"] main > .section.chapter,
+  body[data-page="home"] main > .gallery-section {
+    padding-block: clamp(68px, 18vw, 94px);
+  }
+
+  body[data-page="home"] .section-heading h2 {
+    font-size: clamp(2.2rem, 10.5vw, 3.35rem);
+    line-height: 1.38;
+  }
+
+  body[data-page="home"] .section-heading::after {
+    width: min(132px, 42vw);
+  }
+
+  body[data-page="home"] :is(#story, #dictionary, #wishes, #comfort, #tomorrow) :is(
+    .timeline-card,
+    .dictionary-card,
+    .birthday-wish-card,
+    .comfort-card,
+    .future-tickets article,
+    .year-promises article
+  ) {
+    border-radius: 18px;
+    box-shadow: 0 14px 34px rgba(72,29,42,0.09), inset 0 1px rgba(255,255,255,0.8);
+  }
+
+  #story .timeline-card:nth-child(odd) { border-radius: 9px 25px 9px 25px; }
+  #story .timeline-card:nth-child(even) { border-radius: 25px 9px 25px 9px; }
+
+  #dictionary .dictionary-card:not(.is-open),
+  #wishes .birthday-wish-card:not(.is-chosen) {
+    background-color: rgba(255,255,255,0.72);
+  }
+
+  #letter .letter-paper {
+    box-shadow: 8px 9px 0 rgba(226,186,115,0.055), 0 24px 58px rgba(8,1,6,0.3);
+  }
+
+  .gift-library .gift-page-card,
+  .gift-library .gift-page-card:nth-child(even) {
+    border-radius: 18px 36px 18px 36px;
+  }
+}
+
+@media (max-width: 430px) {
+  body[data-page="home"] #welcome.hero,
+  body[data-page="home"] main > .section.chapter,
+  body[data-page="home"] main > .gallery-section,
+  body[data-page="home"] .gift-library,
+  body[data-page="home"] .birthday-overture,
+  body[data-page="home"] .relationship-board {
+    width: calc(100% - 12px);
+  }
+
+  body[data-page="home"] :is(#story, #gallery, #dictionary, #wishes, #comfort, #tomorrow),
+  body[data-page="home"] .gift-library {
+    outline-offset: -6px;
+  }
+
+  #gallery .gallery-card { border-width: 4px; }
+}
+
+@media (hover: none), (pointer: coarse) {
+  #gallery .gallery-card:hover {
+    border-color: #fffaf6;
+    box-shadow: 0 25px 58px rgba(76,31,40,0.2), 0 0 0 1px rgba(142,63,78,0.08);
+  }
+
+  body[data-page="home"] :is(#story, #dictionary, #wishes, #comfort, #tomorrow) :is(
+    .timeline-card,
+    .dictionary-card,
+    .birthday-wish-card,
+    .comfort-card,
+    .future-tickets article,
+    .year-promises article
+  ):hover {
+    box-shadow: 0 18px 44px rgba(72,29,42,0.1), inset 0 1px rgba(255,255,255,0.86);
+  }
+}
