@@ -12,27 +12,27 @@
 }
 
 :root {
-  --love-anchor: #e21d4f;
-  --love-bloom: #f06f8e;
-  --love-blush: #f5b8c6;
-  --velvet-black: #0e0409;
-  --velvet-night: #18070f;
-  --velvet-wine: #340b1e;
-  --velvet-panel: #431229;
-  --champagne: #e2ba73;
-  --couture-ivory: #fff8f2;
-  --season-coral: #d9786b;
-  --season-sage: #84a796;
-  --season-dusk: #71628e;
-  --season-lilac: #a884ad;
-  --season-sky: #8cacc1;
+  --love-anchor: #ff315e;
+  --love-bloom: #ff82a2;
+  --love-blush: #ffc2d1;
+  --velvet-black: #090106;
+  --velvet-night: #14030b;
+  --velvet-wine: #260713;
+  --velvet-panel: #310a19;
+  --champagne: #f2c879;
+  --couture-ivory: #fff6f1;
+  --season-coral: #ff876f;
+  --season-sage: #75b7a6;
+  --season-dusk: #6f72c9;
+  --season-lilac: #a879c4;
+  --season-sky: #6da9dc;
 
   --atlas-night: var(--velvet-black);
   --atlas-night-2: var(--velvet-night);
   --atlas-panel: var(--velvet-panel);
   --atlas-cream: var(--couture-ivory);
-  --atlas-muted: #e7ced5;
-  --atlas-faint: #bd98a3;
+  --atlas-muted: #e5cbd3;
+  --atlas-faint: #b28e99;
   --atlas-love-red: var(--love-anchor);
   --atlas-rose: var(--atlas-love-red);
   --atlas-coral: var(--season-coral);
@@ -42,7 +42,7 @@
   --atlas-blue: var(--season-dusk);
   --atlas-violet: var(--season-lilac);
   --atlas-ruby: #d81749;
-  --atlas-spectrum: linear-gradient(90deg, var(--love-anchor) 0%, var(--love-bloom) 28%, var(--season-coral) 48%, var(--champagne) 69%, var(--season-lilac) 86%, var(--love-anchor) 100%);
+  --atlas-spectrum: linear-gradient(90deg, var(--love-anchor) 0%, var(--love-bloom) 22%, var(--season-coral) 42%, var(--champagne) 62%, var(--season-lilac) 80%, var(--love-anchor) 100%);
 
   /* Feed the older component rules with the new world. */
   --night: var(--atlas-night);
@@ -262,7 +262,7 @@ body::after {
 .chapter-nav a:nth-child(7) { --nav-accent: var(--atlas-ruby); }
 .chapter-nav a:nth-child(8) { --nav-accent: var(--atlas-sky); }
 .chapter-nav a:nth-child(9) { --nav-accent: #ffad70; }
-.chapter-nav a:nth-child(10) { --nav-accent: #806995; }
+.chapter-nav a:nth-child(10) { --nav-accent: #6f8cff; }
 .chapter-nav a:nth-child(11) { --nav-accent: #ff6fa9; }
 
 .chapter-nav a[aria-current="true"] {
@@ -691,27 +691,27 @@ body[data-page="home"] :is(.timeline-card__icon, .comfort-card__icon, .future-ti
 
 /* Each interactive set keeps the material of its own destination. */
 #night .night-progress span {
-  background: linear-gradient(90deg, var(--love-anchor), #71628e, #9eb8c8);
+  background: linear-gradient(90deg, var(--love-anchor), #7466d5, #9fc5ff);
 }
 
 #night .night-slider input::-webkit-slider-runnable-track {
-  background: linear-gradient(to left, #d7c6b5 0%, #8cacc1 var(--slider-progress), rgba(255,255,255,0.09) var(--slider-progress), rgba(255,255,255,0.09) 100%);
+  background: linear-gradient(to left, #c9dcff 0%, #43c6ff var(--slider-progress), rgba(255,255,255,0.09) var(--slider-progress), rgba(255,255,255,0.09) 100%);
 }
 
 #night .night-slider input::-moz-range-progress {
-  background: linear-gradient(90deg, #71628e, #8cacc1);
+  background: linear-gradient(90deg, #8d7cff, #43c6ff);
 }
 
 #night .night-slider input::-webkit-slider-thumb {
-  border-color: #e4d8cc;
-  background: #8cacc1;
-  box-shadow: 0 0 0 6px rgba(140,172,193,0.14), 0 0 24px rgba(113,98,142,0.42);
+  border-color: #c9dcff;
+  background: #43c6ff;
+  box-shadow: 0 0 0 6px rgba(67,198,255,0.14), 0 0 24px rgba(141,124,255,0.55);
 }
 
 #night .night-slider input::-moz-range-thumb {
-  border-color: #e4d8cc;
-  background: #8cacc1;
-  box-shadow: 0 0 0 6px rgba(140,172,193,0.14), 0 0 24px rgba(113,98,142,0.42);
+  border-color: #c9dcff;
+  background: #43c6ff;
+  box-shadow: 0 0 0 6px rgba(67,198,255,0.14), 0 0 24px rgba(141,124,255,0.55);
 }
 
 #night .night-stages button.is-active {
@@ -1042,44 +1042,44 @@ body[data-page="poems"] .poem-chapter {
     linear-gradient(145deg, rgba(57,11,35,0.9), rgba(18,3,14,0.95));
 }
 
-body[data-page="poems"] #poem-one { --chapter-accent: #84a796; --chapter-secondary: #d7b56f; }
-body[data-page="poems"] #poem-two { --chapter-accent: #71628e; --chapter-secondary: #a884ad; }
-body[data-page="poems"] #poem-three { --chapter-accent: #d9786b; --chapter-secondary: #71628e; }
-body[data-page="poems"] #poem-four { --chapter-accent: #d85b7d; --chapter-secondary: #d6a5ad; }
-body[data-page="poems"] #poem-five { --chapter-accent: #d3aa62; --chapter-secondary: #cc705f; }
-body[data-page="poems"] #poem-from-azouz { --chapter-accent: #b91443; --chapter-secondary: #d8b371; }
-body[data-page="poems"] #poem-pride { --chapter-accent: #a884ad; --chapter-secondary: #d7b56f; }
-body[data-page="poems"] #poem-strength { --chapter-accent: #8cacc1; --chapter-secondary: #d85b7d; }
+body[data-page="poems"] #poem-one { --chapter-accent: #55d6b8; --chapter-secondary: #ffd166; }
+body[data-page="poems"] #poem-two { --chapter-accent: #7192ff; --chapter-secondary: #a47cff; }
+body[data-page="poems"] #poem-three { --chapter-accent: #ff9a70; --chapter-secondary: #8d7cff; }
+body[data-page="poems"] #poem-four { --chapter-accent: #ff7fa5; --chapter-secondary: #ffd0b0; }
+body[data-page="poems"] #poem-five { --chapter-accent: #ffd166; --chapter-secondary: #ff8a5b; }
+body[data-page="poems"] #poem-from-azouz { --chapter-accent: #d91f45; --chapter-secondary: #f1c97b; }
+body[data-page="poems"] #poem-pride { --chapter-accent: #a47cff; --chapter-secondary: #ffd166; }
+body[data-page="poems"] #poem-strength { --chapter-accent: #58b8ff; --chapter-secondary: #ff7fa5; }
 
 body[data-page="poems"] #poem-six {
-  --chapter-accent: #84a796;
-  --chapter-secondary: #d7b56f;
+  --chapter-accent: #55d6b8;
+  --chapter-secondary: #ffd166;
   padding-inline: clamp(20px, 4vw, 50px);
-  border: 1px solid rgba(132,167,150,0.24);
+  border: 1px solid rgba(85,214,184,0.24);
   border-radius: 38px 92px 38px 92px;
   background:
-    radial-gradient(circle at 12% 14%, rgba(132,167,150,0.2), transparent 24rem),
-    radial-gradient(circle at 88% 84%, rgba(215,181,111,0.12), transparent 24rem),
+    radial-gradient(circle at 12% 14%, rgba(85,214,184,0.2), transparent 24rem),
+    radial-gradient(circle at 88% 84%, rgba(255,209,102,0.12), transparent 24rem),
     linear-gradient(145deg, rgba(37,51,47,0.76), rgba(44,8,30,0.84));
 }
 
 body[data-page="poems"] #poem-six .acrostic p {
-  border-color: rgba(132,167,150,0.22);
+  border-color: rgba(85,214,184,0.22);
   background:
-    radial-gradient(circle at 96% 20%, rgba(132,167,150,0.14), transparent 12rem),
+    radial-gradient(circle at 96% 20%, rgba(85,214,184,0.14), transparent 12rem),
     linear-gradient(145deg, rgba(40,66,59,0.72), rgba(47,9,31,0.82));
 }
 
 body[data-page="poems"] #poem-six .acrostic p:nth-child(even) {
-  border-color: rgba(215,181,111,0.22);
+  border-color: rgba(255,209,102,0.22);
   background:
-    radial-gradient(circle at 96% 20%, rgba(215,181,111,0.12), transparent 12rem),
+    radial-gradient(circle at 96% 20%, rgba(255,209,102,0.12), transparent 12rem),
     linear-gradient(145deg, rgba(65,47,38,0.78), rgba(44,8,30,0.84));
 }
 
 body[data-page="poems"] #poem-six .acrostic b {
-  background: linear-gradient(145deg, #527e70, #6f8396 54%, #9b7844);
-  box-shadow: 0 10px 28px rgba(132,167,150,0.2), inset 0 1px rgba(255,255,255,0.16);
+  background: linear-gradient(145deg, #258c80, #367eb0 54%, #9b7a32);
+  box-shadow: 0 10px 28px rgba(85,214,184,0.2), inset 0 1px rgba(255,255,255,0.16);
 }
 
 body[data-page="poems"] :is(#poem-one, #poem-two, #poem-three, #poem-four, #poem-five, #poem-from-azouz, #poem-pride, #poem-strength) {
@@ -1114,8 +1114,8 @@ body[data-page="wishes"] .wishes-stage::before {
   border-color: rgba(255,130,162,0.18);
   background:
     radial-gradient(circle at 12% 16%, rgba(255,138,91,0.22), transparent 29rem),
-    radial-gradient(circle at 86% 73%, rgba(132,167,150,0.2), transparent 31rem),
-    radial-gradient(circle at 54% 7%, rgba(215,181,111,0.12), transparent 20rem),
+    radial-gradient(circle at 86% 73%, rgba(85,214,184,0.22), transparent 31rem),
+    radial-gradient(circle at 54% 7%, rgba(255,209,102,0.12), transparent 20rem),
     linear-gradient(150deg, rgba(55,11,27,0.78), rgba(26,6,24,0.8));
 }
 
@@ -1125,8 +1125,8 @@ body[data-page="wishes"] .wishes-toolbar {
 }
 
 body[data-page="wishes"] .wish-card {
-  --wish-accent: #d84168;
-  --wish-rgb: 216, 65, 104;
+  --wish-accent: #ff304f;
+  --wish-rgb: 255, 48, 79;
   border-width: 1px;
   border-radius: 28px 72px 28px 72px;
   background:
@@ -1161,11 +1161,11 @@ body[data-page="wishes"] .wishes-grid .wish-card.is-selected {
 }
 
 body[data-page="wishes"] .wish-card:nth-child(even) { border-radius: 72px 28px 72px 28px; }
-body[data-page="wishes"] .wish-card:nth-child(6n + 2) { --wish-accent: #d9786b; --wish-rgb: 217, 120, 107; }
-body[data-page="wishes"] .wish-card:nth-child(6n + 3) { --wish-accent: #d6ad69; --wish-rgb: 214, 173, 105; }
-body[data-page="wishes"] .wish-card:nth-child(6n + 4) { --wish-accent: #84a796; --wish-rgb: 132, 167, 150; }
-body[data-page="wishes"] .wish-card:nth-child(6n + 5) { --wish-accent: #a884ad; --wish-rgb: 168, 132, 173; }
-body[data-page="wishes"] .wish-card:nth-child(6n + 6) { --wish-accent: #e17d95; --wish-rgb: 225, 125, 149; }
+body[data-page="wishes"] .wish-card:nth-child(6n + 2) { --wish-accent: #ff9a5c; --wish-rgb: 255, 154, 92; }
+body[data-page="wishes"] .wish-card:nth-child(6n + 3) { --wish-accent: #ffd166; --wish-rgb: 255, 209, 102; }
+body[data-page="wishes"] .wish-card:nth-child(6n + 4) { --wish-accent: #75b7a6; --wish-rgb: 117, 183, 166; }
+body[data-page="wishes"] .wish-card:nth-child(6n + 5) { --wish-accent: #a879c4; --wish-rgb: 168, 121, 196; }
+body[data-page="wishes"] .wish-card:nth-child(6n + 6) { --wish-accent: #ff82a2; --wish-rgb: 255, 130, 162; }
 
 body[data-page="wishes"] .wish-card.is-kept {
   border-color: rgba(var(--wish-rgb), 0.72);
@@ -1247,14 +1247,14 @@ body[data-page="wishes"] .ambient-love--petal { color: var(--atlas-mint); }
 
 body[data-page="poems"] .ambient-love--petal {
   border-color: rgba(206,235,255,0.48);
-  background: linear-gradient(145deg, #edf5f4, #a884ad 54%, #71628e);
-  box-shadow: inset 3px 2px 5px rgba(255,255,255,0.36), 0 0 12px rgba(140,172,193,0.38);
+  background: linear-gradient(145deg, #dff8ff, #8d7cff 54%, #5175ff);
+  box-shadow: inset 3px 2px 5px rgba(255,255,255,0.36), 0 0 12px rgba(88,184,255,0.58);
 }
 
 body[data-page="wishes"] .ambient-love--petal {
   border-color: rgba(231,255,244,0.5);
-  background: linear-gradient(145deg, #f1f6f2, #84a796 52%, #d9786b);
-  box-shadow: inset 3px 2px 5px rgba(255,255,255,0.38), 0 0 12px rgba(132,167,150,0.4);
+  background: linear-gradient(145deg, #e7fff6, #55d6b8 52%, #ff8a5b);
+  box-shadow: inset 3px 2px 5px rgba(255,255,255,0.38), 0 0 12px rgba(85,214,184,0.58);
 }
 
 @media (max-width: 900px) {
@@ -1453,1026 +1453,4 @@ body[data-page="wishes"] .ambient-love--petal {
 @media (prefers-reduced-motion: reduce) {
   body::after,
   .section-heading::before { animation: none !important; }
-}
-
-/*
-   MAISON D'AMOUR · SECOND EDITION
-   A calmer editorial rhythm: illuminated paper chapters alternate with
-   lacquer, velvet and night. Crimson remains the signature in every scene.
-*/
-:root {
-  --maison-ink: #32131f;
-  --maison-ink-soft: #684550;
-  --maison-paper: #fff9f4;
-  --maison-paper-rose: #f9e3e6;
-  --maison-paper-sage: #e9f0ea;
-  --maison-paper-dawn: #faeadf;
-  --maison-crimson: #b91443;
-  --maison-ruby: #7f0d31;
-  --maison-plum: #32122f;
-  --maison-teal: #315f61;
-  --maison-line: rgba(104, 45, 63, 0.16);
-  --maison-shadow: 0 34px 90px rgba(31, 5, 17, 0.22);
-}
-
-body[data-page="home"] {
-  background-color: #0e0409;
-  background-image:
-    radial-gradient(circle at 8% 4%, rgba(226,29,79,0.2), transparent 29rem),
-    radial-gradient(circle at 92% 34%, rgba(168,132,173,0.11), transparent 34rem),
-    radial-gradient(circle at 18% 82%, rgba(226,186,115,0.065), transparent 30rem),
-    linear-gradient(160deg, #0d0308 0%, #250813 45%, #15060f 73%, #090306 100%);
-}
-
-body[data-page="home"]::after {
-  opacity: 0.22;
-  background:
-    linear-gradient(118deg, transparent 0 49.4%, rgba(255,248,242,0.035) 49.5% 50%, transparent 50.1%) 0 0 / 74px 74px,
-    radial-gradient(circle at 50% 12%, rgba(240,111,142,0.1), transparent 55%);
-}
-
-.topbar {
-  border-bottom-color: rgba(226,186,115,0.17);
-  background: rgba(18,5,12,0.9);
-  box-shadow: 0 12px 38px rgba(0,0,0,0.24), inset 0 -1px rgba(240,111,142,0.06);
-}
-
-.topbar::before {
-  right: 12%;
-  left: 12%;
-  background: linear-gradient(90deg, transparent, var(--love-anchor), var(--champagne), var(--love-bloom), transparent);
-  opacity: 0.64;
-}
-
-.topbar.is-scrolled {
-  background: rgba(14,3,9,0.975);
-  box-shadow: 0 18px 52px rgba(0,0,0,0.4), 0 1px rgba(226,186,115,0.12);
-}
-
-.brand__mark {
-  background:
-    linear-gradient(#3b0d21, #18060f) padding-box,
-    linear-gradient(145deg, var(--champagne), var(--love-anchor), var(--love-bloom)) border-box;
-  box-shadow: 0 8px 24px rgba(120,7,42,0.34), inset 0 1px rgba(255,255,255,0.12);
-}
-
-.chapter-nav a {
-  color: #d8bcc4;
-}
-
-.chapter-nav a[aria-current="true"] {
-  background: rgba(240,111,142,0.12);
-  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--nav-accent) 28%, rgba(255,255,255,0.08));
-  color: #fff7f4;
-}
-
-.button--primary,
-.button--accent,
-.companion-button--primary {
-  border-color: rgba(255,255,255,0.18);
-  background: linear-gradient(125deg, #8d0c34, #bd1647 54%, #ce3158);
-  box-shadow: 0 15px 36px rgba(150,10,54,0.3), inset 0 1px rgba(255,255,255,0.24);
-}
-
-/* The first view feels like opening an illuminated love letter. */
-body[data-page="home"] #welcome.hero {
-  --ivory: var(--maison-ink);
-  --muted: var(--maison-ink-soft);
-  --faint: #8e6873;
-  --line: rgba(124,44,67,0.22);
-  --line-soft: rgba(124,44,67,0.13);
-  --atlas-cream: var(--maison-ink);
-  color: var(--maison-ink);
-  border-color: transparent;
-  border-radius: 76px 22px 76px 22px;
-  background:
-    linear-gradient(115deg, rgba(132,62,79,0.035) 0 1px, transparent 1px 32px) padding-box,
-    radial-gradient(circle at 88% 17%, rgba(226,29,79,0.17), transparent 23rem) padding-box,
-    radial-gradient(circle at 12% 88%, rgba(226,186,115,0.17), transparent 26rem) padding-box,
-    linear-gradient(138deg, #fffaf6 0%, #fae9e9 54%, #f4d4da 100%) padding-box,
-    linear-gradient(126deg, #7f0d31, var(--love-anchor) 31%, var(--champagne) 63%, #a884ad) border-box;
-  box-shadow: 0 54px 130px rgba(31,5,17,0.32), 0 0 0 1px rgba(255,255,255,0.55) inset;
-}
-
-body[data-page="home"] #welcome.hero::before {
-  top: 8%;
-  right: 58%;
-  width: 34%;
-  height: 68%;
-  border: 1px solid rgba(127,13,49,0.1);
-  border-radius: 50%;
-  background: transparent;
-  filter: none;
-  transform: rotate(-12deg);
-}
-
-body[data-page="home"] #welcome.hero::after {
-  inset: 18px;
-  border: 1px solid rgba(127,13,49,0.09);
-  border-radius: inherit;
-  background:
-    radial-gradient(circle, rgba(185,20,67,0.14) 0 1.5px, transparent 2px) 0 0 / 58px 58px,
-    linear-gradient(90deg, transparent, rgba(255,255,255,0.38), transparent);
-  opacity: 0.52;
-  -webkit-mask-image: linear-gradient(90deg, transparent, #000 18%, #000 82%, transparent);
-  mask-image: linear-gradient(90deg, transparent, #000 18%, #000 82%, transparent);
-}
-
-#welcome .hero__copy h1 {
-  color: #35131f;
-  text-shadow: none;
-}
-
-#welcome .hero__copy h1 em {
-  background: linear-gradient(104deg, #8f0e38 0%, var(--love-anchor) 48%, #b26a71 74%, #956f45 100%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  filter: none;
-}
-
-#welcome .hero__lede { color: #684550; }
-
-#welcome .eyebrow {
-  border-color: rgba(153,45,75,0.22);
-  background: rgba(255,255,255,0.52);
-  box-shadow: 0 8px 26px rgba(79,18,37,0.06);
-  color: #8b2949;
-}
-
-#welcome .button--ghost {
-  border-color: rgba(127,13,49,0.2);
-  background: rgba(255,255,255,0.46);
-  color: #67253a;
-}
-
-#welcome .hero__facts {
-  border-top-color: rgba(111,40,60,0.14);
-}
-
-#welcome .hero__facts div {
-  border-color: rgba(111,40,60,0.13);
-  background: rgba(255,255,255,0.38);
-  box-shadow: inset 0 1px rgba(255,255,255,0.56);
-}
-
-#welcome .hero__facts span { color: #795762; }
-
-#welcome .portrait-card {
-  padding: 12px;
-  border-color: transparent;
-  border-radius: 46px 46px 14px 46px;
-  background:
-    linear-gradient(#fffdf9, #f7ece8) padding-box,
-    linear-gradient(145deg, #d2aa69, #a71946 43%, #ed849b 72%, #8b6a91) border-box;
-  box-shadow: 0 32px 78px rgba(61,17,32,0.27), 13px 15px 0 rgba(127,13,49,0.075);
-  transform: rotate(-1.2deg);
-}
-
-#welcome .portrait-card::before { border-radius: 33px 33px 9px 33px; }
-#welcome .portrait-card img { border-radius: 32px 32px 8px 32px; }
-#welcome .portrait-card figcaption { color: #70505a; }
-#welcome .portrait-card figcaption b { color: #8d2f4c; }
-
-#welcome .hero__age {
-  border-color: rgba(226,186,115,0.55);
-  background: linear-gradient(145deg, #7f0d31, #b91443);
-  box-shadow: 0 16px 40px rgba(83,8,33,0.32), inset 0 1px rgba(255,255,255,0.18);
-}
-
-#welcome .hero__age span {
-  background: linear-gradient(130deg, #fff4d8, #e2ba73 58%, #fff8f2);
-  background-clip: text;
-  -webkit-background-clip: text;
-}
-
-#welcome .hero__age small { color: #f3d8dc; }
-#welcome .scroll-invitation { color: #7a5661; }
-#welcome .scroll-invitation i { background: linear-gradient(#9b3855, transparent); }
-
-/* A richer crimson celebration acts as the threshold to the chapters. */
-.birthday-overture {
-  border-color: transparent;
-  border-radius: 26px 78px 26px 78px;
-  background:
-    radial-gradient(circle at 88% 12%, rgba(226,186,115,0.2), transparent 21rem) padding-box,
-    radial-gradient(circle at 9% 90%, rgba(240,111,142,0.21), transparent 25rem) padding-box,
-    linear-gradient(138deg, #7d0c30 0%, #4c0a24 48%, #210712 100%) padding-box,
-    linear-gradient(120deg, var(--champagne), var(--love-anchor), var(--love-bloom), var(--champagne)) border-box;
-  box-shadow: 0 42px 100px rgba(38,4,18,0.42), inset 0 1px rgba(255,255,255,0.08);
-}
-
-.birthday-overture__gifts article {
-  border-color: rgba(255,238,218,0.15);
-  border-radius: 18px 42px 18px 42px;
-  background: linear-gradient(125deg, rgba(255,248,242,0.11), rgba(255,248,242,0.035));
-  box-shadow: 0 15px 34px rgba(25,3,12,0.18), inset 0 1px rgba(255,255,255,0.08);
-  backdrop-filter: none;
-}
-
-/* Shared editorial framing, then a distinct material for every chapter. */
-body[data-page="home"] main > .section.chapter,
-body[data-page="home"] main > .gallery-section {
-  width: min(1220px, calc(100% - 36px));
-  margin-block: clamp(30px, 6vw, 78px);
-  padding-block: clamp(86px, 10vw, 142px);
-  padding-inline: clamp(22px, 4.5vw, 58px);
-  border-radius: clamp(30px, 4.5vw, 62px);
-  box-shadow: var(--maison-shadow), inset 0 1px rgba(255,255,255,0.08);
-}
-
-body[data-page="home"] :is(#story, #gallery, #dictionary, #wishes, #comfort, #tomorrow) {
-  --ivory: var(--maison-ink);
-  --muted: var(--maison-ink-soft);
-  --faint: #8d6b74;
-  --line: rgba(105,54,65,0.2);
-  --line-soft: rgba(105,54,65,0.12);
-  --atlas-cream: var(--maison-ink);
-  --atlas-muted: var(--maison-ink-soft);
-  --atlas-faint: #8d6b74;
-  color: var(--maison-ink);
-  outline: 1px solid rgba(119,53,70,0.09);
-  outline-offset: -15px;
-}
-
-body[data-page="home"] :is(#welcome, #story, #gallery, #dictionary, #wishes, #comfort, #tomorrow, #library) :focus-visible {
-  outline-color: #9f234a;
-  box-shadow: 0 0 0 6px rgba(159,35,74,0.12);
-}
-
-#story {
-  --chapter-accent: #c92e58;
-  --chapter-secondary: #b77778;
-  --chapter-gold: #ae7e42;
-  border-color: rgba(151,61,84,0.19);
-  background:
-    linear-gradient(rgba(115,54,68,0.035) 1px, transparent 1px) 0 0 / 100% 38px padding-box,
-    radial-gradient(circle at 10% 10%, rgba(201,46,88,0.1), transparent 24rem) padding-box,
-    radial-gradient(circle at 90% 88%, rgba(174,126,66,0.11), transparent 26rem) padding-box,
-    linear-gradient(145deg, #fff9f3, #f8e9e6 55%, #f2dcde) padding-box;
-}
-
-#gallery {
-  --chapter-accent: #c83a54;
-  --chapter-secondary: #d17a67;
-  --chapter-gold: #ad7944;
-  border-color: rgba(176,75,85,0.19);
-  background:
-    radial-gradient(circle at 7% 12%, rgba(200,58,84,0.13), transparent 25rem) padding-box,
-    radial-gradient(circle at 91% 86%, rgba(209,122,103,0.16), transparent 27rem) padding-box,
-    linear-gradient(138deg, #fff5f1, #f6dfdf 52%, #edd5cd) padding-box;
-}
-
-#night {
-  --chapter-accent: #e84d78;
-  --chapter-secondary: #71628e;
-  --chapter-gold: #d9c2a0;
-  border-color: rgba(162,143,201,0.28);
-  background:
-    radial-gradient(circle at 82% 9%, rgba(126,107,174,0.34), transparent 29rem) padding-box,
-    radial-gradient(circle at 12% 84%, rgba(232,77,120,0.16), transparent 28rem) padding-box,
-    linear-gradient(180deg, #131029 0%, #291330 52%, #110815 100%) padding-box,
-    linear-gradient(120deg, #e84d78, #77679b, #9bb8cc) border-box;
-}
-
-#dictionary {
-  --chapter-accent: #be3659;
-  --chapter-secondary: #6f9583;
-  --chapter-gold: #8d7c4d;
-  border-color: rgba(86,125,105,0.2);
-  background:
-    linear-gradient(112deg, rgba(84,119,101,0.04) 0 1px, transparent 1px 34px) padding-box,
-    radial-gradient(circle at 88% 10%, rgba(111,149,131,0.18), transparent 25rem) padding-box,
-    radial-gradient(circle at 8% 88%, rgba(190,54,89,0.09), transparent 23rem) padding-box,
-    linear-gradient(145deg, #fbf8ed, #e8f0e9 52%, #dbe8df) padding-box;
-}
-
-#reasons {
-  --chapter-accent: #f04b73;
-  --chapter-secondary: #cc6a5f;
-  --chapter-gold: #e2ba73;
-  border-color: rgba(226,186,115,0.23);
-  background:
-    radial-gradient(circle at 12% 14%, rgba(240,75,115,0.26), transparent 26rem) padding-box,
-    radial-gradient(circle at 88% 82%, rgba(204,106,95,0.16), transparent 27rem) padding-box,
-    linear-gradient(142deg, #5d0929, #320817 54%, #16050d) padding-box,
-    linear-gradient(125deg, #e2ba73, #d52259, #f06f8e) border-box;
-}
-
-#poetry {
-  --chapter-accent: #dd557f;
-  --chapter-secondary: #a884ad;
-  --chapter-gold: #dbb878;
-  border-color: rgba(168,132,173,0.25);
-  background:
-    radial-gradient(circle at 88% 9%, rgba(168,132,173,0.24), transparent 29rem) padding-box,
-    radial-gradient(circle at 9% 88%, rgba(221,85,127,0.17), transparent 27rem) padding-box,
-    linear-gradient(150deg, #35122f, #240b22 57%, #120611) padding-box,
-    linear-gradient(125deg, #a884ad, #dd557f, #dbb878) border-box;
-}
-
-#wishes {
-  --chapter-accent: #c72f59;
-  --chapter-secondary: #be7e88;
-  --chapter-gold: #a97942;
-  border-color: rgba(177,70,96,0.18);
-  background:
-    radial-gradient(circle at 89% 12%, rgba(199,47,89,0.12), transparent 24rem) padding-box,
-    radial-gradient(circle at 8% 88%, rgba(226,186,115,0.11), transparent 26rem) padding-box,
-    linear-gradient(142deg, #fff9f4, #f9e5e8 52%, #f3d8df) padding-box;
-}
-
-#letter {
-  --chapter-accent: #e14c70;
-  --chapter-secondary: #8c526d;
-  --chapter-gold: #dfb978;
-  border-color: rgba(223,185,120,0.23);
-  background:
-    radial-gradient(circle at 50% 4%, rgba(223,185,120,0.14), transparent 24rem) padding-box,
-    radial-gradient(circle at 8% 90%, rgba(225,76,112,0.16), transparent 26rem) padding-box,
-    linear-gradient(145deg, #4c112a, #2b0b1d 54%, #16070f) padding-box,
-    linear-gradient(128deg, #dfb978, #e14c70, #8c526d) border-box;
-}
-
-#comfort {
-  --chapter-accent: #c83e61;
-  --chapter-secondary: #6f9990;
-  --chapter-gold: #7e8665;
-  border-color: rgba(89,133,120,0.2);
-  background:
-    radial-gradient(circle at 10% 12%, rgba(200,62,97,0.1), transparent 24rem) padding-box,
-    radial-gradient(circle at 90% 88%, rgba(111,153,144,0.19), transparent 26rem) padding-box,
-    linear-gradient(142deg, #fff8f2, #eaf2ed 52%, #dcebe6) padding-box;
-}
-
-#tomorrow {
-  --chapter-accent: #ca554e;
-  --chapter-secondary: #769caf;
-  --chapter-gold: #aa7d43;
-  border-color: rgba(169,104,84,0.18);
-  background:
-    radial-gradient(ellipse at 50% 0, rgba(226,186,115,0.25), transparent 28rem) padding-box,
-    radial-gradient(circle at 9% 84%, rgba(202,85,78,0.15), transparent 25rem) padding-box,
-    radial-gradient(circle at 91% 84%, rgba(118,156,175,0.18), transparent 26rem) padding-box,
-    linear-gradient(150deg, #fff7ec, #f5ded6 49%, #dfe9ef) padding-box;
-}
-
-#timecapsule {
-  --chapter-accent: #dc5576;
-  --chapter-secondary: #4f7f80;
-  --chapter-gold: #d3ae70;
-  border-color: rgba(105,157,154,0.24);
-  background:
-    radial-gradient(circle at 13% 12%, rgba(220,85,118,0.2), transparent 25rem) padding-box,
-    radial-gradient(circle at 88% 86%, rgba(79,127,128,0.24), transparent 27rem) padding-box,
-    linear-gradient(145deg, #183536, #17252c 48%, #160b18) padding-box,
-    linear-gradient(124deg, #d3ae70, #4f7f80, #dc5576) border-box;
-}
-
-#finale {
-  --chapter-accent: #ef3e68;
-  --chapter-secondary: #f0849d;
-  --chapter-gold: #e2ba73;
-  border-color: rgba(226,186,115,0.27);
-  background:
-    radial-gradient(circle at 50% 8%, rgba(226,186,115,0.18), transparent 25rem) padding-box,
-    radial-gradient(circle at 12% 82%, rgba(239,62,104,0.24), transparent 27rem) padding-box,
-    radial-gradient(circle at 88% 76%, rgba(240,132,157,0.16), transparent 25rem) padding-box,
-    linear-gradient(145deg, #68102f, #350919 54%, #15050d) padding-box,
-    linear-gradient(126deg, #e2ba73, #ef3e68, #f0849d, #e2ba73) border-box;
-}
-
-.gift-library {
-  --ivory: var(--maison-ink);
-  --muted: var(--maison-ink-soft);
-  --faint: #8d6b74;
-  --line: rgba(112,62,61,0.2);
-  --line-soft: rgba(112,62,61,0.12);
-  --atlas-cream: var(--maison-ink);
-  color: var(--maison-ink);
-  border-color: rgba(174,126,66,0.21);
-  border-radius: 54px 20px 54px 20px;
-  outline: 1px solid rgba(122,76,57,0.09);
-  outline-offset: -15px;
-  background:
-    radial-gradient(circle at 12% 16%, rgba(185,20,67,0.1), transparent 26rem) padding-box,
-    radial-gradient(circle at 88% 84%, rgba(111,153,144,0.14), transparent 27rem) padding-box,
-    linear-gradient(145deg, #fffaf1, #f4e6d9 54%, #ead7c5) padding-box,
-    linear-gradient(128deg, #a97942, #c72f59, #6f9583) border-box;
-  box-shadow: var(--maison-shadow), inset 0 1px rgba(255,255,255,0.7);
-}
-
-/* Headings now behave like editorial chapter openers instead of repeated badges. */
-body[data-page="home"] .section-heading::before {
-  top: -2.7rem;
-  right: 0;
-  width: 100%;
-  min-height: 28px;
-  justify-content: center;
-  background: none;
-  color: var(--chapter-accent, var(--love-anchor));
-  content: "♡";
-  filter: none;
-  font-family: Georgia, serif;
-  font-size: 1.25rem;
-  letter-spacing: 0;
-  opacity: 0.72;
-  transform: none;
-}
-
-body[data-page="home"] .section-heading h2 {
-  max-width: 14ch;
-  color: var(--atlas-cream);
-  font-size: clamp(2.75rem, 5.5vw, 5.25rem);
-  line-height: 1.34;
-  text-shadow: 0 14px 38px rgba(18,3,10,0.22);
-}
-
-body[data-page="home"] :is(#story, #gallery, #dictionary, #wishes, #comfort, #tomorrow) .section-heading h2,
-.gift-library__intro h2 {
-  color: var(--maison-ink);
-  text-shadow: 0 10px 28px rgba(101,42,58,0.08);
-}
-
-body[data-page="home"] .section-heading::after {
-  width: min(180px, 42vw);
-  height: 1px;
-  margin-top: 22px;
-  background: linear-gradient(90deg, transparent, var(--chapter-accent), var(--chapter-gold), transparent);
-  box-shadow: none;
-  opacity: 0.78;
-}
-
-body[data-page="home"] .section-heading .eyebrow {
-  border-color: color-mix(in srgb, var(--chapter-accent) 22%, transparent);
-  background: color-mix(in srgb, var(--chapter-accent) 7%, rgba(255,255,255,0.03));
-  color: var(--chapter-gold);
-}
-
-body[data-page="home"] :is(#story, #gallery, #dictionary, #wishes, #comfort, #tomorrow) .section-heading .eyebrow {
-  background: rgba(255,255,255,0.48);
-  color: color-mix(in srgb, var(--chapter-accent) 74%, #5c342f);
-}
-
-body[data-page="home"] :is(#story, #gallery, #dictionary, #wishes, #comfort, #tomorrow) .section-heading > p:last-child {
-  color: var(--maison-ink-soft);
-}
-
-@media (min-width: 901px) {
-  body[data-page="home"] :is(#story, #reasons, #wishes, #tomorrow) .section-heading {
-    margin-inline-start: 0;
-    text-align: start;
-  }
-
-  body[data-page="home"] :is(#gallery, #dictionary, #poetry, #comfort, #timecapsule) .section-heading {
-    margin-inline-end: 0;
-    text-align: end;
-  }
-
-  body[data-page="home"] :is(#story, #reasons, #wishes, #tomorrow, #gallery, #dictionary, #poetry, #comfort, #timecapsule) .section-heading h2,
-  body[data-page="home"] :is(#story, #reasons, #wishes, #tomorrow, #gallery, #dictionary, #poetry, #comfort, #timecapsule) .section-heading > p:last-child {
-    margin-inline: 0;
-  }
-
-  body[data-page="home"] :is(#story, #reasons, #wishes, #tomorrow) .section-heading .eyebrow {
-    margin-inline: 0 auto;
-  }
-
-  body[data-page="home"] :is(#gallery, #dictionary, #poetry, #comfort, #timecapsule) .section-heading .eyebrow {
-    margin-inline: auto 0;
-  }
-
-  body[data-page="home"] :is(#story, #reasons, #wishes, #tomorrow) .section-heading::before {
-    justify-content: flex-start;
-  }
-
-  body[data-page="home"] :is(#gallery, #dictionary, #poetry, #comfort, #timecapsule) .section-heading::before {
-    justify-content: flex-end;
-  }
-
-  body[data-page="home"] :is(#story, #reasons, #wishes, #tomorrow) .section-heading::after {
-    margin-inline: 0 auto;
-  }
-
-  body[data-page="home"] :is(#gallery, #dictionary, #poetry, #comfort, #timecapsule) .section-heading::after {
-    margin-inline: auto 0;
-  }
-}
-
-/* Paper chapters use quiet, tactile cards instead of dark glass everywhere. */
-body[data-page="home"] :is(#story, #dictionary, #wishes, #comfort, #tomorrow) :is(
-  .timeline-card,
-  .dictionary-card,
-  .birthday-wish-card,
-  .comfort-card,
-  .future-tickets article,
-  .year-promises article
-) {
-  border-color: rgba(109,58,69,0.14);
-  border-radius: 24px;
-  background:
-    radial-gradient(circle at 92% 8%, color-mix(in srgb, var(--card-accent, var(--chapter-accent)) 8%, transparent), transparent 11rem),
-    rgba(255,255,255,0.68);
-  box-shadow: 0 18px 44px rgba(72,29,42,0.1), inset 0 1px rgba(255,255,255,0.86);
-  color: var(--maison-ink);
-}
-
-body[data-page="home"] :is(#story, #dictionary, #wishes, #comfort, #tomorrow) :is(
-  .timeline-card,
-  .dictionary-card,
-  .birthday-wish-card,
-  .comfort-card,
-  .future-tickets article,
-  .year-promises article
-):hover {
-  border-color: color-mix(in srgb, var(--card-accent, var(--chapter-accent)) 34%, rgba(109,58,69,0.12));
-  box-shadow: 0 24px 58px rgba(72,29,42,0.14), 0 0 0 1px rgba(255,255,255,0.42) inset;
-}
-
-#story::before {
-  background: linear-gradient(transparent, rgba(155,63,86,0.2) 8%, rgba(155,63,86,0.2) 92%, transparent);
-}
-
-#story .timeline-card:nth-child(odd) { border-radius: 12px 34px 12px 34px; }
-#story .timeline-card:nth-child(even) { border-radius: 34px 12px 34px 12px; }
-
-#story .timeline-card::before { background: rgba(155,63,86,0.2); }
-
-#story .timeline-card::after {
-  border-color: #f7e6e3;
-  background: #c92e58;
-  box-shadow: 0 0 0 1px #c92e58, 0 0 0 7px rgba(201,46,88,0.08);
-}
-
-#story .timeline-card__icon {
-  border-color: rgba(174,126,66,0.26);
-  background: linear-gradient(145deg, rgba(255,255,255,0.82), rgba(201,46,88,0.08));
-  color: #9a6336;
-  box-shadow: 0 10px 24px rgba(94,39,53,0.08);
-}
-
-#story .timeline-card__time { color: #ad3f5f; }
-#story .timeline-card__number { color: rgba(143,82,69,0.18); }
-
-#story .story-quote {
-  border-color: rgba(155,63,86,0.2);
-  color: #4d2130;
-}
-
-#story .story-quote > span {
-  background: #f8e7e4;
-  color: #b62951;
-}
-
-/* The gallery becomes a real blush-toned photo table. */
-#gallery .gallery-grid { gap: clamp(12px, 1.6vw, 22px); }
-
-#gallery .gallery-card {
-  border: 9px solid rgba(255,251,247,0.94);
-  border-radius: 13px 44px 13px 44px;
-  background: #fffaf6;
-  box-shadow: 0 25px 58px rgba(76,31,40,0.2), 0 0 0 1px rgba(142,63,78,0.08);
-}
-
-#gallery .gallery-card:nth-child(even) { border-radius: 44px 13px 44px 13px; }
-
-#gallery .gallery-card::after {
-  background: linear-gradient(180deg, transparent 34%, rgba(77,24,38,0.08) 53%, rgba(42,12,22,0.92));
-}
-
-#gallery .gallery-card:hover,
-#gallery .gallery-card:focus-visible {
-  border-color: #fffaf6;
-  box-shadow: 0 32px 72px rgba(76,31,40,0.26), 0 0 0 2px color-mix(in srgb, var(--gallery-tone) 34%, transparent);
-}
-
-#gallery .gallery-note { color: #6c4852; }
-
-/* Sage dictionary: clean reference cards with a crimson bookmark. */
-#dictionary::before { display: none; }
-
-#dictionary .dictionary-quote {
-  border-color: rgba(84,126,106,0.2);
-  background: rgba(255,255,255,0.56);
-  box-shadow: 0 18px 44px rgba(45,77,62,0.09);
-}
-
-#dictionary .dictionary-quote > span {
-  border-color: rgba(190,54,89,0.34);
-  background: rgba(190,54,89,0.06);
-  color: #b72f52;
-  box-shadow: none;
-}
-
-#dictionary .dictionary-card:not(.is-open) {
-  border-color: rgba(83,127,105,0.17);
-  background:
-    linear-gradient(90deg, #be3659 0 4px, transparent 4px),
-    radial-gradient(circle at 92% 8%, rgba(111,149,131,0.13), transparent 12rem),
-    rgba(255,255,255,0.7);
-}
-
-#dictionary .dictionary-card::after { border-color: rgba(111,149,131,0.18); }
-#dictionary .dictionary-card__number { color: rgba(92,119,79,0.21); }
-#dictionary .dictionary-card b { color: #2e352d; }
-#dictionary .dictionary-card small { color: #718079; }
-
-#dictionary .dictionary-card.is-open {
-  border-color: rgba(94,141,118,0.42);
-  background:
-    linear-gradient(90deg, #be3659 0 4px, transparent 4px),
-    linear-gradient(145deg, rgba(213,231,219,0.92), rgba(255,248,241,0.92));
-  box-shadow: 0 22px 54px rgba(48,79,64,0.14);
-}
-
-#dictionary .dictionary-card.is-open b { color: #9e2748; }
-
-/* Reasons are glossy crimson tiles: direct, confident and playful. */
-#reasons::before,
-#reasons::after,
-#wishes::before,
-#finale::before { display: none; }
-
-#reasons .reasons-toolbar {
-  border-color: rgba(226,186,115,0.24);
-  background: linear-gradient(135deg, rgba(255,255,255,0.085), rgba(240,111,142,0.055));
-  box-shadow: 0 20px 50px rgba(18,2,9,0.22);
-}
-
-#reasons .reason-card__front {
-  border-color: rgba(255,233,215,0.13);
-  border-radius: 20px 42px 20px 42px;
-  background:
-    radial-gradient(circle at 86% 13%, color-mix(in srgb, var(--reason-tone) 24%, transparent), transparent 8rem),
-    linear-gradient(145deg, #761032, #3b081c);
-  box-shadow: 0 18px 42px rgba(18,2,9,0.26), inset 0 1px rgba(255,255,255,0.09);
-}
-
-#reasons .reason-card__back {
-  border-color: rgba(226,186,115,0.3);
-  border-radius: 42px 20px 42px 20px;
-  background: linear-gradient(145deg, color-mix(in srgb, var(--reason-tone) 54%, #68102f), #2a0716);
-  box-shadow: 0 22px 56px rgba(18,2,9,0.32), inset 0 1px rgba(255,255,255,0.1);
-}
-
-/* Poetry stays nocturnal, but the text surfaces feel like a private edition. */
-#poetry .poem-feature,
-#poetry .poem-feature--love {
-  border-color: rgba(219,184,120,0.2);
-  border-radius: 20px 58px 20px 58px;
-  background:
-    radial-gradient(circle at 90% 8%, rgba(168,132,173,0.19), transparent 20rem),
-    linear-gradient(145deg, rgba(74,24,62,0.88), rgba(30,9,27,0.96));
-  box-shadow: 0 28px 74px rgba(8,1,8,0.35), inset 0 1px rgba(255,255,255,0.06);
-}
-
-#poetry .poem-feature--love { border-radius: 58px 20px 58px 20px; }
-
-#poetry .poem-cards article,
-#poetry .classic-lines figure,
-#poetry .vow-poem-card {
-  border-color: rgba(168,132,173,0.2);
-  border-radius: 18px 38px 18px 38px;
-  background:
-    radial-gradient(circle at 91% 9%, color-mix(in srgb, var(--card-accent) 14%, transparent), transparent 12rem),
-    rgba(255,255,255,0.045);
-  box-shadow: 0 17px 42px rgba(8,1,8,0.25), inset 0 1px rgba(255,255,255,0.055);
-}
-
-#poetry .poem-cards article:nth-child(even),
-#poetry .classic-lines figure:nth-child(even) { border-radius: 38px 18px 38px 18px; }
-
-#poetry .authored-poem,
-#poetry .future-vow-poems {
-  border-color: rgba(219,184,120,0.24);
-  background:
-    radial-gradient(circle at 88% 8%, rgba(221,85,127,0.16), transparent 25rem),
-    radial-gradient(circle at 8% 88%, rgba(168,132,173,0.16), transparent 27rem),
-    linear-gradient(145deg, rgba(61,17,51,0.96), rgba(20,6,18,0.99));
-}
-
-#poetry .authored-poem__paper {
-  background:
-    linear-gradient(rgba(102,67,78,0.045) 1px, transparent 1px) 0 54px / 100% 54px,
-    linear-gradient(125deg, #fffdf8, #f9f0ec 58%, #f2e7ef);
-  box-shadow: 0 2px 0 rgba(255,255,255,0.9) inset, 12px 14px 0 rgba(221,85,127,0.08), 0 34px 88px rgba(7,1,7,0.38);
-}
-
-/* Wishes use translucent stationery, not another dark grid. */
-#wishes .wishes-toolbar {
-  border-color: rgba(168,77,98,0.18);
-  background: rgba(255,255,255,0.52);
-  box-shadow: 0 18px 44px rgba(84,31,45,0.1);
-}
-
-#wishes .birthday-wish-card:not(.is-chosen) {
-  border-color: rgba(166,76,97,0.14);
-  background:
-    linear-gradient(90deg, color-mix(in srgb, var(--card-accent) 48%, transparent) 0 3px, transparent 3px),
-    radial-gradient(circle at 92% 8%, color-mix(in srgb, var(--card-accent) 9%, transparent), transparent 11rem),
-    rgba(255,255,255,0.66);
-}
-
-#wishes .birthday-wish-card.is-chosen {
-  border-color: rgba(169,121,66,0.38);
-  background:
-    linear-gradient(90deg, #c72f59 0 4px, transparent 4px),
-    linear-gradient(145deg, rgba(255,248,239,0.96), rgba(244,218,223,0.94));
-  box-shadow: 0 22px 54px rgba(105,38,56,0.14), 0 0 0 4px rgba(199,47,89,0.055);
-}
-
-#wishes .birthday-wish-card.is-chosen > b {
-  color: #b62950;
-  text-shadow: none;
-  animation: none;
-  transform: scale(1.15);
-}
-
-#wishes .wish-dedication {
-  border-color: rgba(168,77,98,0.18);
-  color: #4d2130;
-}
-
-#wishes .wish-dedication p { color: #4d2130; }
-
-/* The physical letter receives quieter paper and a stronger wax identity. */
-#letter .letter-envelope__back { background: #5b1730; }
-
-#letter .letter-envelope__front {
-  background:
-    linear-gradient(32deg, #711d3a 49.5%, transparent 50%),
-    linear-gradient(-32deg, #8a2846 49.5%, transparent 50%);
-}
-
-#letter .letter-envelope__flap { background: linear-gradient(145deg, #9d2d4e, #65172f); }
-
-#letter .letter-seal {
-  background: radial-gradient(circle at 36% 30%, #f58aa0, #a90f3d 58%, #6f0929);
-  box-shadow: 0 13px 32px rgba(0,0,0,0.38), inset 0 0 0 5px rgba(255,255,255,0.065), 0 0 0 1px rgba(226,186,115,0.24);
-}
-
-#letter .letter-paper {
-  border-color: rgba(112,73,52,0.2);
-  background:
-    linear-gradient(rgba(112,73,52,0.045) 1px, transparent 1px) 0 36px / 100% 36px,
-    radial-gradient(circle at 92% 8%, rgba(185,20,67,0.055), transparent 16rem),
-    #fbf3e8;
-  box-shadow: 14px 16px 0 rgba(226,186,115,0.07), 0 34px 86px rgba(8,1,6,0.38);
-  color: #332720;
-}
-
-/* Comfort is deliberately airy: rose details on a mint-white room. */
-#comfort .comfort-card {
-  border-color: rgba(84,132,118,0.17);
-  background:
-    linear-gradient(180deg, rgba(255,255,255,0.76), rgba(244,249,246,0.63));
-}
-
-#comfort .comfort-card::after { border-color: rgba(200,62,97,0.12); }
-
-#comfort .comfort-card__icon {
-  border-color: rgba(89,137,123,0.24);
-  background: linear-gradient(145deg, #ffffff, #e2eee8);
-  box-shadow: 0 10px 24px rgba(54,100,84,0.1);
-  color: #a72e50;
-}
-
-#comfort .comfort-card h3 { color: #2e3b35; }
-
-/* Tomorrow looks like sunrise: warm tickets, cool horizon. */
-#tomorrow .future-tickets article {
-  border-color: rgba(147,92,79,0.15);
-  background:
-    radial-gradient(circle at 92% 8%, rgba(202,85,78,0.09), transparent 12rem),
-    rgba(255,255,255,0.62);
-}
-
-#tomorrow .future-tickets article > div {
-  border-color: rgba(118,156,175,0.28);
-  background: linear-gradient(145deg, #fff9f1, #dfeaf0);
-  color: #a64848;
-}
-
-#tomorrow .dream-builder {
-  border-color: rgba(142,99,85,0.18);
-  background: rgba(255,255,255,0.58);
-  box-shadow: 0 22px 56px rgba(92,52,48,0.1);
-}
-
-#tomorrow .dream-options fieldset { border-color: rgba(127,100,91,0.14); }
-
-#tomorrow .dream-options button {
-  border-color: rgba(127,100,91,0.14);
-  background: rgba(255,255,255,0.48);
-  color: #69535a;
-  transition: border-color 200ms ease, background-color 200ms ease, color 200ms ease, transform 200ms ease;
-}
-
-#tomorrow .dream-options button:hover { color: #4a2631; }
-
-#tomorrow .dream-options button.is-selected {
-  border-color: rgba(170,125,67,0.42);
-  background: linear-gradient(135deg, rgba(202,85,78,0.12), rgba(118,156,175,0.14));
-  color: #71353f;
-}
-
-#tomorrow .dream-result {
-  background: linear-gradient(135deg, rgba(202,85,78,0.08), rgba(118,156,175,0.1));
-  color: #6b5058;
-}
-
-#tomorrow .dream-result.is-complete { color: #4d2732; }
-
-/* The capsule becomes an archive room: teal metal, ruby ribbon, warm paper. */
-#timecapsule::before { display: none; }
-
-#timecapsule .year-promises article {
-  border-color: rgba(126,174,169,0.2);
-  border-radius: 18px 36px 18px 36px;
-  background:
-    radial-gradient(circle at 91% 9%, color-mix(in srgb, var(--card-accent) 13%, transparent), transparent 11rem),
-    linear-gradient(145deg, rgba(49,95,97,0.48), rgba(19,26,33,0.76));
-  box-shadow: 0 18px 44px rgba(4,11,14,0.28), inset 0 1px rgba(255,255,255,0.06);
-}
-
-#timecapsule .year-promises article:nth-child(even) { border-radius: 36px 18px 36px 18px; }
-
-#timecapsule .time-capsule {
-  border-color: rgba(126,174,169,0.27);
-  background:
-    radial-gradient(circle at 16% 0, rgba(220,85,118,0.18), transparent 24rem),
-    radial-gradient(circle at 88% 92%, rgba(79,127,128,0.22), transparent 24rem),
-    linear-gradient(145deg, rgba(35,66,68,0.96), rgba(17,20,28,0.99));
-  box-shadow: 0 30px 82px rgba(2,8,10,0.42), inset 0 1px rgba(255,255,255,0.06);
-}
-
-#timecapsule .time-capsule__ribbon {
-  background: radial-gradient(circle at 35% 30%, #f391a7, #a81e4c 58%, #65284b);
-  box-shadow: 0 18px 42px rgba(87,12,46,0.3), inset 0 0 0 6px rgba(255,255,255,0.06);
-}
-
-/* Finale: one concentrated red-and-gold scene, without stray blue surfaces. */
-#finale .birthday-stage,
-#finale .final-message,
-#finale .wish-vault {
-  border-color: rgba(226,186,115,0.22);
-  background:
-    radial-gradient(circle at 12% 12%, rgba(239,62,104,0.17), transparent 18rem),
-    radial-gradient(circle at 88% 88%, rgba(240,132,157,0.1), transparent 18rem),
-    linear-gradient(145deg, rgba(91,14,43,0.95), rgba(29,6,17,0.99));
-  box-shadow: 0 27px 70px rgba(15,2,8,0.3), inset 0 1px rgba(255,255,255,0.055);
-}
-
-#finale .cake__top { background: linear-gradient(120deg, #fff3de, #f3c9bd 48%, #ead8e1); }
-#finale .cake__middle { background: linear-gradient(90deg, #801036, #cf315c 50%, #8d214a); }
-#finale .cake__base { background: #4b0b22; }
-
-#finale .wish-vault textarea {
-  border-color: rgba(240,132,157,0.22);
-  background: rgba(20,4,12,0.72);
-}
-
-#finale .final-message__ring {
-  background:
-    linear-gradient(#4e0d26, #1d0712) padding-box,
-    linear-gradient(145deg, var(--champagne), var(--love-anchor), var(--love-bloom), var(--champagne)) border-box;
-  box-shadow: 0 24px 66px rgba(18,2,9,0.34), 0 0 38px rgba(239,62,104,0.12);
-}
-
-/* The library closes the experience like an ivory colophon. */
-.gift-library__intro > p:last-child { color: var(--maison-ink-soft); }
-
-.gift-library .eyebrow {
-  border-color: rgba(151,58,82,0.19);
-  background: rgba(255,255,255,0.5);
-  color: #8b2949;
-}
-
-.gift-library .gift-page-card {
-  border-color: rgba(128,76,64,0.15);
-  border-radius: 20px 48px 20px 48px;
-  background:
-    radial-gradient(circle at 94% 0, color-mix(in srgb, var(--card-accent) 9%, transparent), transparent 18rem),
-    rgba(255,255,255,0.66);
-  box-shadow: 0 20px 48px rgba(77,38,38,0.11), inset 0 1px rgba(255,255,255,0.82);
-  color: var(--maison-ink);
-}
-
-.gift-library .gift-page-card:nth-child(even) { border-radius: 48px 20px 48px 20px; }
-
-.gift-library .gift-page-card:hover {
-  border-color: rgba(185,20,67,0.28);
-  box-shadow: 0 28px 64px rgba(77,38,38,0.16);
-}
-
-.gift-library .gift-page-card > div {
-  border-color: rgba(117,92,68,0.2);
-  background: linear-gradient(145deg, #fffdf8, #eee0d2);
-  color: #a22b4c;
-}
-
-.gift-library .gift-page-card p { color: var(--maison-ink-soft); }
-.gift-library .gift-page-card > b { color: #8b6338; }
-
-/* Companion books share the editorial cover language without copying it. */
-body[data-page="poems"] {
-  --scene-accent: #d9577f;
-  --scene-secondary: #9b7ea5;
-  --scene-gold: #dbb878;
-  background-image:
-    radial-gradient(circle at 10% 9%, rgba(217,87,127,0.2), transparent 30rem),
-    radial-gradient(circle at 90% 31%, rgba(155,126,165,0.17), transparent 34rem),
-    linear-gradient(148deg, #0d040b, #2b0d25 49%, #130610);
-}
-
-body[data-page="wishes"] {
-  --scene-accent: #d84168;
-  --scene-secondary: #8aa697;
-  --scene-gold: #dfbb77;
-  background-image:
-    radial-gradient(circle at 10% 10%, rgba(216,65,104,0.2), transparent 30rem),
-    radial-gradient(circle at 90% 32%, rgba(138,166,151,0.14), transparent 34rem),
-    linear-gradient(148deg, #0e0409, #2d0b1b 49%, #15070f);
-}
-
-body:is([data-page="poems"], [data-page="wishes"]) .book-hero::before {
-  border-color: rgba(226,186,115,0.1);
-  background:
-    radial-gradient(circle at 14% 18%, color-mix(in srgb, var(--scene-accent) 23%, transparent), transparent 28rem),
-    radial-gradient(circle at 86% 72%, color-mix(in srgb, var(--scene-secondary) 20%, transparent), transparent 31rem),
-    linear-gradient(145deg, rgba(59,13,39,0.7), rgba(16,5,15,0.76));
-}
-
-body:is([data-page="poems"], [data-page="wishes"]) .book-hero::after {
-  color: rgba(226,186,115,0.28);
-  content: "♡   ·   ✦   ·   ♡";
-}
-
-body:is([data-page="poems"], [data-page="wishes"]) .hero-copy {
-  --ivory: var(--maison-ink);
-  --muted: var(--maison-ink-soft);
-  --faint: #8e6873;
-  padding: clamp(30px, 4.5vw, 56px);
-  border-color: transparent;
-  border-radius: 38px 12px 38px 12px;
-  background:
-    radial-gradient(circle at 90% 8%, color-mix(in srgb, var(--scene-accent) 11%, transparent), transparent 18rem) padding-box,
-    linear-gradient(140deg, #fffaf5, #f5e4e5) padding-box,
-    linear-gradient(125deg, var(--scene-accent), var(--scene-gold), var(--scene-secondary)) border-box;
-  box-shadow: 0 34px 84px rgba(16,2,12,0.32), inset 0 1px rgba(255,255,255,0.72);
-  color: var(--maison-ink);
-  backdrop-filter: none;
-}
-
-body[data-page="wishes"] .hero-copy { border-radius: 12px 38px 12px 38px; }
-
-body:is([data-page="poems"], [data-page="wishes"]) .hero-copy::before {
-  border-color: rgba(137,68,83,0.24);
-}
-
-body:is([data-page="poems"], [data-page="wishes"]) .hero-copy .eyebrow {
-  border-color: rgba(151,58,82,0.2);
-  background: rgba(255,255,255,0.5);
-  color: #8b2949;
-}
-
-body:is([data-page="poems"], [data-page="wishes"]) .book-hero h1 {
-  color: var(--maison-ink);
-  text-shadow: none;
-  animation: none;
-}
-
-body:is([data-page="poems"], [data-page="wishes"]) .book-hero h1 em {
-  background: linear-gradient(108deg, #8d0c34, var(--scene-accent) 52%, #9c7442);
-  background-clip: text;
-  -webkit-background-clip: text;
-  filter: none;
-}
-
-body:is([data-page="poems"], [data-page="wishes"]) .hero-copy .hero-lede { color: var(--maison-ink-soft); }
-
-body:is([data-page="poems"], [data-page="wishes"]) .hero-copy .companion-button:not(.companion-button--primary) {
-  border-color: rgba(127,13,49,0.2);
-  background: rgba(255,255,255,0.48);
-  color: #67253a;
-}
-
-body[data-page="poems"] .book-cover {
-  background-image:
-    linear-gradient(90deg, rgba(3,1,4,0.42), transparent 9%, transparent 92%, rgba(255,255,255,0.035)),
-    radial-gradient(circle at 22% 22%, rgba(217,87,127,0.25), transparent 14rem),
-    radial-gradient(circle at 84% 80%, rgba(155,126,165,0.25), transparent 15rem),
-    linear-gradient(145deg, #5a173a, #34112f 52%, #170811);
-  background-size: auto, auto, auto, auto;
-  box-shadow: -9px 11px 0 #11050d, -17px 20px 0 rgba(217,87,127,0.08), -30px 42px 90px rgba(0,0,0,0.52), inset 11px 0 20px rgba(0,0,0,0.22);
-}
-
-body[data-page="wishes"] .book-cover--wishes {
-  background-image:
-    radial-gradient(circle at 50% 38%, rgba(255,246,224,0.22), transparent 12rem),
-    conic-gradient(from 20deg, #65172f, #b62f54, #dfbb77, #8aa697, #65172f);
-  background-size: auto, auto;
-}
-
-body:is([data-page="poems"], [data-page="wishes"]) :is(.section-intro h2, .poem-heading h2) {
-  animation: none;
 }
